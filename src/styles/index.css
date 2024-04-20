@@ -16,6 +16,14 @@ header {
   grid-template-rows: minmax(300px, auto);
 }
 
+body > nav {
+  min-height: 80px;
+}
+
+body > nav ul > li {
+  background-color: transparent;
+}
+
 header > section > p {
   font-size: 2rem;
 }
