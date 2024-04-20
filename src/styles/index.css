@@ -18,9 +18,10 @@ header {
 
 body > nav {
   min-height: 80px;
+  padding-block: 0.75rem;
 }
 
-body > nav ul > li {
+body > nav ul > li:hover {
   background-color: transparent;
 }
 
