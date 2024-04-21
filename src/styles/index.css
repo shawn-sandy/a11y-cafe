@@ -34,8 +34,19 @@ header {
   border-bottom: solid var(--color-border) 1px;
   background-image: url("/images/a11y-cover.webp");
   background-color: #4b382b;
-  background-position: center right;
+  background-position: top left;
   background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  justify-content: start;
+  justify-items: start;
+  height: max(350px, 500px);
+}
+
+header > section {
+  /* width: min(100%, 400px); */
+  background-color: #4b382b9d;
+  display: none;
 }
 
 header > section > p {
