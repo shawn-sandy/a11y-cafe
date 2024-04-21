@@ -65,7 +65,7 @@ h2[data-ui~="display"] {
 
 h2 a[href] {
   font-size: var(--h2);
-  /* color: currentColor; */
+  color: #865434;
 }
 
 pre {
