@@ -58,7 +58,7 @@ header > section > p {
 h1,
 h2,
 h3 {
-  color: var(--color-ally-coffe-dark);
+  color: var(--color-ally-coffe-dark-hover);
   text-transform: capitalize;
 }
 
@@ -67,7 +67,7 @@ h2[data-ui~="display"] {
 }
 
 a[href] {
-  color: var(--color-ally-coffe-dark);
+  color: var(--color-ally-coffe-dark-hover);
 }
 
 a[href]:hover {
