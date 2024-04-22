@@ -1,0 +1,117 @@
+:root {
+  --color-coffee-gradient-feat: linear-gradient(
+    to bottom,
+    rgba(74, 49, 27, 0.29) 0%,
+    rgba(125, 83, 46, 0.49) 50%,
+    rgba(74, 49, 27, 0.29) 100%
+  );
+  --color-nero-100: rgba(230, 230, 230, 1);
+  --color-nero-200: rgba(203, 203, 203, 1);
+  --color-nero-300: rgba(159, 159, 159, 1);
+  --color-nero-400: rgba(121, 121, 121, 1);
+  --color-nero-500: rgba(89, 89, 89, 1);
+  --color-nero-600: rgba(63, 63, 63, 1);
+  --color-nero-700: rgba(43, 43, 43, 1);
+  --color-nero-800: rgba(27, 27, 27, 1);
+  --color-nero-900: rgba(14, 14, 14, 1);
+  --color-neutral-100: rgba(238, 238, 238, 1);
+  --color-neutral-200: rgba(221, 221, 221, 1);
+  --color-neutral-300: rgba(202, 202, 202, 1);
+  --color-neutral-400: rgba(181, 181, 181, 1);
+  --color-neutral-500: rgba(158, 158, 158, 1);
+  --color-neutral-600: rgba(141, 141, 141, 1);
+  --color-neutral-700: rgba(122, 122, 122, 1);
+  --color-neutral-800: rgba(99, 99, 99, 1);
+  --color-neutral-900: rgba(70, 70, 70, 1);
+  --color-errors-100: rgba(248, 228, 229, 1);
+  --color-errors-200: rgba(242, 198, 201, 1);
+  --color-errors-300: rgba(236, 162, 169, 1);
+  --color-errors-400: rgba(229, 115, 128, 1);
+  --color-errors-500: rgba(223, 22, 66, 1);
+  --color-errors-600: rgba(199, 19, 59, 1);
+  --color-errors-700: rgba(172, 17, 51, 1);
+  --color-errors-800: rgba(141, 13, 41, 1);
+  --color-errors-900: rgba(99, 9, 29, 1);
+  --color-warning-100: rgba(255, 242, 229, 1);
+  --color-warning-200: rgba(255, 230, 200, 1);
+  --color-warning-300: rgba(255, 216, 167, 1);
+  --color-warning-400: rgba(255, 202, 124, 1);
+  --color-warning-500: rgba(255, 187, 56, 1);
+  --color-warning-600: rgba(228, 167, 50, 1);
+  --color-warning-700: rgba(197, 144, 43, 1);
+  --color-warning-800: rgba(161, 118, 35, 1);
+  --color-warning-900: rgba(114, 83, 25, 1);
+  --color-success-100: rgba(228, 240, 231, 1);
+  --color-success-200: rgba(198, 224, 205, 1);
+  --color-success-300: rgba(162, 207, 174, 1);
+  --color-success-400: rgba(116, 189, 138, 1);
+  --color-success-500: rgba(24, 169, 87, 1);
+  --color-success-600: rgba(21, 151, 77, 1);
+  --color-success-700: rgba(18, 130, 67, 1);
+  --color-success-800: rgba(15, 106, 55, 1);
+  --color-success-900: rgba(10, 75, 38, 1);
+  --color-primary-100: rgba(229, 231, 253, 1);
+  --color-primary-200: rgba(201, 204, 251, 1);
+  --color-primary-300: rgba(168, 173, 249, 1);
+  --color-primary-400: rgba(126, 136, 247, 1);
+  --color-primary-500: rgba(61, 83, 245, 1);
+  --color-primary-600: rgba(54, 74, 219, 1);
+  --color-primary-700: rgba(47, 64, 189, 1);
+  --color-primary-800: rgba(38, 52, 154, 1);
+  --color-primary-900: rgba(27, 37, 109, 1);
+  --color-secondary-100: rgba(228, 243, 246, 1);
+  --color-secondary-200: rgba(197, 230, 238, 1);
+  --color-secondary-300: rgba(161, 217, 230, 1);
+  --color-secondary-400: rgba(114, 203, 221, 1);
+  --color-secondary-500: rgba(0, 188, 212, 1);
+  --color-secondary-600: rgba(0, 168, 189, 1);
+  --color-secondary-700: rgba(0, 145, 164, 1);
+  --color-secondary-800: rgba(0, 118, 134, 1);
+  --color-secondary-900: rgba(0, 84, 94, 1);
+  --color-ally-coffe-light: rgba(247, 240, 236, 1);
+  --color-ally-coffe-light-hover: rgba(243, 233, 227, 1);
+  --color-ally-coffe-light-active: rgba(231, 210, 196, 1);
+  --color-ally-coffe-normal: rgba(176, 109, 66, 1);
+  --color-ally-coffe-normal-hover: rgba(158, 98, 59, 1);
+  --color-ally-coffe-normal-active: rgba(141, 87, 53, 1);
+  --color-ally-coffe-dark: rgba(132, 82, 50, 1);
+  --color-ally-coffe-dark-hover: rgba(106, 65, 40, 1);
+  --color-ally-coffe-dark-active: rgba(79, 49, 30, 1);
+  --color-ally-coffe-darker: rgba(62, 38, 23, 1);
+  --color-ally-tea-light: rgba(247, 245, 242, 1);
+  --color-ally-tea-light-hover: rgba(242, 240, 236, 1);
+  --color-ally-tea-light-active: rgba(229, 225, 215, 1);
+  --color-ally-tea-normal: rgba(170, 157, 125, 1);
+  --color-ally-tea-normal-hover: rgba(153, 141, 113, 1);
+  --color-ally-tea-normal-active: rgba(136, 126, 100, 1);
+  --color-ally-tea-dark: rgba(128, 118, 94, 1);
+  --color-ally-tea-dark-hover: rgba(102, 94, 75, 1);
+  --color-ally-tea-dark-active: rgba(76, 71, 56, 1);
+  --color-ally-tea-darker: rgba(59, 55, 44, 1);
+}
+.text-style-default {
+  font-size: 1.125rem;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+/* logo text */
+.text-style-ally-cafe-lg {
+  font-size: 10.001rem;
+  font-family: Gochi Hand;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+.text-style-heading-feature {
+  font-size: 2rem;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}

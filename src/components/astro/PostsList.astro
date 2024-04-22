@@ -10,9 +10,9 @@ const postsResults = (await getCollection("posts"))
 const paginatedPosts = postsResults.slice(0, postLength);
 ---
 
-<h4 data-ui="display">
+<h2>
   {postListTitle}
-</h4>
+</h2>
 <ul data-list="unstyled">
   {
     paginatedPosts?.map((post) => (

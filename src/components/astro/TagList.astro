@@ -6,9 +6,9 @@ const allPosts = await getCollection(collectionTag);
 const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
 ---
 
-<h4 data-ui="display">
+<h2>
   {collection}
-</h4>
+</h2>
 <ul data-list="unstyled">
   {
     tags?.map((tag) => (
