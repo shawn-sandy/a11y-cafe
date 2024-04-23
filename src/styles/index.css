@@ -1,3 +1,4 @@
+@import url("./styles.css");
 @import url("./vars.css");
 :root {
   --weight: 500;
@@ -58,7 +59,7 @@ header > section > p {
 h1,
 h2,
 h3 {
-  color: var(--color-ally-coffe-dark-hover);
+  color: var(--cafe-ally-coffe-dark);
   text-transform: capitalize;
 }
 
@@ -67,11 +68,11 @@ h2[data-ui~="display"] {
 }
 
 a[href] {
-  color: var(--color-ally-coffe-dark-hover);
+  color: var(--cafe-ally-coffe-dark);
 }
 
 a[href]:hover {
-  color: var(--color-ally-coffe-darker);
+  color: var(--cafe-ally-coffe-dark-hover);
 }
 
 h2 a[href] {
