@@ -13,7 +13,7 @@ import lighthouse from "astro-lighthouse";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://a11y.cafe.com",
   integrations: [
     react(),
     sitemap(),
