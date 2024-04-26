@@ -5,6 +5,8 @@ body {
   min-width: 20.3125rem;
   font-family: Inter;
   background: var(--cafe-accent-50, #fbfdfe);
+  border-top: var(--cafe-primary-800) solid 0.75rem;
+  height: 100%;
 }
 
 main {
@@ -112,8 +114,7 @@ h2[data-ui~="display"] {
 }
 
 a[href] {
-  color: var(--cafe-primary-700);
-  // font-family: "Roboto Serif", serif;
+  color: var(--cafe-primary-600);
 }
 
 a[href]:hover {
