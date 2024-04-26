@@ -54,7 +54,7 @@ import Feature from "#components/Feature.astro";
     <Header headerTitle={pageTitle} headerDescription={pageDescription} />
     {
       showFeature && (
-        <section class="features">
+        <section aria-label="Show site features" class="features">
           <Feature />
         </section>
       )
