@@ -1,110 +1,17 @@
-body {
-  min-width: 20.3125rem;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @use "./ally-cafe.css";
+ *   | ^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   src/styles/index.scss 1:1  root stylesheet */
 
-main {
-  padding-block: 2rem;
-}
-
-main > section {
-  padding-inline: 2rem;
-}
-
-header {
-  min-height: fit-content;
-  padding-block: 2rem;
-  grid-template-rows: minmax(300px, auto);
-}
-
-body > nav {
-  min-height: 80px;
-  padding-block: 3rem;
-}
-
-body > nav ul > li:hover {
-  background-color: transparent;
-}
-
-header {
-  /* background-color: transparent; */
-  border-bottom: solid var(--color-border) 1px;
-}
-
-header > section > p {
-  font-size: 2rem;
-}
-
-h1,
-h2,
-h3 {
-  text-transform: capitalize;
-  font-weight: normal;
-}
-
-h2 a[href] {
-  font-size: var(--h2);
-  /* color: currentColor; */
-}
-
-pre {
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-footer > div {
-  flex-direction: column;
-}
-
-* + section {
-  margin-block-start: 2rem;
-}
-
-section:has(> nav) {
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-start;
-}
-
-article > * + * {
-  margin-block-start: 1.5rem;
-}
-
-article p {
-  max-width: 80ch;
-}
-
-article img {
-  /* border: 2px lightgray solid; */
-  border-radius: 0.3rem;
-}
-
-code {
-  color: rgb(158, 49, 49);
-  font-size: smaller;
-}
-
-article li {
-  font-size: unset;
-  font-size: var(--fs-0);
-}
-
-p {
-  max-width: 60ch;
-}
-
-article > figure:has(img[alt]) {
-  min-width: 100%;
-  background-color: transparent;
-  border-radius: 0;
-}
-
-article > figure > img[alt] {
-  min-width: 100%;
-  border-radius: 0;
-}
-
-.gochi {
-  font-family: "Gochi Hand", cursive;
-  font-weight: 400;
-  font-style: normal;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"./ally-cafe.css\";\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src/styles/index.scss 1:1  root stylesheet";
 }

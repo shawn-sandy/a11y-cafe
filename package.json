@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "sass": "sass src/styles/index.scss:src/styles/index.css --style=compressed",
     "astro": "astro",
     "test": "vitest"
   },
