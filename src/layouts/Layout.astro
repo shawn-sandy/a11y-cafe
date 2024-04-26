@@ -52,22 +52,27 @@ import Feature from "#components/Feature.astro";
   <body>
     <Navigation />
     <Header headerTitle={pageTitle} headerDescription={pageDescription} />
-    <section class="features">
-      <Feature />
-    </section>
+    {
+      showFeature && (
+        <section class="features">
+          <Feature />
+        </section>
+      )
+    }
     <main>
-      <section>
-        {
-          showBreadcrumb && (
+      {
+        showBreadcrumb && (
+          <section>
             <>
               <AstroBreadcrumb
                 routes={breadcrumbRoutes || undefined}
                 client:load
               />
             </>
-          )
-        }
-      </section>
+          </section>
+        )
+      }
+
       <section arai-label="main-content">
         <article>
           <slot />
