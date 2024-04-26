@@ -1,0 +1,67 @@
+:root {
+  /* Mode 1 */
+  /* colors */
+  --cafe-accent-100: #f0f6f9;
+  --cafe-accent-200: #deeaf3;
+  --cafe-accent-300: #c5dae9;
+  --cafe-accent-400: #a4c5dc;
+  --cafe-accent-50: #fbfdfe;
+  --cafe-accent-500: #7cabcd;
+  --cafe-accent-600: #4d8dbb;
+  --cafe-accent-700: #346589;
+  --cafe-accent-800: #1f3c51;
+  --cafe-accent-900: #122430;
+  --cafe-accent-950: #0e1b25;
+  --cafe-gray-100: #f1f3f6;
+  --cafe-gray-200: #e0e4ea;
+  --cafe-gray-300: #c8ced9;
+  --cafe-gray-400: #a8b3c4;
+  --cafe-gray-50: #fcfcfd;
+  --cafe-gray-500: #8292aa;
+  --cafe-gray-600: #5b6b86;
+  --cafe-gray-700: #384252;
+  --cafe-gray-800: #242b35;
+  --cafe-gray-900: #191d24;
+  --cafe-gray-950: #15181e;
+  --cafe-primary-100: #f9ebeb;
+  --cafe-primary-200: #f2d1d2;
+  --cafe-primary-300: #e8adaf;
+  --cafe-primary-400: #db8083;
+  --cafe-primary-50: #fefafa;
+  --cafe-primary-500: #cb484c;
+  --cafe-primary-600: #942a2d;
+  --cafe-primary-700: #481416;
+  --cafe-primary-800: #20090a;
+  --cafe-primary-900: #080202;
+  --cafe-primary-950: #000000;
+  --cafe-secondary-100: #f9f2ef;
+  --cafe-secondary-200: #f1e3da;
+  --cafe-secondary-300: #e6cdbd;
+  --cafe-secondary-400: #d8b198;
+  --cafe-secondary-50: #fdfcfb;
+  --cafe-secondary-500: #c78e6b;
+  --cafe-secondary-600: #a96840;
+  --cafe-secondary-700: #6b4229;
+  --cafe-secondary-800: #442a1a;
+  --cafe-secondary-900: #2d1c11;
+  --cafe-secondary-950: #25170e;
+  /* numbers */
+  --letter-spacing-0: 0rem;
+  --list-spacing-0: 0rem;
+  --paragraph-indent-0: 0rem;
+  --paragraph-spacing-0: 0rem;
+  --font-size-9: 0.5625rem;
+  --font-size-12: 0.75rem;
+  --font-size-16: 1rem;
+  --font-size-21: 1.3125rem;
+  --font-size-27: 1.6875rem;
+  --font-size-36: 2.25rem;
+  --font-size-47: 2.9375rem;
+  --font-size-61: 3.8125rem;
+  --font-size-80: 5rem;
+  --font-size-105: 6.5625rem;
+  --line-height-120: 7.5rem;
+  --font-size-160: 10rem;
+  --font-weight-regular: 25rem;
+  --font-weight-medium: 31.25rem;
+}

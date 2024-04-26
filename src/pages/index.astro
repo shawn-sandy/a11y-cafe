@@ -1,10 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CollectionList from "#components/astro/CollectionList.astro";
-import Welcome from "#components/Welcome.astro";
+import Feature from "#components/Feature.astro";
 ---
 
-<Layout pageTitle="A11y.Cafe" showBreadcrumb={false}>
+<Layout pageTitle="We make Accessibility fun!" showBreadcrumb={false}>
+  <section slot="feature">
+    <Feature />
+    <hr />
+  </section>
   <section>
     <CollectionList pageSize={2} />
   </section>
