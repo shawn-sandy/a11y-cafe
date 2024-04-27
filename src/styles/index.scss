@@ -29,6 +29,13 @@ body {
   > nav {
     min-height: 80px;
     padding-block: 3rem;
+    @media screen and (max-width: 380px) {
+      flex-direction: column;
+      height: unset;
+      gap: 0.4rem;
+      min-height: unset;
+      padding-block: unset;
+    }
   }
 }
 body > nav ul > li:hover {
