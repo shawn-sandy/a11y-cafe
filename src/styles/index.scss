@@ -84,6 +84,9 @@ section {
       h3 {
         margin-block-end: unset;
       }
+      p {
+        flex: 2rem;
+      }
     }
   }
 }
@@ -210,4 +213,30 @@ article > figure > img[alt] {
 
 .roboto-serif-md {
   font-weight: 600;
+}
+
+a[href] {
+  > b {
+    --btn-fs: var(--font-size-21);
+    padding-inline: calc(var(--btn-fs) * 2);
+    padding-block: var(--btn-fs);
+
+    width: fit-content;
+    border-radius: var(--radius-pill, 6.1875rem);
+    background-color: var(--cafe-secondary-700, #6b4229);
+    color: var(--cafe-gray-50);
+    font-family: Roboto, sans-serif;
+    font-size: var(--btn-fs);
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.align-right {
+  display: flex;
+  text-align: right;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
