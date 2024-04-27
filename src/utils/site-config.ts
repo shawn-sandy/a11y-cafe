@@ -21,7 +21,7 @@ export const BREADCRUMB_ROUTE = [
   },
 ];
 
-export const SITE_TITLE = "My Site";
+export const SITE_TITLE = "A11y Cafe";
 export const SITE_DESCRIPTION =
   "Accessibility patterns, best-practices, guides reviews and resources.";
 export const SITE_LOGO = "/logo.png";

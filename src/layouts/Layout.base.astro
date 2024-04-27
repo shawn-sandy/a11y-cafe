@@ -17,24 +17,15 @@ type routeItem = {
 type Props = {
   pageTitle?: string;
   pageDescription?: string;
-  showHeader?: boolean;
-  showNavigation?: boolean;
   showBreadcrumb?: boolean;
   breadcrumbRoutes?: routeItem[];
-  showFeature: boolean;
 };
 
 const showBreadcrumb =
   Astro.props.showBreadcrumb === undefined ? true : Astro.props.showBreadcrumb;
 
-const showHeader = Astro.props.showHeader || true;
-
-const showNavigation = Astro.props.showNavigation || true;
-
-const { pageTitle, pageDescription, breadcrumbRoutes, showFeature } =
-  Astro.props;
+const { pageTitle, pageDescription, breadcrumbRoutes } = Astro.props;
 import "../styles/index.css";
-import Feature from "#components/Feature.astro";
 ---
 
 <html lang="en">
@@ -50,40 +41,28 @@ import Feature from "#components/Feature.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@100..900&family=Play&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <ViewTransitions />
   </head>
   <body>
-    {showNavigation && <Navigation />}
-
-    {
-      showHeader && (
-        <Header headerTitle={pageTitle} headerDescription={pageDescription} />
-      )
-    }
-    {
-      showFeature && (
-        <section aria-label="Show site features" class="features">
-          <Feature />
-        </section>
-      )
-    }
+    <Navigation />
+    <Header headerTitle={pageTitle} headerDescription={pageDescription} />
+    <hr />
     <main>
-      {
-        showBreadcrumb && (
-          <section>
+      <section>
+        {
+          showBreadcrumb && (
             <>
               <AstroBreadcrumb
                 routes={breadcrumbRoutes || undefined}
                 client:load
               />
             </>
-          </section>
-        )
-      }
-
+          )
+        }
+      </section>
       <section arai-label="main-content">
         <article>
           <slot />

@@ -1,13 +1,12 @@
 @use "./ally-cafe.css";
 @use "./styles.css";
-:root {
-  --weight: 500;
-}
 
 body {
   min-width: 20.3125rem;
   font-family: Inter;
   background: var(--cafe-accent-50, #fbfdfe);
+  border-top: var(--cafe-primary-800) solid 0.75rem;
+  height: 100%;
 }
 
 main {
@@ -23,13 +22,26 @@ main {
 header {
   min-height: fit-content;
   padding-block: 2rem;
-  grid-template-rows: minmax(300px, auto);
+  grid-template-rows: minmax(18.75rem, auto);
+}
+.justify-center {
+  justify-content: center;
 }
 
 body {
   > nav {
-    min-height: 80px;
+    min-height: 5rem;
     padding-block: 3rem;
+    // max-width: 100rem;
+    // min-width: 100rem;
+    // margin-inline: auto;
+    @media screen and (max-width: 580px) {
+      flex-direction: column;
+      height: unset;
+      gap: 0.4rem;
+      min-height: unset;
+      padding-block: unset;
+    }
   }
 }
 body > nav ul > li:hover {
@@ -39,15 +51,15 @@ body > nav ul > li:hover {
 header {
   background-color: transparent;
 
-  height: max(350px, 500px);
+  height: max(21.875rem, 31.25rem);
 }
 
 header {
   > section {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.5rem;
     > p {
       font-family: var(--fontFamily-Roboto-Serif, "Roboto Serif");
       font-size: var(--fontSize-36, 2.25rem);
@@ -69,10 +81,15 @@ section {
   &:has(.features) {
     display: flex;
     flex-wrap: wrap;
+    margin-block-end: 3rem;
     max-width: 92.5rem;
     margin-inline: auto;
-    padding-inline: 2rem;
+    // padding-inline: 2rem;
+    justify-content: center;
     gap: 2.625rem;
+    @media screen and (max-width: 1080px) {
+      justify-content: center;
+    }
     .features {
       display: flex;
       flex-direction: column;
@@ -80,10 +97,14 @@ section {
       gap: 1.5rem;
       flex-basis: calc(30% - 10px);
       flex-basis: mic(100%, 300px);
+
       min-width: 300px;
       width: max(300px, 100%);
       h3 {
         margin-block-end: unset;
+      }
+      p {
+        flex: 2rem;
       }
     }
   }
@@ -107,6 +128,7 @@ h4 {
   font-variation-settings:
     "wdth" 100,
     "GRAD" 0;
+  line-height: 1.2;
 }
 
 h2[data-ui~="display"] {
@@ -114,8 +136,7 @@ h2[data-ui~="display"] {
 }
 
 a[href] {
-  color: var(--cafe-primary-700);
-  // font-family: "Roboto Serif", serif;
+  color: var(--cafe-primary-600);
 }
 
 a[href]:hover {
@@ -211,4 +232,29 @@ article > figure > img[alt] {
 
 .roboto-serif-md {
   font-weight: 600;
+}
+
+a[href] {
+  > b {
+    --btn-fs: var(--font-size-21);
+    padding-inline: calc(var(--btn-fs) * 2);
+    padding-block: var(--btn-fs);
+    width: fit-content;
+    border-radius: var(--radius-pill, 6.1875rem);
+    background-color: var(--cafe-secondary-700, #6b4229);
+    color: var(--cafe-gray-50);
+    font-family: Roboto, sans-serif;
+    font-size: var(--btn-fs);
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.align-right {
+  display: flex;
+  text-align: right;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
