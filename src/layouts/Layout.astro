@@ -17,13 +17,18 @@ type routeItem = {
 type Props = {
   pageTitle?: string;
   pageDescription?: string;
+  showHeader?: boolean;
+  showNavigation?: boolean;
   showBreadcrumb?: boolean;
   breadcrumbRoutes?: routeItem[];
   showFeature: boolean;
 };
 
-const showBreadcrumb =
-  Astro.props.showBreadcrumb === undefined ? true : Astro.props.showBreadcrumb;
+const showHeader = Astro.props.showHeader || true;
+
+const showBreadcrumb = Astro.props.showBreadcrumb || true;
+
+const showNavigation = Astro.props.showNavigation || true;
 
 const { pageTitle, pageDescription, breadcrumbRoutes, showFeature } =
   Astro.props;
@@ -50,8 +55,13 @@ import Feature from "#components/Feature.astro";
     <ViewTransitions />
   </head>
   <body>
-    <Navigation />
-    <Header headerTitle={pageTitle} headerDescription={pageDescription} />
+    {showNavigation && <Navigation />}
+
+    {
+      showHeader && (
+        <Header headerTitle={pageTitle} headerDescription={pageDescription} />
+      )
+    }
     {
       showFeature && (
         <section aria-label="Show site features" class="features">
