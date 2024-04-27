@@ -68,6 +68,7 @@ section {
   &:has(.features) {
     display: flex;
     flex-wrap: wrap;
+    margin-block-end: 3rem;
     max-width: 92.5rem;
     margin-inline: auto;
     padding-inline: 2rem;
@@ -220,7 +221,6 @@ a[href] {
     --btn-fs: var(--font-size-21);
     padding-inline: calc(var(--btn-fs) * 2);
     padding-block: var(--btn-fs);
-
     width: fit-content;
     border-radius: var(--radius-pill, 6.1875rem);
     background-color: var(--cafe-secondary-700, #6b4229);
