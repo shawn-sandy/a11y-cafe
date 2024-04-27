@@ -26,12 +26,15 @@ type Props = {
 
 const showHeader = Astro.props.showHeader || true;
 
-const showBreadcrumb = Astro.props.showBreadcrumb || true;
-
 const showNavigation = Astro.props.showNavigation || true;
 
-const { pageTitle, pageDescription, breadcrumbRoutes, showFeature } =
-  Astro.props;
+const {
+  pageTitle,
+  pageDescription,
+  breadcrumbRoutes,
+  showFeature,
+  showBreadcrumb,
+} = Astro.props;
 import "../styles/index.css";
 import Feature from "#components/Feature.astro";
 ---
