@@ -105,6 +105,7 @@ section {
       }
       p {
         flex: 2rem;
+        line-height: 1.8;
       }
     }
   }
@@ -182,6 +183,7 @@ article > * + * {
 
 article p {
   max-width: 80ch;
+  line-height: 1.8;
 }
 
 article img {
