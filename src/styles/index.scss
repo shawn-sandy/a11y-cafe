@@ -84,7 +84,8 @@ section {
     margin-block-end: 3rem;
     max-width: 92.5rem;
     margin-inline: auto;
-    padding-inline: 2rem;
+    // padding-inline: 2rem;
+    justify-content: center;
     gap: 2.625rem;
     @media screen and (max-width: 1080px) {
       justify-content: center;
@@ -96,6 +97,7 @@ section {
       gap: 1.5rem;
       flex-basis: calc(30% - 10px);
       flex-basis: mic(100%, 300px);
+
       min-width: 300px;
       width: max(300px, 100%);
       h3 {
