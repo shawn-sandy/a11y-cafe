@@ -6,11 +6,11 @@ import Pagination from "#components/astro/Pagination.astro";
 import type { TODO } from "#utils/types.js";
 
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await getCollection("content");
-  allPosts.sort(
-    (a: { data: { pubDate: Date } }, b: { data: { pubDate: Date } }) =>
-      b.data.pubDate.getTime() - a.data.pubDate.getTime()
-  );
+  const allPosts = await getCollection("patterns");
+  // allPosts.sort(
+  //   (a: { data: { pubDate: Date } }, b: { data: { pubDate: Date } }) =>
+  //     b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  // );
   return paginate(allPosts, { pageSize: 2 });
 }
 
@@ -34,7 +34,7 @@ const { page } = Astro.props as TODO;
     <div>
       {page?.url?.prev ? <a href={page?.url?.prev}>Previous</a> : "Previous"}
     </div>
-    <Pagination collection="content" itemsPerPage={pageSize} />
+    <Pagination collection="patterns" itemsPerPage={pageSize} to="patterns" />
     <div>
       {page?.url?.next ? <a href={page?.url?.next}>Next </a> : "Next"}
     </div>
