@@ -35,8 +35,12 @@ const content = defineCollection({
   ...postsCollection,
 });
 
+const patterns = {
+  ...postsCollection,
+};
 export const collections = {
   posts: postsCollection,
   docs: astroKitDocs,
   content: content,
+  patterns: patterns,
 };
