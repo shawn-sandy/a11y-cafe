@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
-import { Slugify } from "#libs/content.ts";
+import type { TODO } from "#utils/types.js";
 
 export async function getStaticPaths() {
-  const content = await getCollection("content");
-  return content.map((entry: any) => ({
+  const content = await getCollection("patterns");
+  return content.map((entry: TODO) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));

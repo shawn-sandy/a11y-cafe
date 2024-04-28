@@ -11,6 +11,46 @@ tags: ["astro", "blogging", "learning in public"]
 ---
 
 
+## Basic pattern example
+
+```astro
+---
+title: "Accessible Dropdown Menu"
+pubDate: 2023-06-02
+description: "Learn how to create an accessible dropdown menu."
+author: "Jane Smith"
+wcagGuideline:
+  - guideline: "operable"
+    level: "AA"
+    description: "Provide keyboard navigation for dropdown menus."
+    rule:
+      id: "2.1.1"
+      title: "Keyboard"
+      link: "https://www.w3.org/TR/WCAG21/#keyboard"
+---
+```
+## Patterns Collection Data Example
+
+Here's an example of the `patterns` collection data with only the required properties based on the schema defined in `src/content/config.ts`:
+
+In this example, we provide values for the required properties in the `patterns` collection schema:
+
+- `title`: A string representing the title of the pattern.
+- `pubDate`: A `Date` object representing the publication date of the pattern.
+- `description`: A string describing the pattern.
+- `author`: A string indicating the author of the pattern.
+- `wcagGuideline`: An array containing an object with the required properties for the WCAG guideline:
+  - `guideline`: An enum value indicating the WCAG guideline category.
+  - `level`: An enum value representing the WCAG conformance level.
+  - `description`: A string describing the guideline.
+  - `rule`: An object with the required properties for the WCAG success criterion:
+    - `id`: A string representing the success criterion ID.
+    - `title`: A string representing the title of the success criterion.
+    - `link`: A string representing the URL to the success criterion documentation.
+
+The optional properties such as `breadcrumbSlug`, `image`, `tags`, `draft`, `featured`, `youtube`, and `a11yLinks` are omitted since they are not required according to the schema.
+
+## Full pattern example
 
 ```astro
 ---
