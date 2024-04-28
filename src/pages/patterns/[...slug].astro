@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 import type { TODO } from "#utils/types.js";
+// const allPosts = await getCollection("docs");
 
 export async function getStaticPaths() {
   const content = await getCollection("patterns");
