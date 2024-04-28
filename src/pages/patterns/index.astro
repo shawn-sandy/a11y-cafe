@@ -5,8 +5,8 @@ import CollectionList from "#components/astro/CollectionList.astro";
 // const allPosts = await getCollection("docs");
 
 const article: ReturnType<typeof getEntry> = await getEntry(
-  "content",
-  "content"
+  "patterns",
+  "pattern-example"
 );
 const { Content } = await article.render();
 ---
