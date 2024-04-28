@@ -36,8 +36,38 @@ const content = defineCollection({
 });
 
 const patterns = {
-  ...postsCollection,
+  ...postsCollection.schema,
+  schema: z.object({
+    a11yLinks: z
+      .array(
+        z.object({
+          name: z.string(),
+          url: z.string(),
+        })
+      )
+      .optional(),
+    wcagGuideline: z.array(
+      z
+        .object({
+          guideline: z.enum([
+            "perceivable",
+            "operable",
+            "understandable",
+            "robust",
+          ]),
+          level: z.enum(["A", "AA", "AAA"]),
+          description: z.string(),
+          rule: z.object({
+            id: z.string(),
+            title: z.string(),
+            link: z.string(),
+          }),
+        })
+        .optional()
+    ),
+  }),
 };
+
 export const collections = {
   posts: postsCollection,
   docs: astroKitDocs,
