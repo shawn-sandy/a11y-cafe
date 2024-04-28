@@ -1,0 +1,70 @@
+---
+title: "Accessible Form Labels"
+pubDate: 2023-06-01
+description: "Learn how to create accessible form labels using the <label> element."
+author: "John Doe"
+breadcrumbSlug: "accessible-form-labels"
+image:
+  url: "/images/accessible-form-labels.jpg"
+  alt: "Accessible form labels"
+  caption: "Example of accessible form labels"
+tags: ["forms", "accessibility", "labels"]
+draft: false
+featured: true
+youtube:
+  id: "abc123"
+  title: "Accessible Form Labels Tutorial"
+  start: "0:30"
+  end: "5:00"
+a11yLinks:
+  - name: "MDN Web Docs: <label>"
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"
+  - name: "W3C WAI: Labeling Controls"
+    url: "https://www.w3.org/WAI/tutorials/forms/labels/"
+wcagGuideline:
+  - guideline: "perceivable"
+    level: "A"
+    description: "Form labels are perceivable and associated with their respective form controls."
+    rule:
+      id: "1.3.1"
+      title: "Info and Relationships"
+      link: "https://www.w3.org/TR/WCAG21/#info-and-relationships"
+---
+
+
+# Accessible Form Labels
+
+In this article, we'll explore the importance of using accessible form labels and how to implement them correctly using the `<label>` element.
+
+## Why Accessible Form Labels Matter
+
+Accessible form labels are crucial for ensuring that users, especially those with disabilities, can understand and interact with form controls effectively. By properly associating labels with their corresponding form fields, you provide clear instructions and context for users.
+
+## Using the `<label>` Element
+
+The `<label>` element is the recommended way to associate a label with a form control. Here's an example:
+
+```html
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+
+```
+
+This is an example of data that matches the schema defined in `src/content/config.ts` lines 38-70.
+
+The data includes various properties such as the title, publication date, description, author, breadcrumb slug, image details, tags, draft status, featured status, YouTube video information, accessibility-related links, and WCAG guideline details.
+
+The `title` is a string representing the title of the pattern.
+The `pubDate` is a date representing the publication date.
+The `description` is a string describing the pattern.
+The `author` is a string indicating the author's name.
+The `breadcrumbSlug` is an optional string for the breadcrumb slug.
+The `image` is an optional object containing the image URL, alt text, and caption.
+The `tags` is an optional array of strings representing the tags associated with the pattern.
+The `draft` is a boolean indicating if the pattern is in draft mode (default is `false`).
+The `featured` is a boolean indicating if the pattern is featured (default is `false`).
+The `youtube` is an optional object containing the YouTube video ID, title, start time, and end time.
+The `a11yLinks` is an optional array of objects representing accessibility-related links, each containing the link text, URL, and description.
+The `wcagGuideline` is an optional array of objects representing WCAG guidelines, each containing the guideline category, conformance level, description, and the associated WCAG rule object with its ID, title, and link.
+
+This example data showcases how the schema defined in `src/content/config.ts` can be used to structure and validate the data for accessibility patterns.
