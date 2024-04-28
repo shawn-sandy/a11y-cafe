@@ -46,23 +46,25 @@ const patterns = defineCollection({
         })
       )
       .optional(),
-    wcagGuideline: z.array(
-      z.object({
-        guideline: z.enum([
-          "perceivable",
-          "operable",
-          "understandable",
-          "robust",
-        ]),
-        level: z.enum(["A", "AA", "AAA"]),
-        description: z.string(),
-        rule: z.object({
-          id: z.string(),
-          title: z.string(),
-          link: z.string(),
-        }),
-      })
-    ),
+    wcagGuideline: z
+      .array(
+        z.object({
+          guideline: z.enum([
+            "perceivable",
+            "operable",
+            "understandable",
+            "robust",
+          ]),
+          level: z.enum(["A", "AA", "AAA"]),
+          description: z.string(),
+          rule: z.object({
+            id: z.string(),
+            title: z.string(),
+            link: z.string(),
+          }),
+        })
+      )
+      .optional(),
   }),
 });
 
@@ -70,5 +72,5 @@ export const collections = {
   posts: postsCollection,
   docs: astroKitDocs,
   content: content,
-  patterns: patterns,
+  patterns,
 };
