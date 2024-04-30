@@ -5,7 +5,7 @@ body {
   min-width: 20.3125rem;
   font-family: Inter;
   background: var(--cafe-accent-50, #fbfdfe);
-  border-top: var(--cafe-primary-800) solid 0.75rem;
+  border-top: var(--cafe-accent-700) solid 0.75rem;
   height: 100%;
 }
 
@@ -245,10 +245,11 @@ a[href] {
     padding-block: var(--btn-fs);
     width: fit-content;
     border-radius: var(--radius-pill, 6.1875rem);
-    background-color: var(--cafe-secondary-700, #6b4229);
+    background-color: var(--cafe-accent-700, #6b4229);
     color: var(--cafe-gray-50);
     font-family: Roboto, sans-serif;
     font-size: var(--btn-fs);
+    letter-spacing: 0.08rem;
   }
   &:hover {
     text-decoration: none;
