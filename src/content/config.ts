@@ -1,5 +1,6 @@
 import { date } from "astro/zod";
 import { defineCollection, reference, z } from "astro:content";
+const categories = ["patterns", "guides", "resources", "articles"];
 
 const postsCollection = defineCollection({
   schema: z.object({
@@ -16,6 +17,7 @@ const postsCollection = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    category: z.enum(categories).optional(),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     youtube: z
@@ -58,16 +60,28 @@ wcagGuideline:
 # Markdown Content Here
 ***/
 
-const guidelines = defineCollection({
+const a11yGuidelines = defineCollection({
   schema: z.object({
-    guideline: z.enum(["perceivable", "operable", "understandable", "robust"]),
-    level: z.enum(["A", "AA", "AAA"]),
+    guideline: z
+      .enum(["perceivable", "operable", "understandable", "robust"])
+      .optional(),
+    level: z.enum(["A", "AA", "AAA"]).optional(),
     description: z.string(),
-    successCriteria: z.object({
-      id: z.string(),
-      title: z.string(),
-      link: z.string(),
-    }),
+    successCriteria: z
+      .object({
+        id: z.string(),
+        title: z.string(),
+        link: z.string(),
+      })
+      .optional(),
+    links: z
+      .array(
+        z.object({
+          name: z.string(),
+          url: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 
@@ -77,15 +91,7 @@ const patterns = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.date().optional(),
-    guidelines: z.array(reference(guidelines)).optional(),
-    a11yLinks: z
-      .array(
-        z.object({
-          name: z.string(),
-          url: z.string(),
-        })
-      )
-      .optional(),
+    guidelines: z.array(reference(a11yGuidelines)).optional(),
   }),
 });
 
