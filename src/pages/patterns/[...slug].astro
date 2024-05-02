@@ -5,7 +5,7 @@ import type { TODO } from "#utils/types.js";
 // const allPosts = await getCollection("docs");
 
 export async function getStaticPaths() {
-  const content = await getCollection("patterns");
+  const content = await getCollection("posts");
   return content.map((entry: TODO) => ({
     params: { slug: entry.slug },
     props: { entry },
