@@ -19,7 +19,11 @@ export const BREADCRUMB_ROUTE = [
     url: "/content/1",
     path: "content",
   },
-  { name: "Patterns", url: "/patterns", path: "patterns" },
+  {
+    name: "Patterns",
+    url: "/patterns/1",
+    path: "patterns/1",
+  },
 ];
 
 export const SITE_TITLE = "A11y Cafe";
