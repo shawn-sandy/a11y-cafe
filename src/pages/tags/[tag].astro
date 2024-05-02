@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/astro/BlogPosts.astro";
+import type { TODO } from "#utils/types.js";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
@@ -10,9 +11,9 @@ export async function getStaticPaths() {
     ...new Set(allPosts.map((post) => post.data.tags).flat()),
   ];
 
-  return uniqueTags.map((tag) => {
+  return uniqueTags.map((tag: TODO) => {
     const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
+      post.data?.tags?.includes(tag)
     );
     return {
       params: { tag },

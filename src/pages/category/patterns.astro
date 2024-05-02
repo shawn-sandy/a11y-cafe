@@ -1,0 +1,20 @@
+---
+import Layout from "#layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const publishedBlogEntries = await getCollection(
+  "postsCollection",
+  ({ data }) => {
+    return data.draft !== true;
+  }
+);
+---
+
+<Layout pageTitle="Inclusive Patterns">
+  <h1>Patterns</h1>
+  <p>
+    Explore inclusive design patterns that are easy, fun, accesssible, stylish
+    and user-friendly. Join our A11y challenges to showcase or improve your
+    design or coding skills in accessibility.!
+  </p>
+  <hr />
+</Layout>
