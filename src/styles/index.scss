@@ -139,11 +139,15 @@ h2[data-ui~="display"] {
 }
 
 a[href] {
-  color: var(--cafe-primary-600);
+  color: var(--cafe-accent-700);
 }
 
 a[href]:hover {
-  color: var(--cafe-ally-coffe-dark-hover);
+  color: var(--cafe-primary-600);
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 0.1em;
+  text-decoration-color: var(--cafe-primary-600);
 }
 
 h2 a[href] {
@@ -238,7 +242,7 @@ article > figure > img[alt] {
   font-weight: 600;
 }
 
-a[href] {
+a[href]:has(b) {
   > b {
     --btn-fs: var(--font-size-21);
     padding-inline: calc(var(--btn-fs) * 2);
