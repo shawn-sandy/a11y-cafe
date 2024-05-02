@@ -1,6 +1,6 @@
 import { date } from "astro/zod";
 import { defineCollection, reference, z } from "astro:content";
-const categories = ["patterns", "guides", "resources", "articles"];
+const CATEGORIES = ["patterns", "guides", "resources", "articles"];
 
 const postsCollection = defineCollection({
   schema: z.object({
@@ -17,7 +17,7 @@ const postsCollection = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
-    category: z.enum(categories).optional(),
+    category: z.enum(CATEGORIES).optional(),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     youtube: z
