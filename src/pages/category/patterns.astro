@@ -1,12 +1,9 @@
 ---
 import Layout from "#layouts/Layout.astro";
 import { getCollection } from "astro:content";
-const publishedBlogEntries = await getCollection(
-  "postsCollection",
-  ({ data }) => {
-    return data.draft !== true;
-  }
-);
+const publishedBlogEntries = await getCollection("posts", ({ data }) => {
+  return data?.draft !== true && data.category === "patterns";
+});
 ---
 
 <Layout pageTitle="Inclusive Patterns">
