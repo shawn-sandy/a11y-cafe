@@ -33,9 +33,6 @@ body {
   > nav {
     min-height: 5rem;
     padding-block: 3rem;
-    // max-width: 100rem;
-    // min-width: 100rem;
-    // margin-inline: auto;
     @media screen and (max-width: 580px) {
       flex-direction: column;
       height: unset;
@@ -209,6 +206,7 @@ article li {
 
 p {
   max-width: 60ch;
+  text-wrap: "pretty";
 }
 
 article > figure:has(img[alt]) {
