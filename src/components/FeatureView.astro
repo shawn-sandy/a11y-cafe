@@ -3,16 +3,17 @@ export type Props = {
   link?: string;
   showButton?: boolean;
   className?: string;
+  buttonAriaLabel?: string;
 };
 
 const { link, showButton, className } = Astro.props;
 ---
 
-<div class={`features ${className}`} data-grid>
+<div class={`features`} data-grid>
   <slot />
-  {
-    showButton && (
-      <div class="align-right">
+  <div class="align-right">
+    {
+      showButton && (
         <a
           href={link}
           class="button-continue"
@@ -20,7 +21,7 @@ const { link, showButton, className } = Astro.props;
         >
           <b aria-hidden="true">Continue reading </b>
         </a>
-      </div>
-    )
-  }
+      )
+    }
+  </div>
 </div>
