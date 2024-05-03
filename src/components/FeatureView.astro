@@ -1,0 +1,26 @@
+---
+export type Props = {
+  link?: string;
+  showButton?: boolean;
+  className?: string;
+};
+
+const { link, showButton, className } = Astro.props;
+---
+
+<div class={`features ${className}`} data-grid>
+  <slot />
+  {
+    showButton && (
+      <div class="align-right">
+        <a
+          href={link}
+          class="button-continue"
+          aria-label="Continue reading Inclusive Patterns"
+        >
+          <b aria-hidden="true">Continue reading </b>
+        </a>
+      </div>
+    )
+  }
+</div>
