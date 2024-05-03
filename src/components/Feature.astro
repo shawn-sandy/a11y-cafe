@@ -1,61 +1,8 @@
 ---
 import FeatureView from "./FeatureView.astro";
-import Features from "./views/Features.astro";
+import Features from "./views/Patterns.astro";
 ---
 
 <FeatureView showButton={true}><Features /></FeatureView>
-<div class="features" data-grid>
-  <img src="/images/patterns.webp" alt="" />
-  <h3>Inclusive Patterns</h3>
-
-  <p>
-    Explore inclusive design patterns that are easy, fun, accesssible, stylish
-    and user-friendly. Join our A11y challenges to showcase or improve your
-    design or coding skills in accessibility.!
-  </p>
-  <div class="align-right">
-    <a
-      href="#"
-      class="button-continue"
-      aria-label="Continue reading Inclusive Patterns"
-    >
-      <b aria-hidden="true">Continue reading </b>
-    </a>
-  </div>
-</div>
-<div class="features">
-  <img src="/images/guide.webp" alt="" />
-  <h3>A11y Guides</h3>
-  <p>
-    Browse our easy-to-understand, practical guides that breakdown and simplify
-    accessibility (A11y) standards and guidelines. Discover how they impact your
-    users, what they seek to do and the why behind them.
-  </p>
-  <div class="align-right">
-    <a
-      href="#"
-      class="button-continue"
-      aria-label="Continue reading A11y Guides"
-    >
-      <b aria-hidden="true">Continue reading </b>
-    </a>
-  </div>
-</div>
-<div class="features">
-  <img src="/images/reviews.webp" alt="" />
-  <h3>Reviews &amp; Resources</h3>
-  <p>
-    Have a sip of tea or coffe while as you peruse our collection of reviews and
-    ratings of accessible products and services or browse our curated list of
-    accessibility tools and resources.
-  </p>
-  <div class="align-right">
-    <a
-      href="#"
-      class="button-continue"
-      aria-label="Continue reading Reviews & Resources"
-    >
-      <b aria-hidden="true">Continue reading </b>
-    </a>
-  </div>
-</div>
+<FeatureView showButton={true}><Features /></FeatureView>
+<FeatureView showButton={true}><Features /></FeatureView>
