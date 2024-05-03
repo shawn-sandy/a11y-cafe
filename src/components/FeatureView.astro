@@ -6,22 +6,22 @@ export type Props = {
   buttonAriaLabel?: string;
 };
 
-const { link, showButton, className } = Astro.props;
+const { link, showButton, className, buttonAriaLabel } = Astro.props;
 ---
 
 <div class={`features`} data-grid>
   <slot />
-  <div class="align-right">
-    {
-      showButton && (
+  {
+    showButton && (
+      <div class="align-right">
         <a
-          href={link}
+          href={link || "#"}
           class="button-continue"
-          aria-label="Continue reading Inclusive Patterns"
+          aria-label={buttonAriaLabel || "Continue reading"}
         >
           <b aria-hidden="true">Continue reading </b>
         </a>
-      )
-    }
-  </div>
+      </div>
+    )
+  }
 </div>
