@@ -4,12 +4,13 @@ export type Props = {
   showButton?: boolean;
   className?: string;
   buttonAriaLabel?: string;
+  style?: {};
 };
 
-const { link, showButton, className, buttonAriaLabel } = Astro.props;
+const { link, showButton, className, buttonAriaLabel, style } = Astro.props;
 ---
 
-<div class={`features`} data-grid>
+<div class={`features`} style={style} data-grid>
   <slot />
   {
     showButton && (
