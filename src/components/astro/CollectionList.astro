@@ -18,9 +18,10 @@ export type Props = {
   pageSize?: number;
   to?: string;
   collection?: TODO;
+  startCount?: number;
 };
 
-const { collectionTitle, pageSize, to, collection } = Astro.props;
+const { collectionTitle, pageSize, to, collection, startCount } = Astro.props;
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
     return data.draft === false;
@@ -29,7 +30,7 @@ const collectionResults = (await getCollection(collection || "posts"))
     (a: SortType, b: SortType) =>
       b.data.pubDate.getTime() - a.data.pubDate.getTime()
   )
-  .slice(0, PAGINATION_COUNT || 3);
+  .slice(startCount || 0, PAGINATION_COUNT || 3);
 ---
 
 {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
