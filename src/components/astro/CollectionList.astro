@@ -30,7 +30,7 @@ const collectionResults = (await getCollection(collection || "posts"))
     (a: SortType, b: SortType) =>
       b.data.pubDate.getTime() - a.data.pubDate.getTime()
   )
-  .slice(startCount || 0, PAGINATION_COUNT || 3);
+  .slice(startCount || 0, pageSize || PAGINATION_COUNT || 3);
 ---
 
 {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
