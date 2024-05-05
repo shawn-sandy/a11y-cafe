@@ -204,6 +204,9 @@ article {
     /* border: 2px lightgray solid; */
     border-radius: 0.3rem;
   }
+  + article {
+    margin-block-start: 3rem;
+  }
 }
 code {
   color: rgb(158, 49, 49);

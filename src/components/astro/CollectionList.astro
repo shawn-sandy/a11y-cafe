@@ -39,10 +39,12 @@ const collectionResults = (await getCollection(collection || "posts"))
 
 {
   collectionResults?.map((post: TODO) => (
-    <BlogPosts
-      title={post.data.title}
-      description={post.data.description}
-      url={`/${to || "posts"}/${post.slug}`}
-    />
+    <article>
+      <BlogPosts
+        title={post.data.title}
+        description={post.data.description}
+        url={`/${to || "posts"}/${post.slug}`}
+      />
+    </article>
   ))
 }
