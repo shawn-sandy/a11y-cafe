@@ -4,6 +4,7 @@ import type { SortType } from "#utils/types";
 import BlogPosts from "./BlogPosts.astro";
 import { PAGINATION_COUNT } from "#utils/site-config";
 import type { TODO } from "#utils/types";
+import Placeholder from "#components/views/Placeholder.astro";
 
 /**
  * The props for the CollectionList component.
@@ -35,16 +36,24 @@ const collectionResults = (await getCollection(collection || "posts"))
   .slice(startCount || 0, pageSize || PAGINATION_COUNT || 3);
 ---
 
-{collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+<article>
+  {
+    collectionResults.length === 0 ? (
+      <>
+        <Placeholder />
+      </>
+    ) : (
+      <>
+        {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
 
-{
-  collectionResults?.map((post: TODO) => (
-    <article>
-      <BlogPosts
-        title={post.data.title}
-        description={post.data.description}
-        url={`/${to || "posts"}/${post.slug}`}
-      />
-    </article>
-  ))
-}
+        {collectionResults?.map((post: TODO) => (
+          <BlogPosts
+            title={post.data.title}
+            description={post.data.description}
+            url={`/${to || "posts"}/${post.slug}`}
+          />
+        ))}
+      </>
+    )
+  }
+</article>
