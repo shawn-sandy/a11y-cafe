@@ -56,6 +56,7 @@ import Feature from "#components/Feature.astro";
     <ViewTransitions />
   </head>
   <body>
+    <a href="#main-content">Skip to main content</a>
     {showNavigation && <Navigation />}
 
     {
@@ -71,7 +72,7 @@ import Feature from "#components/Feature.astro";
       )
     }
 
-    <main>
+    <main id="main-content">
       <!-- <hr /> -->
       {
         showBreadcrumb && (

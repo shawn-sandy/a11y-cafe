@@ -7,10 +7,28 @@ body {
   background: var(--cafe-accent-50, #fbfdfe);
   border-top: var(--cafe-accent-700) solid 0.75rem;
   height: 100%;
+  > a[href^="#"] {
+    position: absolute;
+    top: -4rem;
+    left: 0;
+    width: 100%;
+    display: block;
+    justify-content: flex-start;
+    padding: 1rem;
+    z-index: 100;
+    transition: top 0.3s;
+    border-radius: 0;
+    // padding: 1rem;
+    background-color: var(--cafe-accent-100);
+    &:focus {
+      top: 0;
+    }
+  }
 }
 
 main {
   padding-block: 0rem;
+  scroll-margin-block-start: 1rem;
 }
 
 main {
@@ -36,6 +54,7 @@ body {
     }
   }
 }
+
 body > nav ul > li:hover {
   background-color: transparent;
 }
