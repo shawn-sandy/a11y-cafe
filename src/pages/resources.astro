@@ -2,9 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import CollectionList from "#components/astro/CollectionList.astro";
 import Welcome from "#components/Welcome.astro";
+const description =
+  "Have a sip of tea or coffe while as you peruse our collection of reviews and ratings of accessible products and services or browse our curated list of accessibility tools and resources.";
 ---
 
-<Layout pageTitle="We make Accessibility fun!" showBreadcrumb={false}>
+<Layout
+  pageTitle="Accesibility Guides"
+  showBreadcrumb={false}
+  pageDescription={description}
+>
   <section>
     <CollectionList pageSize={5} />
   </section>
