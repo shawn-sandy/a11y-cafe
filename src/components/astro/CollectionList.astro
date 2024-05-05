@@ -19,12 +19,14 @@ export type Props = {
   to?: string;
   collection?: TODO;
   startCount?: number;
+  category?: string;
 };
 
-const { collectionTitle, pageSize, to, collection, startCount } = Astro.props;
+const { collectionTitle, pageSize, to, collection, startCount, category } =
+  Astro.props;
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
-    return data.draft === false;
+    return data.draft === false && data.category === category;
   })
   .sort(
     (a: SortType, b: SortType) =>

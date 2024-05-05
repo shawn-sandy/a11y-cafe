@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  padding-block: 2rem;
+  padding-block: 0rem;
 }
 
 main {
@@ -52,6 +52,7 @@ header {
   background-color: var(--cafe-accent-100);
 
   height: max(21.875rem, 31.25rem);
+  margin-block: 0;
 }
 
 header {
@@ -103,6 +104,7 @@ section {
       margin-block: 3rem;
       h3 {
         margin-block-end: unset;
+        font-size: var(--h3);
       }
       p {
         flex: 2;
@@ -190,6 +192,7 @@ article > * + * {
 article p {
   max-width: 80ch;
   line-height: 1.8;
+  font-size: var(--fs-4);
 }
 
 article {
@@ -258,7 +261,7 @@ a[href]:has(b) {
     background-color: var(--cafe-accent-700, #6b4229);
     color: var(--cafe-gray-50);
     font-family: Roboto, sans-serif;
-    font-size: var(--btn-fs);
+    font-size: var(--fs-5);
     letter-spacing: 0.08rem;
   }
   &:hover {
