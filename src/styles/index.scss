@@ -29,9 +29,6 @@ body {
 main {
   padding-block: 0rem;
   scroll-margin-block-start: 1rem;
-}
-
-main {
   > section {
     padding-inline: 2rem;
   }
@@ -64,10 +61,7 @@ header {
   padding-block: 2rem;
   grid-template-rows: minmax(18.75rem, auto);
   background-color: transparent;
-
-  // background-color: var(--cafe-accent-100);
-
-  height: max(21.875rem, 31.25rem);
+  // height: max(21.875rem, 31.25rem);
   margin-block: 0;
 }
 
