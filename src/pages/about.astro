@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const pageTitle = "About";
+const pageTitle = "About the A11y Cafe";
 
 const identity = {
   firstName: "Sarah",
@@ -17,54 +17,37 @@ const goal = 3;
 ---
 
 <Layout pageTitle={pageTitle}>
-  <h2>{pageTitle}</h2>
-  <h3>... and my new Astro site!</h3>
-
   <p>
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
+    Welcome to the About page of A11y Cafe, your go-to destination for all
+    things accessibility! We are passionate about creating an inclusive online
+    experience for everyone, regardless of their abilities or disabilities. Our
+    team of experts is dedicated to providing valuable insights, tips, and
+    resources to help you navigate the world of web accessibility with ease.
   </p>
 
   <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
+    At A11y Cafe, we believe that accessibility is not just a buzzword, but a
+    fundamental right. We understand the challenges that people with
+    disabilities face when accessing websites and digital content, and we are
+    committed to breaking down those barriers. Our mission is to promote best
+    practices in accessibility and to empower developers, designers, and content
+    creators to build websites that are usable by all.
   </p>
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
 
   <p>
-    I have experience with a wide range of technical skills that are useful for
-    web development and writing documentation. Some of my strongest abilities
-    are with HTML, CSS, JavaScript, React, and Astro. I also have skills in
-    writing documentation, which helps me create tutorials and API references.
-    My goal is to continue improving my development and writing skills over
-    time.
+    Whether you are a seasoned accessibility professional or just starting your
+    journey, A11y Cafe has something for you. We offer a wide range of articles,
+    tutorials, and case studies that cover various aspects of accessibility,
+    from basic principles to advanced techniques. Our content is carefully
+    curated and regularly updated to ensure that you stay up-to-date with the
+    latest trends and technologies in the field.
   </p>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
-  </ul>
-  {happy && <p>I am happy to be learning Astro!</p>}
-
-  {finished && <p>I finished this tutorial!</p>}
-
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
-  }
+  <p>
+    In addition to our educational resources, A11y Cafe also serves as a
+    platform for community engagement and collaboration. We encourage our
+    readers to share their experiences, ask questions, and contribute to the
+    conversation around accessibility. Together, we can build a more inclusive
+    and accessible web for everyone. So grab a cup of coffee, explore our site,
+    and join us in our mission to make the digital world a better place for all.
+  </p>
 </Layout>

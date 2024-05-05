@@ -70,17 +70,22 @@ import Feature from "#components/Feature.astro";
         </section>
       )
     }
+
     <main>
+      <!-- <hr /> -->
       {
         showBreadcrumb && (
-          <section>
-            <>
-              <AstroBreadcrumb
-                routes={breadcrumbRoutes || undefined}
-                client:load
-              />
-            </>
-          </section>
+          <>
+            <section>
+              <>
+                <AstroBreadcrumb
+                  routes={breadcrumbRoutes || undefined}
+                  client:load
+                />
+              </>
+            </section>
+            <hr />
+          </>
         )
       }
 
