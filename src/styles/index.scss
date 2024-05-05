@@ -19,12 +19,6 @@ main {
   }
 }
 
-header {
-  min-height: fit-content;
-  padding-block: 2rem;
-  grid-template-rows: minmax(18.75rem, auto);
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -47,9 +41,12 @@ body > nav ul > li:hover {
 }
 
 header {
+  min-height: fit-content;
+  padding-block: 2rem;
+  grid-template-rows: minmax(18.75rem, auto);
   background-color: transparent;
 
-  background-color: var(--cafe-accent-100);
+  // background-color: var(--cafe-accent-100);
 
   height: max(21.875rem, 31.25rem);
   margin-block: 0;
