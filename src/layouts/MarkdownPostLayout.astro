@@ -16,7 +16,7 @@ const contentRoute = [
   },
 ];
 // const path = path.resolve(__dirname);
-const editPath = `${Astro.url.pathname}.mdx`;
+const editPath = `https://github.com/shawn-sandy/a11y-cafe/blob/dev/src/content${Astro.url.pathname}.mdx`;
 ---
 
 <Layout
@@ -60,10 +60,8 @@ const editPath = `${Astro.url.pathname}.mdx`;
     )
   }
   <div class="div-align-right">
-    <a
-      href=`https://github.com/shawn-sandy/a11y-cafe/blob/dev/src/content${editPath}`
-      target="_blank"
-      rel="noopener noreferrer">Edit on Github</a
+    <a href={editPath} target="_blank" rel="noopener noreferrer"
+      >Edit on Github</a
     >
   </div>
 </Layout>
