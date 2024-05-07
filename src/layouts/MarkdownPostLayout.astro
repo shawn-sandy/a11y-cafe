@@ -16,7 +16,7 @@ const contentRoute = [
   },
 ];
 // const path = path.resolve(__dirname);
-const editPath = Astro.url.pathname;
+const editPath = `${Astro.url.pathname}.mdx`;
 ---
 
 <Layout
@@ -61,7 +61,7 @@ const editPath = Astro.url.pathname;
   }
   <div class="div-align-right">
     <a
-      href=`https://github.com/shawn-sandy/a11y-cafe/blob/dev/src/content${editPath}.mdx`
+      href=`https://github.com/shawn-sandy/a11y-cafe/blob/dev/src/content${editPath}`
       target="_blank"
       rel="noopener noreferrer">Edit on Github</a
     >
