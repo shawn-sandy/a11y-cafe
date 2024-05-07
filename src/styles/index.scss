@@ -34,10 +34,6 @@ main {
   }
 }
 
-.justify-center {
-  justify-content: center;
-}
-
 body {
   > nav {
     min-height: 5rem;
@@ -264,7 +260,7 @@ article > figure > img[alt] {
   font-weight: 600;
 }
 
-a[href]:has(b) {
+a[href]:not([_blank]):has(b) {
   > b {
     --btn-fs: var(--font-size-21);
     padding-inline: calc(var(--btn-fs) * 2);
@@ -282,11 +278,14 @@ a[href]:has(b) {
   }
 }
 
-.align-right {
+.justify-center {
+  justify-content: center;
+}
+
+.align-right,
+.div-align-right {
   display: flex;
-  text-align: right;
   width: 100%;
-  align-items: flex-end;
   justify-content: flex-end;
 }
 
