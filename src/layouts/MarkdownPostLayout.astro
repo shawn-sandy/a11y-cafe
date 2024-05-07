@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Youtube from "#components/astro/Youtube.astro";
 import Img from "#components/astro/Img.astro";
 import { fade } from "astro:transitions";
+import path from "path";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -14,7 +15,7 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-
+// const path = path.resolve(__dirname);
 const editPath = Astro.url.pathname;
 ---
 
