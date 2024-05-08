@@ -11,14 +11,13 @@ body {
     position: absolute;
     top: -4rem;
     left: 0;
-    width: 100%;
+    min-width: 100%;
     display: block;
     justify-content: flex-start;
     padding: 1rem;
     z-index: 100;
     transition: top 0.3s;
     border-radius: 0;
-    // padding: 1rem;
     background-color: var(--cafe-accent-100);
     &:focus {
       top: 0;
@@ -32,10 +31,6 @@ main {
   > section {
     padding-inline: 2rem;
   }
-}
-
-.justify-center {
-  justify-content: center;
 }
 
 body {
@@ -282,11 +277,14 @@ a[href]:has(b) {
   }
 }
 
-.align-right {
+.justify-center {
+  justify-content: center;
+}
+
+.align-right,
+.div-align-right {
   display: flex;
-  text-align: right;
   width: 100%;
-  align-items: flex-end;
   justify-content: flex-end;
 }
 

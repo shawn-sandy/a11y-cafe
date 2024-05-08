@@ -3,7 +3,8 @@
     "astro-build.astro-vscode",
     "unifiedjs.vscode-mdx",
     "yzhang.markdown-all-in-one",
-    "shd101wyy.markdown-preview-enhanced"
+    "shd101wyy.markdown-preview-enhanced",
+    "ethansk.restore-terminals"
   ],
   "unwantedRecommendations": []
 }
