@@ -11,14 +11,13 @@ body {
     position: absolute;
     top: -4rem;
     left: 0;
-    width: 100%;
+    min-width: 100%;
     display: block;
     justify-content: flex-start;
     padding: 1rem;
     z-index: 100;
     transition: top 0.3s;
     border-radius: 0;
-    // padding: 1rem;
     background-color: var(--cafe-accent-100);
     &:focus {
       top: 0;
@@ -260,7 +259,7 @@ article > figure > img[alt] {
   font-weight: 600;
 }
 
-a[href]:not([_blank]):has(b) {
+a[href]:has(b) {
   > b {
     --btn-fs: var(--font-size-21);
     padding-inline: calc(var(--btn-fs) * 2);
