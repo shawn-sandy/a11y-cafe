@@ -7,6 +7,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
+    summary: z.string().optional(),
     author: z.string(),
     breadcrumbSlug: z.string().optional(), // should match the slug
     image: z

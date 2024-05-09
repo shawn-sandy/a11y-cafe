@@ -190,8 +190,15 @@ section:has(> nav) {
   justify-items: flex-start;
 }
 
-article > * + * {
-  margin-block-start: 1.5rem;
+article {
+  + article {
+    margin-block-start: 2rem;
+  }
+  // > {
+  //   * + * {
+  //     margin-block-start: rem;
+  //   }
+  // }
 }
 
 article p {
