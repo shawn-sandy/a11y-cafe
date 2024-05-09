@@ -23,11 +23,13 @@ export type Props = {
   category?: string;
 };
 
-const { collectionTitle, pageSize, to, collection, startCount, category } =
-  Astro.props;
+const { collectionTitle, pageSize, to, collection, startCount } = Astro.props;
+const category = Astro.props.category || undefined;
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
-    return data.draft === false && data.category === category;
+    return category
+      ? data.draft === false && data.category === category
+      : data.draft === false;
   })
   .sort(
     (a: SortType, b: SortType) =>
