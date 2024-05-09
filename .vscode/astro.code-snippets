@@ -20,15 +20,15 @@
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2022-07-01}",
+			"pubDate: ${2:2024-07-00}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
-			"author: '${4:Astro Basics}'",
+			"author: '${4:A11y.Cafe}'",
 			"image:",
 			"    url: '${5:https://picsum.photos/1200}'",
 			"    alt: '${6:The full Astro logo.}'",
 			"    caption: '${7:The img caption from my first blog post.}'",
-			"tags: [\"${8:astro}\", \"${9:blogging}\", \"${10:learning in public}\"]",
-			"draft: ${11:false}",
+			"tags: [\"${8:WCAG}\", \"${9:Guidelines}\"]",
+			"draft: ${11:true}",
 			"---"
 		],
 		"description": "Snippet for a blog post frontmatter meta"
