@@ -1,12 +1,100 @@
 ---
-title: 'Blog Post Titled Here'
-pubDate: 2024-07-00
-description: 'This is the first post of my new Astro blog.'
+title: 'Operable - Functionality is available to all users'
+pubDate: 2024-07-08
+description: 'User interface components and navigation must be operable.'
 author: 'A11y.Cafe'
 image:
     url: 'https://picsum.photos/1200'
     alt: 'The full Astro logo.'
     caption: 'The img caption from my first blog post.'
-tags: ["WCAG", "Guidelines"]
-draft: true
+tags: ["WCAG", "Guidelines", 'Operable']
+category: "guides"
+draft: false
 ---
+
+# Operable
+
+The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
+web content more operable for users with disabilities. The "Operable" principle
+focuses on ensuring that all functionality is available from a keyboard,
+providing users enough time to read and use content, and helping users navigate
+and find content.
+
+## Keyboard Accessible (2.1)
+
+All functionality should be available from a keyboard interface, without
+requiring specific timings for individual keystrokes. This allows users who
+cannot use a mouse or other pointing device to access all content and
+functionality.
+
+Best practices:
+
+- Ensure all interactive elements (links, buttons, form controls) can be reached
+  and operated using only the keyboard.
+- Provide visible keyboard focus indicators to help users track their location
+  on the page.
+- Avoid interactions that require specific timings or path-based gestures.
+
+## Enough Time (2.2)
+
+Users should have enough time to read and use content. This includes allowing
+users to pause, stop, or extend time limits, and providing mechanisms to request
+more time if needed.
+
+Best practices:
+
+- Avoid time limits or provide a way to extend or disable them.
+- If time limits are necessary, warn users before the time expires and allow
+  them to request more time.
+- Ensure that moving, blinking, or auto-updating content can be paused or
+  stopped.
+
+## Navigable (2.4)
+
+Users should be able to easily navigate and find content. This includes
+providing ways to bypass repetitive content, descriptive page titles and
+headings, and clear navigation mechanisms.
+
+Best practices:
+
+- Provide a "skip to main content" link at the top of each page.
+- Use descriptive and hierarchical headings to structure content.
+- Provide clear and consistent navigation mechanisms (menus, breadcrumbs, etc.).
+- Ensure that links and controls have descriptive and meaningful labels.
+
+## Input Modalities (2.5)
+
+Users should be able to operate functionality through various inputs beyond
+keyboard, such as speech, gestures, or eye-tracking.
+
+Best practices:
+
+- Support alternative input modalities where possible (e.g., speech recognition,
+  eye-tracking).
+- Ensure that functionality is not limited to specific input modalities.
+
+## Relevant Resources
+
+- <a href="https://www.w3.org/TR/WCAG22/#operable" target="_blank">
+    WCAG 2.2 Operable Guidelines
+  </a>
+- <a href="https://webaim.org/techniques/keyboard/" target="_blank">
+    WebAIM: Keyboard Accessibility
+  </a>
+- <a
+    href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Multimedia"
+    target="_blank"
+  >
+    MDN: Accessible Multimedia
+  </a>
+- <a
+    href="https://www.a11yproject.com/posts/2013-05-23-what-is-navigation/"
+    target="_blank"
+  >
+    A11y Project: Navigation
+  </a>
+---
+
+By following these guidelines and best practices, you can ensure that your web
+content is operable and accessible to users with diverse abilities and needs.
+Operable
