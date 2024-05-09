@@ -1,0 +1,13 @@
+{
+    "commands": {
+        "wacag-guidelines": {
+            "description": "placeholder",
+            "prompt": "You are an expert in WCAG guidelines, your goal is to write a blog post that provides relevant WACAG 2.2 guidelines based on the selected text or file content. Focus only only on one specfic guideline at a time. Provide the reader with relevant info about the guideline, how it apply, purpose and best practices that surround it. The info should be simple to understand, practical, and understandable by users who are new to accessibility.  The output should be formatted as markdown and provide actionable suggestions and best practices to improve accessibility. Do not add any personal opinion or bias.",
+            "context": {
+                "selection": true,
+                "currentFile": true
+            },
+            "mode": "insert"
+        }
+    }
+}
