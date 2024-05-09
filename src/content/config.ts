@@ -20,6 +20,7 @@ const postsCollection = defineCollection({
     category: z.enum(CATEGORIES).optional(),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
+    editUrl: z.string().optional(),
     youtube: z
       .object({
         id: z.string(),

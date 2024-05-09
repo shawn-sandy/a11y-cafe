@@ -15,8 +15,8 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-const editUrl = "https://github.com/shawn-sandy/a11y-cafe/edit/dev/src/content";
-const editPath = Astro.url.pathname + ".mdx";
+const editPath =
+  "https://github.com/shawn-sandy/a11y-cafe/edit/dev/src/content/";
 ---
 
 <Layout
@@ -43,6 +43,10 @@ const editPath = Astro.url.pathname + ".mdx";
     )
   }
 
+  <h2 data-ui="display" id="post-title" class="post-title">
+    {frontmatter.title}
+  </h2>
+  <hr />
   <slot />
   {
     frontmatter.tags && frontmatter.tags.length > 0 && (
@@ -59,9 +63,17 @@ const editPath = Astro.url.pathname + ".mdx";
       </div>
     )
   }
-  <div class="div-align-right">
-    <a href={editUrl + editPath} target="_blank" rel="noopener noreferrer"
-      >Edit on Github</a
-    >
-  </div>
+  {
+    frontmatter?.editUrl && (
+      <div class="div-align-right">
+        <a
+          href={editPath + frontmatter.editUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Edit on Github
+        </a>
+      </div>
+    )
+  }
 </Layout>
