@@ -116,6 +116,24 @@ section {
         line-height: 1.8;
         font-size: var(--fs-5);
       }
+
+      a[href]:has(b) {
+        > b {
+          --btn-fs: var(--font-size-21);
+          padding-inline: calc(var(--btn-fs) * 2);
+          padding-block: var(--btn-fs);
+          width: fit-content;
+          border-radius: var(--radius-pill, 6.1875rem);
+          background-color: var(--cafe-accent-700, #6b4229);
+          color: var(--cafe-gray-50);
+          font-family: Roboto, sans-serif;
+          font-size: var(--fs-5);
+          letter-spacing: 0.08rem;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }
@@ -264,24 +282,6 @@ article > figure > img[alt] {
 
 .roboto-serif-md {
   font-weight: 600;
-}
-
-a[href]:has(b) {
-  > b {
-    --btn-fs: var(--font-size-21);
-    padding-inline: calc(var(--btn-fs) * 2);
-    padding-block: var(--btn-fs);
-    width: fit-content;
-    border-radius: var(--radius-pill, 6.1875rem);
-    background-color: var(--cafe-accent-700, #6b4229);
-    color: var(--cafe-gray-50);
-    font-family: Roboto, sans-serif;
-    font-size: var(--fs-5);
-    letter-spacing: 0.08rem;
-  }
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 .justify-center {
