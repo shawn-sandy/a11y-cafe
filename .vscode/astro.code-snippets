@@ -29,6 +29,8 @@
 			"    caption: '${7:The img caption from my first blog post.}'",
 			"tags: [\"${8:WCAG}\", \"${9:Guidelines}\"]",
 			"draft: ${11:true}",
+			"category: '${10:Guides}'",
+			"editUrl: '${12:blog/my-first-post}'",
 			"---"
 		],
 		"description": "Snippet for a blog post frontmatter meta"
