@@ -30,4 +30,4 @@ export const SITE_TITLE = "A11y Cafe";
 export const SITE_DESCRIPTION =
   "Accessibility patterns, best-practices, guides reviews and resources.";
 export const SITE_LOGO = "/logo.png";
-export const PAGINATION_COUNT: number = 2;
+export const PAGINATION_COUNT: number = 5;

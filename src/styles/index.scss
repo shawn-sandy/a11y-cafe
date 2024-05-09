@@ -66,9 +66,14 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+
+    h1 {
+      font-size: var(--h1);
+    }
+
     > p {
       font-family: var(--fontFamily-Roboto-Serif, "Roboto Serif");
-      font-size: var(--fontSize-36, 2.25rem);
+      font-size: var(--fs-7, 2.25rem);
       color: var(--cafe-primary-700);
       font-style: normal;
       font-weight: 400;
@@ -175,7 +180,8 @@ a[href]:hover {
   text-decoration-color: var(--cafe-primary-600);
 }
 
-h2 a[href] {
+h2 a[href],
+h2 {
   font-size: var(--h2);
   /* color: #865434; */
 }
@@ -223,6 +229,9 @@ article p {
   max-width: 80ch;
   line-height: 1.8;
   font-size: var(--fs-4);
+  + * {
+    margin-block-start: 2rem;
+  }
 }
 
 article {

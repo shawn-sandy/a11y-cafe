@@ -24,15 +24,20 @@ const editPath =
   pageDescription={frontmatter.description}
   breadcrumbRoutes={contentRoute}
 >
+  <h2 data-ui="display" id="post-title" class="post-title">
+    {frontmatter.title}
+  </h2>
+  <hr />
+
   {
     frontmatter.image && (
-      <>
+      <p>
         <Img
           imgSrc={frontmatter.image.url}
           imgAlt={frontmatter.image?.alt}
           imgCaption={frontmatter.image?.caption}
         />
-      </>
+      </p>
     )
   }
   {
@@ -43,10 +48,6 @@ const editPath =
     )
   }
 
-  <h2 data-ui="display" id="post-title" class="post-title">
-    {frontmatter.title}
-  </h2>
-  <hr />
   <slot />
   {
     frontmatter.tags && frontmatter.tags.length > 0 && (
