@@ -55,6 +55,48 @@ Best practices for implementing captions include:
 - Offering captions in multiple languages, if applicable, to accommodate diverse
   audiences.
 
+### Code Examples
+
+```html
+<!-- Example 1: Using the <track> element to provide captions for a video -->
+<video src="video.mp4" controls>
+  <track src="captions.vtt" kind="captions" srclang="en" label="English Captions">
+</video>
+
+```
+
+ This example demonstrates how to use the `<track>` element to provide captions for a video. The kind attribute is set to "captions", and the srclang attribute specifies the language of the captions. The label attribute provides a user-friendly name for the captions.
+
+
+```html
+<!-- Example 2: Using the aria-describedby attribute to associate captions with audio -->
+<audio src="audio.mp3" controls aria-describedby="audio-captions"></audio>
+<div id="audio-captions">
+  <p>[Music]</p>
+  <p>Speaker 1: Welcome to the podcast.</p>
+  <p>Speaker 2: Thank you for having me.</p>
+</div>
+
+```
+
+ This example shows how to use the aria-describedby attribute to associate captions with an audio element. The aria-describedby attribute references the ID of the element containing the captions, providing a programmatic relationship between the audio and its captions.
+
+
+ ```html
+ <!-- Example 3: Providing a transcript for a video -->
+<video src="video.mp4" controls></video>
+<div>
+  <h2>Video Transcript</h2>
+  <p>[Visual description of the video]</p>
+  <p>Speaker 1: Welcome to the tutorial.</p>
+  <p>Speaker 2: In this video, we'll learn about...</p>
+</div>
+
+ ```
+
+In this example, a transcript is provided for a video. While not strictly captions, a transcript can serve as an alternative for users who prefer to read the content instead of watching the video. The transcript should include all relevant visual and auditory information.
+
+
 ## Relevant Resources
 
 <a
@@ -72,6 +114,11 @@ Best practices for implementing captions include:
 >
   3Play Media - Closed Captioning Resources
 </a>
+
+
+---
+
+## Summary
 
 By following the WCAG 2.2 guidelines and implementing best practices for
 captions, you can ensure that your prerecorded multimedia content is accessible
