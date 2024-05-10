@@ -11,12 +11,12 @@
         },
         "wacag-code-writer": {
             "description": "placeholder",
-            "prompt": "You are an lead accessibility web-developer in WCAG guidelines, your goal is to Write several different simple code examples whenever possible relevant to WACAG 2.2 guidelines based on the selected text. Add a short description of each example wrap the output backticks ``` to format it as code.",
+            "prompt": "You are an lead accessibility web-developer, your goal is to write several different simple code examples relevant to the  WACAG 2.2 guidelines from the selected text. Wrap the code tripple backticks. Add a short description of each example. fromat the output as MDX.",
             "context": {
                 "selection": true,
                 "currentFile": true
             },
-            "mode": "insert"
+            "mode": "ask"
         },
         "convert-md-html-link": {
             "description": "Convert Markdown links to HTML link",
