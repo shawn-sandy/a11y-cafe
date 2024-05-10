@@ -5,6 +5,7 @@ import BlogPosts from "./BlogPosts.astro";
 import { PAGINATION_COUNT } from "#utils/site-config";
 import type { TODO } from "#utils/types";
 import Placeholder from "#components/views/Placeholder.astro";
+import Pagination from "#components/astro/Pagination.astro";
 
 /**
  * The props for the CollectionList component.
@@ -21,9 +22,19 @@ export type Props = {
   collection?: TODO;
   startCount?: number;
   category?: string;
+  itemsPerPage?: number;
+  showPagination?: boolean;
 };
 
-const { collectionTitle, pageSize, to, collection, startCount } = Astro.props;
+const {
+  collectionTitle,
+  pageSize,
+  to,
+  collection,
+  startCount,
+  itemsPerPage,
+  showPagination,
+} = Astro.props;
 const category = Astro.props.category || undefined;
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
@@ -38,7 +49,7 @@ const collectionResults = (await getCollection(collection || "posts"))
   .slice(startCount || 0, pageSize || PAGINATION_COUNT || 3);
 ---
 
-<article>
+<>
   {
     collectionResults.length === 0 ? (
       <>
@@ -46,21 +57,31 @@ const collectionResults = (await getCollection(collection || "posts"))
       </>
     ) : (
       <>
-        {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
-
-        {collectionResults?.map((post: TODO) => (
+        <>
           <>
-            <article>
-              <BlogPosts
-                title={post.data.title}
-                description={post.data?.summary || post.data.description}
-                url={`/${to || "posts"}/${post.slug}`}
-              />
-              <hr />
-            </article>
+            {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+            {collectionResults?.map((post: TODO) => (
+              <>
+                <article>
+                  <BlogPosts
+                    title={post.data.title}
+                    description={post.data?.summary || post.data.description}
+                    url={`/${to || "posts"}/${post.slug}`}
+                  />
+                </article>
+              </>
+            ))}
           </>
-        ))}
+        </>
+        {showPagination && (
+          <p>
+            <Pagination
+              collection={collection}
+              itemsPerPage={itemsPerPage || PAGINATION_COUNT}
+            />
+          </p>
+        )}
       </>
     )
   }
-</article>
+</>
