@@ -1,5 +1,6 @@
 @use "./ally-cafe.css";
 @use "./styles.css";
+@use "./features";
 
 body {
   min-width: 20.3125rem;
@@ -78,67 +79,6 @@ header {
       font-style: normal;
       font-weight: 400;
       line-height: 120%; /* 2.7rem */
-    }
-  }
-}
-
-section {
-  > div {
-    text-align: unset;
-    + div {
-      margin-block-start: unset;
-    }
-  }
-  &:has(.features),
-  &:has([data-grid]) {
-    display: flex;
-    flex-wrap: wrap;
-    margin-block-end: 3rem;
-    max-width: 92.5rem;
-    margin-inline: auto;
-    // padding-inline: 2rem;
-    justify-content: center;
-    gap: 2.625rem;
-    @media screen and (max-width: 1080px) {
-      justify-content: center;
-    }
-    .features,
-    [data-grid] {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.5rem;
-      flex-basis: calc(30% - 10px);
-      min-width: 300px;
-      width: max(300px, 100%);
-      margin-block: 3rem;
-      h3 {
-        margin-block-end: unset;
-        font-size: var(--h3);
-      }
-      p {
-        flex: 2;
-        line-height: 1.8;
-        font-size: var(--fs-5);
-      }
-
-      a[href]:has(b) {
-        > b {
-          --btn-fs: var(--font-size-21);
-          padding-inline: calc(var(--btn-fs) * 2);
-          padding-block: var(--btn-fs);
-          width: fit-content;
-          border-radius: var(--radius-pill, 6.1875rem);
-          background-color: var(--cafe-accent-700, #6b4229);
-          color: var(--cafe-gray-50);
-          font-family: Roboto, sans-serif;
-          font-size: var(--fs-5);
-          letter-spacing: 0.08rem;
-        }
-        &:hover {
-          text-decoration: none;
-        }
-      }
     }
   }
 }
