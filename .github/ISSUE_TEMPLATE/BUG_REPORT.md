@@ -5,6 +5,13 @@ title: '[BUG] '
 labels: bug
 assignees: ''
 ---
+## Bug type
+
+[] Typo
+[] Broken link
+[] Incorrect information
+[] Missing information
+[] Other
 
 ## Describe the bug
 
