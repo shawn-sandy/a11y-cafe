@@ -72,9 +72,6 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
   {
     frontmatter?.editUrl && (
       <div class="div-align-right">
-        <a href={editPath} target="_blank" rel="noopener noreferrer">
-          <b> Edit on Github</b>
-        </a>{" "}
         <GithubEdit slug={slug || ""} />
         <GithubSupport
           issueTitle={`I found an issue with the following (slug: ${slug}) -  ${frontmatter.title}`}
