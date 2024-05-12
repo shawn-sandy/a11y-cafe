@@ -6,6 +6,7 @@ import { PAGINATION_COUNT } from "#utils/site-config";
 import type { TODO } from "#utils/types";
 import Placeholder from "#components/views/Placeholder.astro";
 import Pagination from "#components/astro/Pagination.astro";
+import Pagination from "#components/astro/Pagination.astro";
 
 /**
  * The props for the CollectionList component.
@@ -24,8 +25,20 @@ export type Props = {
   category?: string;
   itemsPerPage?: number;
   showPagination?: boolean;
+  itemsPerPage?: number;
+  showPagination?: boolean;
 };
 
+const {
+  collectionTitle,
+  pageSize,
+  to,
+  collection,
+  startCount,
+  itemsPerPage,
+  showPagination,
+} = Astro.props;
+const category = Astro.props.category || undefined;
 const {
   collectionTitle,
   pageSize,
@@ -41,6 +54,9 @@ const collectionResults = (await getCollection(collection || "posts"))
     return category
       ? data.draft === false && data.category === category
       : data.draft === false;
+    return category
+      ? data.draft === false && data.category === category
+      : data.draft === false;
   })
   .sort(
     (a: SortType, b: SortType) =>
@@ -50,41 +66,43 @@ const collectionResults = (await getCollection(collection || "posts"))
 ---
 
 <>
-  {
-    collectionResults.length === 0 ? (
-      <>
-        <Placeholder />
-      </>
-    ) : (
-      <>
+  <>
+    {
+      collectionResults.length === 0 ? (
+        <>
+          <Placeholder />
+        </>
+      ) : (
         <>
           <>
-            {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
-            {collectionResults?.map((post: TODO) => (
-              <>
-                <article>
-                  <BlogPosts
-                    title={post.data.title}
-                    description={post.data?.summary || post.data.description}
-                    url={`/${to || "posts"}/${post.slug}`}
-                  />
-                </article>
-              </>
-            ))}
+            <>
+              {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+              {collectionResults?.map((post: TODO) => (
+                <>
+                  <article>
+                    <BlogPosts
+                      title={post.data.title}
+                      description={post.data?.summary || post.data.description}
+                      url={`/${to || "posts"}/${post.slug}`}
+                    />
+                  </article>
+                </>
+              ))}
+            </>
           </>
+          {showPagination && (
+            <>
+              <p>
+                <hr />
+                <Pagination
+                  collection={collection}
+                  itemsPerPage={itemsPerPage || PAGINATION_COUNT}
+                />
+              </p>
+            </>
+          )}
         </>
-        {showPagination && (
-          <>
-            <p>
-              <hr />
-              <Pagination
-                collection={collection}
-                itemsPerPage={itemsPerPage || PAGINATION_COUNT}
-              />
-            </p>
-          </>
-        )}
-      </>
-    )
-  }
+      )
+    }
+  </>
 </>
