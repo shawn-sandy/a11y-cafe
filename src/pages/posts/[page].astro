@@ -25,23 +25,24 @@ const pageSize = PAGINATION_COUNT;
 const { page } = Astro.props as TODO;
 ---
 
-<Layout pageTitle="Blog Posts">
+<Layout pageTitle="Patterns, Guides, Resources.">
   {
     page?.data.map((post: TODO) => (
       <article>
         <BlogPosts
           url={post.slug}
           title={post.data.title}
-          description={post.data.description}
+          description={post.data.summary || post.data.description}
         />
       </article>
     ))
   }
+  <hr />
   <nav>
     <div>
       {page?.url?.prev ? <a href={page?.url?.prev}>Previous</a> : "Previous"}
     </div>
-    <Pagination collection="posts" itemsPerPage={pageSize} />
+    <Pagination collection="posts" itemsPerPage={10} />
     <div>
       {page?.url?.next ? <a href={page?.url?.next}>Next </a> : "Next"}
     </div>

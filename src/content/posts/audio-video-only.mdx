@@ -1,0 +1,137 @@
+---
+title: 'Providing altenatives for audio-only and video-only content'
+pubDate: 2024-07-12
+description: 'Ensure that users who cannot perceive the
+audio or video content can still access the information it conveys'
+summary: 'This guideline is to ensure that users who cannot perceive the
+audio or video content can still access the information it conveys. This can be
+achieved by providing text transcripts, captions, or audio descriptions.'
+author: 'A11y.Cafe'
+image:
+    url: 'https://picsum.photos/1200'
+    alt: 'The full Astro logo.'
+    caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+## WCAG 2.2 Guidelines
+
+The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
+pre-recorded audio-only and video-only content accessible. The relevant
+guidelines are:
+
+### 1.2.1 Audio-only and Video-only (Prerecorded)
+
+For pre-recorded audio-only and pre-recorded video-only media, the following are
+true, except when the audio or video is a media alternative for text and is
+clearly labeled as such:
+
+- **Pre-recorded Audio-only**: An alternative for time-based media is provided
+  that presents equivalent information for pre-recorded audio-only content.
+- **Pre-recorded Video-only**: Either an alternative for time-based media or an
+  audio track is provided that presents equivalent information for pre-recorded
+  video-only content.
+
+The purpose of this guideline is to ensure that users who cannot perceive the
+audio or video content can still access the information it conveys. This can be
+achieved by providing text transcripts, captions, or audio descriptions.
+
+### Best Practices
+
+- **Transcripts**: Provide text transcripts for pre-recorded audio-only content,
+  such as podcasts or audio interviews. Transcripts should accurately represent
+  the spoken content, including speaker identification and relevant non-speech
+  sounds.
+- **Captions**: For pre-recorded video-only content, provide synchronized
+  captions that accurately represent the audio content, including relevant
+  non-speech sounds.
+- **Audio Descriptions**: For pre-recorded video-only content, consider
+  providing audio descriptions that describe relevant visual information for
+  users who cannot perceive the video.
+- **Clearly Label Alternatives**: If the audio or video is an alternative for
+  text content, clearly label it as such to avoid the need for additional
+  alternatives.
+
+---
+
+### Code Examples
+
+**Providing a Transcript for Audio-only Content**
+
+```html
+<!-- Audio player -->
+
+<audio controls>
+  <source src="podcast-episode.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Transcript -->
+<details>
+  <summary>Show Transcript</summary>
+  <p>Transcript for "Podcast Episode: Introduction to Accessibility":</p>
+  <p>[Speaker 1]: Welcome to our podcast on accessibility...</p>
+  <!-- Transcript content continues -->
+</details>
+```
+
+**Providing Captions for Video-only Content**
+
+```html
+<!-- Video player -->
+
+<video controls>
+  <source src="silent-movie.mp4" type="video/mp4">
+  <track kind="captions" src="silent-movie-captions.vtt" srclang="en" label="English">
+  Your browser does not support the video element.
+</video>
+```
+
+
+**Providing Audio Descriptions for Video-only Content**
+
+```html
+<!-- Video player -->
+
+<video controls>
+  <source src="nature-documentary.mp4" type="video/mp4">
+  <track kind="descriptions" src="nature-documentary-descriptions.vtt" srclang="en" label="English Audio Descriptions">
+  Your browser does not support the video element.
+</video>
+```
+
+---
+
+## Relevant Resources
+
+- <a
+    href="https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html"
+    target="_blank"
+  >
+    Understanding WCAG 2.2 Guideline 1.2.1
+  </a>
+- <a
+    href="https://www.w3.org/WAI/WCAG22/Techniques/general/G158"
+    target="_blank"
+  >
+    WCAG 2.2 Techniques for 1.2.1
+  </a>
+  (opens in a new window)
+- <a
+    href="https://webaim.org/techniques/captions/transcripts"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WebAIM: Transcripts for Audio Content
+  </a>
+- <a
+    href="https://webaim.org/techniques/captions/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WebAIM: Captions for Video Content
+  </a>
+ 

@@ -1,0 +1,29 @@
+---
+export type Props = {
+  issueTitle: string;
+  issueDescription?: string;
+  issueLabel?: string;
+  issueRepository?: string;
+  issueTemplate?: string;
+  repoProvider?: string;
+};
+
+const {
+  issueTitle,
+  issueDescription,
+  issueLabel,
+  issueRepository,
+  repoProvider,
+  issueTemplate,
+} = Astro.props;
+
+const gitHubUrl = `${repoProvider || "https://github.com"}/${issueRepository}/issues/new?template=BUG_REPORT.md&title=${encodeURIComponent(issueTitle)}&body=${issueDescription ? encodeURIComponent(issueDescription) : ""}`;
+
+//https://github.com/your-username/your-repository/issues/new?title=Issue with ${encodeURIComponent(document.title)}&body=Describe the issue or feedback here...`
+---
+
+<>
+  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
+    <b>{issueLabel || "Open an issue"}</b>
+  </a>
+</>

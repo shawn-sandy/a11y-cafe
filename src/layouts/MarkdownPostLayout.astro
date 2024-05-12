@@ -4,6 +4,7 @@ import Youtube from "#components/astro/Youtube.astro";
 import Img from "#components/astro/Img.astro";
 import { fade } from "astro:transitions";
 import path from "path";
+import GithubSupport from "#components/GithubSupport.astro";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -15,8 +16,8 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-const editUrl = "https://github.com/shawn-sandy/a11y-cafe/edit/dev/src/content";
-const editPath = Astro.url.pathname + ".mdx";
+const editPath =
+  "https://github.com/shawn-sandy/a11y-cafe/edit/dev/src/content/";
 ---
 
 <Layout
@@ -24,15 +25,19 @@ const editPath = Astro.url.pathname + ".mdx";
   pageDescription={frontmatter.description}
   breadcrumbRoutes={contentRoute}
 >
+  <h2 data-ui="display" id="post-title" class="post-title">
+    {frontmatter.title}
+  </h2>
+
   {
     frontmatter.image && (
-      <>
+      <p>
         <Img
           imgSrc={frontmatter.image.url}
           imgAlt={frontmatter.image?.alt}
           imgCaption={frontmatter.image?.caption}
         />
-      </>
+      </p>
     )
   }
   {
@@ -59,9 +64,21 @@ const editPath = Astro.url.pathname + ".mdx";
       </div>
     )
   }
-  <div class="div-align-right">
-    <a href={editUrl + editPath} target="_blank" rel="noopener noreferrer"
-      >Edit on Github</a
-    >
-  </div>
+  {
+    frontmatter?.editUrl && (
+      <div class="div-align-right">
+        <a
+          href={editPath + frontmatter.editUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <b> Edit on Github</b>
+        </a>{" "}
+        <GithubSupport
+          issueTitle={`I found an issue with the following (article/post) -  ${frontmatter.title}`}
+          issueRepository="shawn-sandy/a11y-cafe"
+        />
+      </div>
+    )
+  }
 </Layout>

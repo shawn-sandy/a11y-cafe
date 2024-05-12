@@ -1,0 +1,58 @@
+---
+title: '1st Rule - Dont use ARIA?'
+pubDate: 2024-07-09
+description: 'Understanding when to use ARIA and when not to is an important part of building accessible web applications.'
+summary: 'It is common to hear people say that the first rule of ARIA (Accessible Rich Internet Applications) "is dont use ARIA". While this is some-what true it can also be misleading. Understanding when to use ARIA and when not to is an important part of building accessible web applications.'
+author: 'A11y.Cafe'
+image:
+    url: 'https://picsum.photos/1200'
+    alt: 'The full Astro logo.'
+    caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'articles'
+editUrl: 'blog/first-rule.mdx'
+---
+
+It is common to hear people say that the first rule of Accessible Rich Internet Applications (ARIA) "is dont use ARIA". While this is some-what true it can also be misleading, what should be said is that understanding when to use ARIA and when not to is an important part of building accessible web applications.
+
+This guideline is intended to encourage the use of native HTML elements, which inherently provide greater accessibility support than custom-built elements. However, this advice should be interpreted not as a prohibition against ARIA but as a prompt to consider whether native HTML can achieve the desired functionality before resorting to ARIA. This nuanced approach ensures that developers fully exploit the built-in accessibility features of HTML before using ARIA to fill in the gaps where HTML falls short.
+
+**Understanding ARIA's Role in Modern Web Development**
+
+ARIA plays a crucial role in enhancing web accessibility by allowing developers to specify attributes that define complex interactions and relationships in user interfaces, which native HTML cannot express alone. It is especially useful for creating advanced user interface controls and dynamic content that are accessible to people with disabilities, including those using assistive technologies like screen readers.
+
+**Limitations of Native HTML**
+
+Despite the robust features of HTML, there are limitations to its capabilities, particularly with complex web applications and user interfaces that go beyond basic forms and links. HTML elements come with predefined roles and behaviors, which are generally sufficient for standard document structures. However, modern web applications often require interactions that HTML cannot inherently manage, such as drag-and-drop interfaces, dynamic content updates, and custom interactive widgets.
+
+**Necessity of ARIA in Modern Development**
+
+In cases where HTML lacks the necessary semantics, ARIA becomes indispensable. For instance:
+
+1. **Custom Widgets:** Developing custom controls such as sliders, tree views, or menu systems that HTML cannot replicate requires ARIA to communicate the roles, states, and properties to assistive technologies.
+   
+2. **Dynamic Content Updates:** ARIA can manage live content updates effectively. Attributes like `aria-live` inform screen readers of changes to content without requiring a page refresh, crucial for applications with real-time content updates such as chat messages or stock tickers.
+
+3. **Enhanced User Navigation:** Semantic HTML markup like `<nav>`, `<main>`,
+   `<header>`, `<footer>`, and `<section>` elements provide built-in roles and
+   landmarks that allow screen readers to quickly navigate different sections of
+   a web page, improving the overall user experience.
+
+4. **Semantic Meaning:** ARIA roles allow developers to assign semantic meaning
+   to custom elements or elements used in non-standard ways, ensuring that
+   assistive technologies can correctly interpret their purpose and
+   functionality.
+
+
+**Balancing Use of HTML and ARIA**
+
+While the integration of ARIA in web development is essential, it should be approached with caution. Misused or excessive ARIA can complicate accessibility rather than enhancing it. Developers should:
+
+- Use native HTML elements wherever possible due to their inherent accessibility features.
+- Apply ARIA only when no HTML element provides the necessary functionality.
+- Test accessibility implementations extensively across different devices and assistive technologies.
+
+**Conclusion**
+
+Ultimately, the decision to use ARIA should be driven by the need to fill the gaps left by HTML in complex web applications. While the maxim "don't use ARIA" serves as a useful guideline to prioritize HTML, ARIA's role in modern web development remains vital for creating fully accessible and interactive applications. By judiciously leveraging both HTML and ARIA, developers can ensure their applications are accessible to all users, including those with disabilities.

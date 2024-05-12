@@ -30,9 +30,12 @@ const { page } = Astro.props as TODO;
       </article>
     ))
   }
+
   <nav>
     <div>
-      {page?.url?.prev ? <a href={page?.url?.prev}>Previous</a> : "Previous"}
+      zzz {
+        page?.url?.prev ? <a href={page?.url?.prev}>Previous</a> : "Previous"
+      }
     </div>
     <Pagination collection="content" itemsPerPage={pageSize} />
     <div>

@@ -16,20 +16,49 @@
 	// 	"description": "Log output to console"
 	// }
 	"Blog Post Header": {
-		"prefix": "blogpost",
+		"prefix": "astro-blog",
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2022-07-01}",
+			"pubDate: ${2:2024-07-00}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
-			"author: '${4:Astro Basics}'",
+			"author: '${4:A11y.Cafe}'",
 			"image:",
 			"    url: '${5:https://picsum.photos/1200}'",
 			"    alt: '${6:The full Astro logo.}'",
 			"    caption: '${7:The img caption from my first blog post.}'",
-			"tags: [\"${8:astro}\", \"${9:blogging}\", \"${10:learning in public}\"]",
+			"tags: [\"${8:WCAG}\", \"${9:Guidelines}\"]",
 			"draft: ${11:false}",
-			"---"
+			"category: '${10:guides}'",
+			"editUrl: '${12:blog/my-first-post}'",
+			"---",
+			"",
+			"",
+			"${13:This is where the blog post content would go.}",
+		],
+		"description": "Snippet for a blog post frontmatter meta"
+	},
+	"Astro Blog Post Header": {
+		"prefix": "a11y-post",
+		"body": [
+			"---",
+			"title: '${1:Blog Post Titled Here}'",
+			"pubDate: ${2:2024-07-10}",
+			"description: '${3:This is the first post of my new Astro blog.}'",
+			"summary: '${14:}'",
+			"author: '${4:A11y.Cafe}'",
+			"image:",
+			"    url: '${5:https://picsum.photos/1200}'",
+			"    alt: '${6:The full Astro logo.}'",
+			"    caption: '${7:The img caption from my first blog post.}'",
+			"tags: [\"${8:WCAG}\", \"${9:Guidelines}\"]",
+			"draft: ${11:false}",
+			"category: '${10:guides}'",
+			"editUrl: '${12:blog/my-first-post}'",
+			"---",
+			"",
+			"",
+			"${13:This is where the blog post content would go.}",
 		],
 		"description": "Snippet for a blog post frontmatter meta"
 	}
