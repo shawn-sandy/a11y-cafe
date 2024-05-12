@@ -41,6 +41,9 @@ const collectionResults = (await getCollection(collection || "posts"))
     return category
       ? data.draft === false && data.category === category
       : data.draft === false;
+    return category
+      ? data.draft === false && data.category === category
+      : data.draft === false;
   })
   .sort(
     (a: SortType, b: SortType) =>
@@ -50,42 +53,43 @@ const collectionResults = (await getCollection(collection || "posts"))
 ---
 
 <>
-  {
-    collectionResults.length === 0 ? (
-      <>
-        <Placeholder />
-      </>
-    ) : (
-      <>
+  <>
+    {
+      collectionResults.length === 0 ? (
+        <>
+          <Placeholder />
+        </>
+      ) : (
         <>
           <>
-            {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
-            {collectionResults?.map((post: TODO) => (
-              <>
-                <article>
-                  <BlogPosts
-                    title={post.data.title}
-                    description={post.data?.summary || post.data.description}
-                    url={`/${to || "posts"}/${post.slug}`}
-                  />
-                </article>
-              </>
-            ))}
+            <>
+              {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+              {collectionResults?.map((post: TODO) => (
+                <>
+                  <article>
+                    <BlogPosts
+                      title={post.data.title}
+                      description={post.data?.summary || post.data.description}
+                      url={`/${to || "posts"}/${post.slug}`}
+                    />
+                  </article>
+                </>
+              ))}
+            </>
           </>
+          {showPagination && (
+            <>
+              <p>
+                <hr />
+                <Pagination
+                  collection={collection}
+                  itemsPerPage={itemsPerPage || PAGINATION_COUNT}
+                />
+              </p>
+            </>
+          )}
         </>
-        {showPagination && (
-          <>
-            <p>
-              <hr />
-              <Pagination
-                collection={collection}
-                itemsPerPage={itemsPerPage || PAGINATION_COUNT}
-              />
-              <hr />
-            </p>
-          </>
-        )}
-      </>
-    )
-  }
+      )
+    }
+  </>
 </>

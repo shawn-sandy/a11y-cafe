@@ -5,6 +5,7 @@ import Img from "#components/astro/Img.astro";
 import { fade } from "astro:transitions";
 import path from "path";
 import GithubSupport from "#components/GithubSupport.astro";
+import GithubEdit from "#components/GithubEdit.astro";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -16,8 +17,10 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-const editPath =
-  "https://github.com/shawn-sandy/a11y-cafe/edit/dev/src/content/";
+
+//https://github.com/shawn-sandy/a11y-cafe/blob/main/src/content/posts/3-understandable.mdx
+// https://github.com/shawn-sandy/a11y-cafe/blob/main/src/content/posts/text-alternatives.mdx
+const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content/posts/${slug}.mdx`;
 ---
 
 <Layout
@@ -32,11 +35,13 @@ const editPath =
   {
     frontmatter.image && (
       <p>
-        <Img
-          imgSrc={frontmatter.image.url}
-          imgAlt={frontmatter.image?.alt}
-          imgCaption={frontmatter.image?.caption}
-        />
+        <p>
+          <Img
+            imgSrc={frontmatter.image.url}
+            imgAlt={frontmatter.image?.alt}
+            imgCaption={frontmatter.image?.caption}
+          />
+        </p>
       </p>
     )
   }
@@ -67,15 +72,9 @@ const editPath =
   {
     frontmatter?.editUrl && (
       <div class="div-align-right">
-        <a
-          href={editPath + frontmatter.editUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <b> Edit on Github</b>
-        </a>{" "}
+        <GithubEdit slug={slug || ""} />
         <GithubSupport
-          issueTitle={`I found an issue with the following (article/post) -  ${frontmatter.title}`}
+          issueTitle={`I found an issue with the following (slug: ${slug}) -  ${frontmatter.title}`}
           issueRepository="shawn-sandy/a11y-cafe"
         />
       </div>
