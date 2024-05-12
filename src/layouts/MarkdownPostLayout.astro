@@ -5,7 +5,7 @@ import Img from "#components/astro/Img.astro";
 import { fade } from "astro:transitions";
 import path from "path";
 import GithubSupport from "#components/GithubSupport.astro";
-import GithubSupport from "#components/GithubSupport.astro";
+import GithubEdit from "#components/GithubEdit.astro";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -79,6 +79,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
         <a href={editPath} target="_blank" rel="noopener noreferrer">
           <b> Edit on Github</b>
         </a>{" "}
+        <GithubEdit slug={slug || ""} />
         <GithubSupport
           issueTitle={`I found an issue with the following (slug: ${slug}) -  ${frontmatter.title}`}
           issueRepository="shawn-sandy/a11y-cafe"
