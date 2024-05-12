@@ -1,0 +1,19 @@
+---
+export type Props = {
+  issueTitle: string;
+  issueDescription?: string;
+  issueUrl?: string;
+  issueRepository?: string;
+  repoProvider?: string;
+};
+
+const { issueTitle, issueDescription, issueUrl, issueRepository } = Astro.props;
+
+//https://github.com/your-username/your-repository/issues/new?title=Issue with ${encodeURIComponent(document.title)}&body=Describe the issue or feedback here...`
+---
+
+<div>
+  <a href="http://" target="_blank" rel="noopener noreferrer"
+    >{issueDescription || "Describe your issue here"}</a
+  >
+</div>
