@@ -4,6 +4,7 @@ import Youtube from "#components/astro/Youtube.astro";
 import Img from "#components/astro/Img.astro";
 import { fade } from "astro:transitions";
 import path from "path";
+import GithubSupport from "#components/GithubSupport.astro";
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -71,8 +72,12 @@ const editPath =
           target="_blank"
           rel="noopener noreferrer"
         >
-          Edit on Github
-        </a>
+          <b> Edit on Github</b>
+        </a>{" "}
+        <GithubSupport
+          issueTitle={`I found an issue with the following (article/post) -  ${frontmatter.title}`}
+          issueRepository="shawn-sandy/a11y-cafe"
+        />
       </div>
     )
   }
