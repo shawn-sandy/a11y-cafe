@@ -1,0 +1,19 @@
+---
+export type Props = {
+  slug: string;
+  user?: string;
+  repo?: string;
+  branch?: string;
+  path?: string;
+};
+
+const { slug, branch, path, repo, user } = Astro.props;
+
+const editPath = `https://github.com/${user || "shawn-sandy"}/${repo || "a11y-cafe"}/edit/${branch || "main"}${path || "/src/content/posts/"}${slug}.mdx`;
+---
+
+<>
+  <a href={editPath} target="_blank" rel="noopener noreferrer">
+    <b> Edit on Github</b>
+  </a>{" "}
+</>
