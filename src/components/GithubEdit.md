@@ -3,6 +3,7 @@
 
 The `GithubEdit` component is an Astro component that generates a link to edit the current file on GitHub. It takes in the following props:
 
+```js
 export type Props = {
   slug?: string; // The slug of the file to edit
   user?: string; // The GitHub username
@@ -10,6 +11,7 @@ export type Props = {
   branch?: string; // The branch to edit
   path?: string; // The path to the file
 };
+```
 
 ## Usage
 
