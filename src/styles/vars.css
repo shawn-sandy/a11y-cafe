@@ -24,6 +24,8 @@
   --credits: 0.56rem;
   --credits-bold: 0.56rem;
 
+  --roboto-serif: "Roboto Serif", sans-serif;
+
   /* COLORS */
   --a11y-bg: rgba(217, 217, 217, 1);
   --a11y-tea: #aa9d7d;
