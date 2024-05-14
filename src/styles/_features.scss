@@ -38,19 +38,18 @@ section {
         font-size: var(--fs-5);
       }
 
-      a[href]:has(b) {
-        > b {
-          --btn-fs: var(--font-size-21);
-          padding-inline: calc(var(--btn-fs) * 2);
-          padding-block: var(--btn-fs);
-          width: fit-content;
-          border-radius: var(--radius-pill, 6.1875rem);
-          background-color: var(--cafe-primary-700, #6b4229);
-          color: var(--cafe-gray-50);
-          font-family: Roboto, sans-serif;
-          font-size: var(--fs-5);
-          letter-spacing: 0.08rem;
-        }
+      a[href]:has(> b) {
+        --btn-fs: var(--font-size-21);
+        padding-inline: calc(var(--btn-fs) * 2);
+        padding-block: var(--btn-fs);
+        width: fit-content;
+        border-radius: var(--radius-pill, 6.1875rem);
+        background-color: var(--cafe-primary-700, #6b4229);
+        color: var(--cafe-gray-50);
+        font-family: Roboto, sans-serif;
+        font-size: var(--fs-5);
+        letter-spacing: 0.08rem;
+
         &:hover {
           text-decoration: none;
         }
