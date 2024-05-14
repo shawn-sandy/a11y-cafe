@@ -46,6 +46,8 @@ audio content or audio-only content.
 
 ### Code Examples
 
+This example demonstrates how to add an audio description track to a video using the `<track>` element. The kind attribute is set to "descriptions", and the src attribute points to the VTT file containing the audio descriptions.
+
 ```html
 <video controls>
   <source src="video.mp4" type="video/mp4">
@@ -55,7 +57,8 @@ audio content or audio-only content.
 
 ```
 
-This example demonstrates how to add an audio description track to a video using the `<track>` element. The kind attribute is set to "descriptions", and the src attribute points to the VTT file containing the audio descriptions.
+In this example, an alternative version of the video with audio descriptions is provided via a link. This allows users to choose between the original video and the version with audio descriptions.
+
 
 ```html
 <a href="video-with-descriptions.mp4">
@@ -64,8 +67,7 @@ This example demonstrates how to add an audio description track to a video using
 
 ```
 
-In this example, an alternative version of the video with audio descriptions is provided via a link. This allows users to choose between the original video and the version with audio descriptions.
-
+This example uses ARIA attributes to indicate the availability of audio descriptions. The aria-describedby attribute on the `<video>` element references the id of the element containing the note about audio descriptions.
 
 ```html
 <div role="region" aria-label="Video Player">
@@ -79,8 +81,6 @@ In this example, an alternative version of the video with audio descriptions is 
 </div>
 
 ```
-
-This example uses ARIA attributes to indicate the availability of audio descriptions. The aria-describedby attribute on the `<video>` element references the id of the element containing the note about audio descriptions.
 
 
 ### Relevant Resources

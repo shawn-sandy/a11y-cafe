@@ -4,7 +4,7 @@
 
 body {
   min-width: 20.3125rem;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   background: var(--cafe-accent-50, #fbfdfe);
   border-top: var(--cafe-accent-700) solid 0.75rem;
   height: 100%;
@@ -38,6 +38,7 @@ body {
   > nav {
     min-height: 5rem;
     padding-block: 3rem;
+
     @media screen and (max-width: 580px) {
       flex-direction: column;
       height: unset;
