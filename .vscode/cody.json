@@ -16,7 +16,7 @@
                 "selection": true,
                 "currentFile": true
             },
-            "mode": "insert"
+            "mode": "ask"
         },
         "convert-md-html-link": {
             "description": "Convert Markdown links to HTML link",
