@@ -1,3 +1,7 @@
+:root {
+  --roboto: "Roboto Serif";
+}
+
 body {
   min-width: 20.3125rem;
   font-family: Inter;
@@ -71,12 +75,12 @@ header {
     }
 
     > p {
-      font-family: var(--fontFamily-Roboto-Serif, "Roboto Serif");
+      font-family: var(--roboto-serif, "Roboto Serif");
       font-size: var(--fs-7, 2.25rem);
       color: var(--cafe-primary-700);
       font-style: normal;
       font-weight: 400;
-      line-height: 120%; /* 2.7rem */
+      line-height: 1.6; /* 2.7rem */
     }
   }
 }
@@ -92,7 +96,7 @@ h3,
 h4 {
   color: var(--cafe-primary-700);
   text-transform: capitalize;
-  font-family: "Roboto Serif", serif;
+  font-family: var(--roboto, sans-serif);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -100,10 +104,6 @@ h4 {
     "wdth" 100,
     "GRAD" 0;
   line-height: 1.4;
-}
-
-h2[data-ui~="display"] {
-  --weight: 500;
 }
 
 a[href] {
@@ -121,12 +121,10 @@ a[href]:hover {
 h2 a[href],
 h2 {
   font-size: var(--h3);
-  /* color: #865434; */
 }
 
 h3 {
   color: var(--cafe-primary-700, #481416);
-  font-family: "Roboto Serif";
   font-size: var(--h4);
   font-style: normal;
   font-weight: 400;
@@ -136,6 +134,7 @@ h3 {
 h4 {
   font-size: var(--h5);
 }
+
 pre {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -159,11 +158,6 @@ article {
   + article {
     margin-block-start: 2rem;
   }
-  // > {
-  //   * + * {
-  //     margin-block-start: rem;
-  //   }
-  // }
 }
 
 article p {
@@ -188,6 +182,7 @@ article {
     margin-block-start: 3rem;
   }
 }
+
 code {
   color: rgb(158, 49, 49);
   font-size: smaller;
