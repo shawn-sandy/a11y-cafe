@@ -31,7 +31,7 @@ export default defineConfig({
     remarkPlugins: [remarkToc],
     rehypePlugins: [rehypeAccessibleEmojis],
     shikiConfig: {
-      theme: "one-dark-pro",
+      theme: "houston",
       wrap: true,
     },
   },
