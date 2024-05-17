@@ -5,7 +5,7 @@ on:
     branches: [main, dev]
   pull_request:
     # branches: [main, master]
-    branches: [main. dev]
+    branches: [main, dev]
 jobs:
   test:
     timeout-minutes: 60
