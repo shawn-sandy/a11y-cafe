@@ -2,10 +2,15 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/astro/BlogPosts.astro";
-import type { TODO } from "#utils/types.js";
+import type { SortType, TODO } from "#utils/types.js";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
+  const allPosts = await (
+    await getCollection("posts")
+  ).sort(
+    (a: SortType, b: SortType) =>
+      b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  );
 
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.data.tags).flat()),
@@ -26,14 +31,14 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Layout pageTitle={`Tag: ${tag}`}>
+<Layout pageTitle={`${tag}`}>
   <ul data-list="unstyled">
     {
       posts?.map((post) => (
         <BlogPost
           url={`/posts/${post.slug}`}
           title={post.data.title}
-          description={post.data.description}
+          description={post.data.summary || post.data.description}
         />
       ))
     }
