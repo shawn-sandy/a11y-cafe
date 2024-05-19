@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Youtube from "#components/astro/Youtube.astro";
 import GithubSupport from "#components/GithubSupport.astro";
 import GithubEdit from "#components/GithubEdit.astro";
+import Img from "#components/astro/Img.astro";
 
 const { frontmatter, headings } = Astro.props;
 const { slug } = Astro.params;
@@ -24,10 +25,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
   pageDescription={frontmatter.description}
   breadcrumbRoutes={contentRoute}
 >
-  <h2 data-ui="display" id="post-title" class="post-title">
-    {frontmatter.title}
-  </h2>
-  <!-- {
+  {
     frontmatter.image && (
       <p>
         <p>
@@ -39,7 +37,10 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
         </p>
       </p>
     )
-  } -->
+  }
+  <h2 data-ui="display" id="post-title" class="post-title">
+    {frontmatter.title}
+  </h2>
   {
     frontmatter.youtube?.id && (
       <p>
