@@ -1,0 +1,114 @@
+---
+title: 'Web Accessibility Content Guidelines: A Primer'
+pubDate: 2024-07-10
+description: 'This is the first post of my new Astro blog.'
+summary: ''
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+
+# Web Content Accessibility Guidelines (WCAG) 2.2
+
+The Web Content Accessibility Guidelines (WCAG) 2.2 are a set of recommendations
+for making web content more accessible to people with disabilities. These
+guidelines are developed by the World Wide Web Consortium (W3C) and are widely
+recognized as the international standard for web accessibility.
+
+## Perceivable
+
+### 1.4.13 Content on Hover or Focus
+
+This guideline requires that content that becomes available on hover or keyboard
+focus should be dismissible, hoverable, and persistent. This ensures that users
+with disabilities can access and interact with the content effectively.
+
+**Purpose:** To ensure that users with disabilities can perceive and interact
+with content that appears on hover or focus.
+
+**Best Practices:**
+
+- Provide a mechanism to dismiss the content, such as an "X" button or an "Esc"
+  key.
+- Ensure that the content remains visible until the user dismisses it or moves
+  the pointer or focus away.
+- Allow users to hover over the content without triggering additional events or
+  content changes.
+
+**Example:**
+
+<div class="tooltip">
+  Hover over me
+  <span class="tooltip-text">
+    This is a tooltip that appears on hover.
+    <button class="close-btn">X</button>
+  </span>
+</div>
+
+### 1.4.14 Label in Name
+
+This guideline requires that the name and role of user interface components are
+programmatically determinable. This helps users with disabilities understand the
+purpose and functionality of the components.
+
+**Purpose:** To ensure that users with disabilities can identify and understand
+the purpose of user interface components.
+
+**Best Practices:**
+
+- Use appropriate HTML elements and attributes to provide semantic meaning
+  (e.g., `<button>`, `<input>`, `aria-label`, `aria-labelledby`).
+- Ensure that the label accurately describes the component's purpose and
+  functionality.
+- Avoid using placeholder text as a substitute for a label.
+
+**Example:**
+```html
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" aria-label="Enter your username"/>
+```
+
+## Resources and Further Reading
+
+Here are some useful resources and links for learning more about WCAG 2.2
+guidelines:
+```
+- <a
+    href="https://www.w3.org/TR/WCAG22/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WCAG 2.2 Guidelines
+  </a>
+- <a
+    href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Web Accessibility Initiative (WAI) - WCAG Overview
+  </a>
+- <a
+    href="https://webaim.org/standards/wcag/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WebAIM - WCAG 2 Checklist
+  </a>
+- <a
+    href="https://www.a11yproject.com/posts/2022-08-24-wcag-2-2/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    The A11Y Project - What's New in WCAG 2.2
+  </a>
+
+Remember, following WCAG guidelines is an ongoing process, and it's essential to
+regularly review and update your web content to ensure it remains accessible to
+all users. Web Content Accessibility Guidelines
