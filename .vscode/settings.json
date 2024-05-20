@@ -11,5 +11,7 @@
             "other": "on"
         },
         "editor.minimap.enabled": false
-    }
+    },
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true
 }
