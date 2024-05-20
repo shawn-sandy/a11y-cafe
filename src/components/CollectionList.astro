@@ -22,7 +22,7 @@ export type Props = {
   to?: string;
   collection?: TODO;
   startCount?: number;
-  category?: string;
+  category?: string[];
   itemsPerPage?: number;
   showPagination?: boolean;
 };
@@ -36,11 +36,11 @@ const {
   itemsPerPage,
   showPagination,
 } = Astro.props;
-const category = Astro.props.category || undefined;
+const category = Astro.props.category || [];
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
     return category
-      ? data.draft === false && data.category === category
+      ? data.draft === false && category.includes(data.category)
       : data.draft === false;
   })
   .sort(

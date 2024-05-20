@@ -13,11 +13,16 @@ import CollectionList from "#components/CollectionList.astro";
       showPagination={false}
       itemsPerPage={5}
       collection="posts"
-      category="articles"
+      category={["articles"]}
     />
   </section>
   <hr />
   <section>
-    <CollectionList showPagination={true} itemsPerPage={5} collection="posts" />
+    <CollectionList
+      showPagination={false}
+      itemsPerPage={10}
+      collection="posts"
+      category={["guides", "patterns", "resources"]}
+    />
   </section>
 </Layout>
