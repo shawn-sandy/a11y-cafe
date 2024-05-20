@@ -9,6 +9,15 @@ import CollectionList from "#components/CollectionList.astro";
   showFeature={true}
 >
   <section>
+    <CollectionList
+      showPagination={false}
+      itemsPerPage={5}
+      collection="posts"
+      category="articles"
+    />
+  </section>
+  <hr />
+  <section>
     <CollectionList showPagination={true} itemsPerPage={5} collection="posts" />
   </section>
 </Layout>
