@@ -23,6 +23,7 @@ export type Props = {
   collection?: TODO;
   startCount?: number;
   category?: string;
+  omitCategory?: string;
   itemsPerPage?: number;
   showPagination?: boolean;
 };
@@ -35,22 +36,23 @@ const {
   startCount,
   itemsPerPage,
   showPagination,
+  omitCategory
 } = Astro.props;
 const category = Astro.props.category || undefined;
 const collectionResults = (await getCollection(collection || "posts"))
-  .filter(({ data: data }) => {
+.filter(({ data: data }) => {
     return category
-      ? data.draft === false && data.category === category
+      ? data.draft === false  && data.category === category ||  data.category !== omitCategory
       : data.draft === false;
   })
-  .sort(
+ .sort(
     (a: SortType, b: SortType) =>
       b.data.pubDate.getTime() - a.data.pubDate.getTime()
   )
   .slice(startCount || 0, pageSize || PAGINATION_COUNT || 3);
 ---
 
-<>
+
   <>
     {
       collectionResults.length === 0 ? (
@@ -97,4 +99,4 @@ const collectionResults = (await getCollection(collection || "posts"))
       )
     }
   </>
-</>
+
