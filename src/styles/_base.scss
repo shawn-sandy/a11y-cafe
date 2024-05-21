@@ -58,7 +58,6 @@ header {
   padding-block: 2rem;
   grid-template-rows: minmax(18.75rem, auto);
   background-color: transparent;
-  // height: max(21.875rem, 31.25rem);
   margin-block: 0;
 }
 
@@ -111,7 +110,7 @@ a[href] {
   color: var(--cafe-accent-700);
 }
 
-a[href]:hover {
+a[href]:hover:not(> s, > b) {
   color: var(--cafe-primary-600);
   text-decoration: underline;
   text-decoration-skip-ink: auto;
