@@ -77,10 +77,11 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
           </i>
         </p>
         <div class="div-align-right">
-          <GithubEdit slug={slug || ""} />
+          <GithubEdit slug={slug || ""} aria-describedby="found-issue" />
           <GithubSupport
             issueTitle={`I found an issue with the following (slug: ${slug}) -  ${frontmatter.title}`}
             issueRepository="shawn-sandy/a11y-cafe"
+            aria-describedby="found-issue"
           />
         </div>
       </>

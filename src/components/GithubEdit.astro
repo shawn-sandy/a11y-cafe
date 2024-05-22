@@ -1,19 +1,20 @@
 ---
-export type Props = {
+import type { HTMLAttributes } from "astro/types";
+export interface Props extends HTMLAttributes<"a"> {
   slug?: string;
   user?: string;
   repo?: string;
   branch?: string;
   path?: string;
-};
+}
 
-const { slug, branch, path, repo, user } = Astro.props;
+const { slug, branch, path, repo, user, ...attrs } = Astro.props;
 
 const editPath = `https://github.com/${user || "shawn-sandy"}/${repo || "a11y-cafe"}/edit/${branch || "main"}${path || "/src/content/posts/"}${slug}.mdx`;
 ---
 
 <>
-  <a href={editPath} target="_blank" rel="noopener noreferrer">
+  <a href={editPath} target="_blank" rel="noopener noreferrer" {...attrs}>
     <b> Edit on Github</b>
   </a>
 </>

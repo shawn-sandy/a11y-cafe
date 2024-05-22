@@ -59,38 +59,36 @@ const collectionResults = (await getCollection(collection || "posts"))
     ) : (
       <>
         <>
-          <>
-            {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
-            {collectionResults?.map((post: TODO) => (
-              <>
-                <article>
-                  <BlogPosts
-                    title={post.data.title}
-                    description={post.data?.summary || post.data.description}
-                    url={`/${to || "posts"}/${post.slug}`}
+          {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+          {collectionResults?.map((post: TODO) => (
+            <>
+              <article>
+                <BlogPosts
+                  title={post.data.title}
+                  description={post.data?.summary || post.data.description}
+                  url={`/${to || "posts"}/${post.slug}`}
+                >
+                  <p>
+                    {post.data.image && post.data?.image && (
+                      <Img
+                        imgSrc={post.data.image.url}
+                        imgAlt={post.data.image?.alt}
+                        imgCaption={post.data.image?.caption}
+                      />
+                    )}
+                  </p>
+                </BlogPosts>
+                <div class="align-right">
+                  <a
+                    href={`/${to || "posts"}/${post.slug}`}
+                    aria-label={`Continue reading ${post.data.title}`}
                   >
-                    <p>
-                      {post.data.image && post.data?.image && (
-                        <Img
-                          imgSrc={post.data.image.url}
-                          imgAlt={post.data.image?.alt}
-                          imgCaption={post.data.image?.caption}
-                        />
-                      )}
-                    </p>
-                  </BlogPosts>
-                  <div class="align-right">
-                    <a
-                      href={`/${to || "posts"}/${post.slug}`}
-                      aria-label={`Continue reading ${post.data.title}`}
-                    >
-                      <b aria-hidden="true">Continue reading</b>
-                    </a>
-                  </div>
-                </article>
-              </>
-            ))}
-          </>
+                    <b aria-hidden="true">Continue reading</b>
+                  </a>
+                </div>
+              </article>
+            </>
+          ))}
         </>
         {showPagination && (
           <>

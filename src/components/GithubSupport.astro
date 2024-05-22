@@ -1,12 +1,13 @@
 ---
-export type Props = {
+import type { HTMLAttributes } from "astro/types";
+export interface Props extends HTMLAttributes<"a"> {
   issueTitle: string;
   issueDescription?: string;
   issueLabel?: string;
   issueRepository?: string;
   issueTemplate?: string;
   repoProvider?: string;
-};
+}
 
 const {
   issueTitle,
@@ -15,6 +16,7 @@ const {
   issueRepository,
   repoProvider,
   issueTemplate,
+  ...attrs
 } = Astro.props;
 
 const gitHubUrl = `${repoProvider || "https://github.com"}/${issueRepository}/issues/new?template=${issueTemplate || "BUG_REPORT.md"}&title=${encodeURIComponent(issueTitle)}&body=${issueDescription ? encodeURIComponent(issueDescription) : ""}`;
@@ -24,7 +26,7 @@ const gitHubUrl = `${repoProvider || "https://github.com"}/${issueRepository}/is
 ---
 
 <>
-  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
+  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer" {...attrs}>
     <b>{issueLabel || "Open an issue"}</b>
   </a>
 </>
