@@ -20,9 +20,6 @@ const {
 } = Astro.props;
 
 const gitHubUrl = `${repoProvider || "https://github.com"}/${issueRepository}/issues/new?template=${issueTemplate || "BUG_REPORT.md"}&title=${encodeURIComponent(issueTitle)}&body=${issueDescription ? encodeURIComponent(issueDescription) : ""}`;
-
-//https://github.com/your-username/your-repository/issues/new?title=Issue with ${encodeURIComponent(document.title)}&body=Describe the issue or feedback here...`
-// https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content/posts/text-alternatives.mdx
 ---
 
 <>
