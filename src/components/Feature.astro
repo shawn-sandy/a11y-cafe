@@ -5,12 +5,24 @@ import Guides from "./views/Guides.astro";
 import Reviews from "./views/Reviews.astro";
 ---
 
-<FeatureView showButton={true} link="/patterns">
+<FeatureView
+  showButton={true}
+  link="/patterns"
+  buttonAriaLabel="Contimue reading, inclusive patterns"
+>
   <Patterns />
 </FeatureView>
-<FeatureView showButton={true} link="/guides">
+<FeatureView
+  showButton={true}
+  link="/guides"
+  buttonAriaLabel="Continue reading, A11y guides"
+>
   <Guides />
 </FeatureView>
-<FeatureView showButton={true} link="/resources">
+<FeatureView
+  showButton={true}
+  link="/resources"
+  buttonAriaLabel="Continue reading, reviews and resources"
+>
   <Reviews />
 </FeatureView>

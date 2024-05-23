@@ -22,7 +22,7 @@ export type Props = {
   to?: string;
   collection?: TODO;
   startCount?: number;
-  category?: string;
+  category?: string[];
   itemsPerPage?: number;
   showPagination?: boolean;
 };
@@ -36,11 +36,11 @@ const {
   itemsPerPage,
   showPagination,
 } = Astro.props;
-const category = Astro.props.category || undefined;
+const category = Astro.props.category || ["guides", "patterns", "resources"];
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
     return category
-      ? data.draft === false && data.category === category
+      ? data.draft === false && category.includes(data.category)
       : data.draft === false;
   })
   .sort(
@@ -51,20 +51,24 @@ const collectionResults = (await getCollection(collection || "posts"))
 ---
 
 <>
-  <>
-    {
-      collectionResults.length === 0 ? (
+  {
+    collectionResults.length === 0 ? (
+      <>
+        <Placeholder />
+      </>
+    ) : (
+      <>
         <>
-          <Placeholder />
-        </>
-      ) : (
-        <>
-          <>
+          {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
+          {collectionResults?.map((post: TODO) => (
             <>
-              {collectionTitle && <h3 data-ui="display">{collectionTitle}</h3>}
-              {collectionResults?.map((post: TODO) => (
-                <>
-                  <article>
+              <article>
+                <BlogPosts
+                  title={post.data.title}
+                  description={post.data?.summary || post.data.description}
+                  url={`/${to || "posts"}/${post.slug}`}
+                >
+                  <p>
                     {post.data.image && post.data?.image && (
                       <Img
                         imgSrc={post.data.image.url}
@@ -72,29 +76,32 @@ const collectionResults = (await getCollection(collection || "posts"))
                         imgCaption={post.data.image?.caption}
                       />
                     )}
-                    <BlogPosts
-                      title={post.data.title}
-                      description={post.data?.summary || post.data.description}
-                      url={`/${to || "posts"}/${post.slug}`}
-                    />
-                  </article>
-                </>
-              ))}
+                  </p>
+                </BlogPosts>
+                <div class="align-right">
+                  <a
+                    href={`/${to || "posts"}/${post.slug}`}
+                    aria-label={`Continue reading ${post.data.title}`}
+                  >
+                    <i aria-hidden="true">Continue reading</i>
+                  </a>
+                </div>
+              </article>
             </>
-          </>
-          {showPagination && (
-            <>
-              <p>
-                <hr />
-                <Pagination
-                  collection={collection}
-                  itemsPerPage={itemsPerPage || PAGINATION_COUNT}
-                />
-              </p>
-            </>
-          )}
+          ))}
         </>
-      )
-    }
-  </>
+        {showPagination && (
+          <>
+            <p>
+              <hr />
+              <Pagination
+                collection={collection}
+                itemsPerPage={itemsPerPage || PAGINATION_COUNT}
+              />
+            </p>
+          </>
+        )}
+      </>
+    )
+  }
 </>

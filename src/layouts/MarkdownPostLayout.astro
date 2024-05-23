@@ -8,6 +8,7 @@ import Img from "#components/astro/Img.astro";
 const { frontmatter, headings } = Astro.props;
 const { slug } = Astro.params;
 console.log(Astro.props);
+console.log(Astro.props);
 
 const contentRoute = [
   {
@@ -69,17 +70,18 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
     frontmatter?.editUrl && (
       <>
         <hr />
-        <p class="div-align-right">
+        <p class="div-align-right" id="found-issue">
           <i>
             Found an error, typo, or bug please edit on github or open an issue
             or ticket
           </i>
         </p>
         <div class="div-align-right">
-          <GithubEdit slug={slug || ""} />
+          <GithubEdit slug={slug || ""} aria-describedby="found-issue" />
           <GithubSupport
             issueTitle={`I found an issue with the following (slug: ${slug}) -  ${frontmatter.title}`}
             issueRepository="shawn-sandy/a11y-cafe"
+            aria-describedby="found-issue"
           />
         </div>
       </>
