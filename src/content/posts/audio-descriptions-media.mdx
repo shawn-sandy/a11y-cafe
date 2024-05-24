@@ -1,0 +1,91 @@
+---
+title: 'Audio descriptions or media alternatives (pre-recorded)'
+pubDate: 2024-07-13
+description: 'This is the first post of my new Astro blog.'
+summary: ''
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "Time-based media"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+The WCAG 2.2 guidelines for Audio Description or Media Alternative (Prerecorded)
+are covered under the **1.2.5 Audio Description (Prerecorded)** success
+criterion. This criterion has a **AA** conformance level.
+
+**Purpose**: The purpose of this guideline is to ensure that prerecorded audio
+content, such as videos or audio files, is accessible to users who are blind or
+have low vision by providing an alternative in the form of audio descriptions.
+
+**How it Applies**: This guideline applies to all prerecorded audio content,
+including videos, audio files, and other multimedia content that contains audio
+information. Audio descriptions provide a narration of the relevant visual
+information, such as actions, scene changes, and other important visual cues, to
+help users who cannot see the content understand what is happening.
+
+**Best Practices**:
+
+- Provide audio descriptions for all prerecorded audio content that contains
+  important visual information.
+- Audio descriptions should be clear, concise, and accurately describe the
+  relevant visual information.
+- Audio descriptions should be synchronized with the audio content and should
+  not interfere with the original audio.
+- Provide a mechanism for users to turn audio descriptions on or off, or to
+  adjust the volume of the audio descriptions separately from the main audio.
+
+**Code Examples**:
+
+```html
+<!-- HTML5 video with audio descriptions -->
+
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  <track kind="descriptions" src="descriptions.vtt" srclang="en" label="English Audio Descriptions">
+  Your browser does not support the video tag.
+</video>
+```
+
+```html
+<!-- HTML5 audio with audio descriptions -->
+
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+  <track kind="descriptions" src="descriptions.vtt" srclang="en" label="English Audio Descriptions">
+  Your browser does not support the audio tag.
+</audio>
+```
+
+**Relevant Resources**:
+
+- <a
+    href="https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WCAG 2.2 Guidelines: 1.2.5 Audio Description (Prerecorded)
+  </a>
+- <a
+    href="https://www.w3.org/WAI/media/av/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Web Accessibility Initiative: Audio and Video Content
+  </a>
+- <a
+    href="https://www.w3.org/WAI/media/av/notes/notes.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Web Accessibility Initiative: Notes on Audio Description
+  </a>
+
+By following these guidelines and best practices, you can ensure that your
+prerecorded audio content is accessible to users who are blind or have low
+vision, providing them with an equal opportunity to understand and enjoy the
+content. Audio Description or Media Alternative (Prerecorded)
