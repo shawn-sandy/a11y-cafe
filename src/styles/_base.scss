@@ -24,17 +24,6 @@ body {
       top: 0;
     }
   }
-}
-
-main {
-  padding-block: 0rem;
-  scroll-margin-block-start: 1rem;
-  > section {
-    padding-inline: 2rem;
-  }
-}
-
-body {
   > nav {
     min-height: 5rem;
     padding-block: 3rem;
@@ -46,11 +35,19 @@ body {
       min-height: unset;
       padding-block: unset;
     }
+
+    ul > li:hover {
+      background-color: transparent;
+    }
   }
 }
 
-body > nav ul > li:hover {
-  background-color: transparent;
+main {
+  padding-block: 0rem;
+  scroll-margin-block-start: 1rem;
+  > section {
+    padding-inline: 2rem;
+  }
 }
 
 header {
