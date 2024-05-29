@@ -1,5 +1,5 @@
 ---
-title: 'Web Accessibility Content Guidelines: A Primer'
+title: 'Understanding WCAG: A Guide to Web Accessibility'
 pubDate: 2024-07-10
 description: 'This is the first post of my new Astro blog.'
 summary: ''
@@ -15,101 +15,115 @@ editUrl: 'blog/my-first-post'
 ---
 
 
-# Web Content Accessibility Guidelines (WCAG) 2.2
+  
 
-The Web Content Accessibility Guidelines (WCAG) 2.2 are a set of recommendations
-for making web content more accessible to people with disabilities. These
-guidelines are developed by the World Wide Web Consortium (W3C) and are widely
-recognized as the international standard for web accessibility.
+## Introduction to WCAG
 
-## Perceivable
+The Web Content Accessibility Guidelines (WCAG) are a set of guidelines created by the World Wide Web Consortium (W3C) to ensure web content is accessible to all users, including those with disabilities. These guidelines help web developers create content that is more accessible and usable for everyone. The latest version, WCAG 2.2, builds on previous versions to further enhance web accessibility.
 
-### 1.4.13 Content on Hover or Focus
+WCAG is organized around four principles, often abbreviated as POUR:
+- **Perceivable**: Information and user interface components must be presented to users in ways they can perceive.
+- **Operable**: User interface components and navigation must be operable.
+- **Understandable**: Information and the operation of the user interface must be understandable.
+- **Robust**: Content must be robust enough to be interpreted by a wide variety of user agents, including assistive technologies.
 
-This guideline requires that content that becomes available on hover or keyboard
-focus should be dismissible, hoverable, and persistent. This ensures that users
-with disabilities can access and interact with the content effectively.
+Each guideline under these principles is categorized into three conformance levels:
+- **A**: The most basic web accessibility features.
+- **AA**: Deals with the biggest and most common barriers for disabled users.
+- **AAA**: The highest and most complex level of web accessibility.
 
-**Purpose:** To ensure that users with disabilities can perceive and interact
-with content that appears on hover or focus.
+## Key WCAG 2.2 Guidelines
 
-**Best Practices:**
+### 1. Perceivable
 
-- Provide a mechanism to dismiss the content, such as an "X" button or an "Esc"
-  key.
-- Ensure that the content remains visible until the user dismisses it or moves
-  the pointer or focus away.
-- Allow users to hover over the content without triggering additional events or
-  content changes.
+#### Text Alternatives (Guideline 1.1)
+Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols, or simpler language.
 
 **Example:**
-
-<div class="tooltip">
-  Hover over me
-  <span class="tooltip-text">
-    This is a tooltip that appears on hover.
-    <button class="close-btn">X</button>
-  </span>
-</div>
-
-### 1.4.14 Label in Name
-
-This guideline requires that the name and role of user interface components are
-programmatically determinable. This helps users with disabilities understand the
-purpose and functionality of the components.
-
-**Purpose:** To ensure that users with disabilities can identify and understand
-the purpose of user interface components.
-
-**Best Practices:**
-
-- Use appropriate HTML elements and attributes to provide semantic meaning
-  (e.g., `<button>`, `<input>`, `aria-label`, `aria-labelledby`).
-- Ensure that the label accurately describes the component's purpose and
-  functionality.
-- Avoid using placeholder text as a substitute for a label.
-
-**Example:**
-
 ```html
-<label for="username">Username:</label>
-<input type="text" id="username" name="username" aria-label="Enter your username"/>
+<img src="example.jpg" alt="A beautiful sunrise over the mountains">
 ```
 
-## Resources and Further Reading
+#### Adaptable (Guideline 1.3)
+Create content that can be presented in different ways without losing information or structure.
 
-Here are some useful resources and links for learning more about WCAG 2.2
-guidelines:
+**Example:**
+Use semantic HTML to ensure content structure is clear:
+```html
+<h1>Main Title</h1>
+<p>This is a paragraph of text under the main title.</p>
 ```
-- <a
-    href="https://www.w3.org/TR/WCAG22/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    WCAG 2.2 Guidelines
-  </a>
-- <a
-    href="https://www.w3.org/WAI/standards-guidelines/wcag/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Web Accessibility Initiative (WAI) - WCAG Overview
-  </a>
-- <a
-    href="https://webaim.org/standards/wcag/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    WebAIM - WCAG 2 Checklist
-  </a>
-- <a
-    href="https://www.a11yproject.com/posts/2022-08-24-wcag-2-2/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    The A11Y Project - What's New in WCAG 2.2
-  </a>
 
-Remember, following WCAG guidelines is an ongoing process, and it's essential to
-regularly review and update your web content to ensure it remains accessible to
-all users. Web Content Accessibility Guidelines
+### 2. Operable
+
+#### Keyboard Accessible (Guideline 2.1)
+All functionality should be available from a keyboard.
+
+**Example:**
+Ensure interactive elements are focusable and usable via keyboard:
+```html
+<button>Click Me</button>
+```
+
+#### Navigable (Guideline 2.4)
+Provide ways to help users navigate, find content, and determine where they are.
+
+**Example:**
+Use descriptive titles and headings:
+```html
+<h1>About Us</h1>
+<p>Welcome to our company...</p>
+```
+
+### 3. Understandable
+
+#### Readable (Guideline 3.1)
+Make text content readable and understandable.
+
+**Example:**
+Use clear and simple language:
+```html
+<p>Click the button to submit your information.</p>
+```
+
+#### Predictable (Guideline 3.2)
+Make web pages appear and operate in predictable ways.
+
+**Example:**
+Ensure navigation is consistent across pages:
+```html
+<nav>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+```
+
+### 4. Robust
+
+#### Compatible (Guideline 4.1)
+Maximize compatibility with current and future user agents, including assistive technologies.
+
+**Example:**
+Use standard HTML5 elements and attributes:
+```html
+<input type="text" aria-label="Username">
+```
+
+## Best Practices for Implementing WCAG
+
+1. **Use Semantic HTML**: Always use HTML elements according to their intended purpose. This helps screen readers and other assistive technologies understand and present the content correctly.
+2. **Provide Alt Text for Images**: Ensure all images have descriptive alt text unless they are purely decorative, in which case they should have an empty alt attribute (alt="").
+3. **Ensure Keyboard Accessibility**: Make sure all interactive elements can be navigated and used with a keyboard.
+4. **Use ARIA Landmarks**: Use ARIA (Accessible Rich Internet Applications) landmarks to help assistive technologies navigate the page.
+5. **Test with Assistive Technologies**: Regularly test your site with screen readers and other assistive technologies to ensure it is usable by all.
+
+## Additional Resources
+
+- [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/standards-guidelines/wcag/) - W3C
+- [Understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/) - W3C
+- [Web Accessibility Evaluation Tools](https://www.w3.org/WAI/test-evaluate/tools/) - W3C
+- [Introduction to Web Accessibility](https://www.w3.org/WAI/fundamentals/accessibility-intro/) - W3C
+
+By following these guidelines and best practices, you can help ensure that your web content is accessible to all users, regardless of their abilities.
