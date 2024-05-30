@@ -41,14 +41,15 @@ const { posts } = Astro.props;
             title={post.data.title}
             description={post.data.description}
           />
-          <p class="align-right">
+          {/* <p class="align-right">
             <a
               href={`/posts/${post.slug}`}
               aria-label={`Continue reading ${post.data.title}`}
             >
               <i aria-hidden="true">Continue reading</i>
             </a>
-          </p>
+          </p> */}
+          {/* <hr /> */}
         </article>
       ))
     }
