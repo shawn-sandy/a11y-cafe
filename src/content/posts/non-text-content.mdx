@@ -1,5 +1,5 @@
 ---
-title: 'Non Text Content - Text Alternatives'
+title: 'Making Non-Text Content Accessible'
 pubDate: 2024-07-12
 description: 'Ensure that all non-text
 content on a web page is accompanied by a text alternative.'
@@ -15,74 +15,166 @@ category: 'guides'
 editUrl: 'blog/non-text-content.mdx'
 ---
 
+## Introduction
 
-## Non-text Content (Level A)
+Non-text content, such as images, audio, and video, plays a crucial role in
+enhancing the user experience on the web. However, for users with disabilities,
+such content can present significant barriers if not properly made accessible.
+The Web Content Accessibility Guidelines (WCAG) provide clear guidelines to
+ensure that non-text content is accessible to everyone. This article will
+explain the relevant WCAG guidelines and success criteria for non-text content
+and provide practical examples and best practices for implementation.
 
-The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
-web content more accessible to people with disabilities. The "Non-text Content"
-guideline (1.1.1) is a Level A success criterion, which means it is a
-fundamental requirement for web accessibility.
+## WCAG Guidelines for Non-Text Content
 
-### What is Non-text Content?
+### 1. Text Alternatives (Guideline 1.1)
 
-Non-text content refers to any content on a web page that is not presented as
-text, such as images, icons, audio, video, or other multimedia elements. These
-elements can be challenging for users with disabilities, particularly those who
-are blind or have low vision, to perceive and understand.
+**Provide text alternatives for any non-text content so that it can be changed
+into other forms people need, such as large print, braille, speech, symbols, or
+simpler language.**
 
-### Purpose and Importance
+- **1.1.1 Non-text Content (Level A):**
+  - **Requirement:** All non-text content that is presented to the user has a
+    text alternative that serves the equivalent purpose.
+  - **Purpose:** This ensures that users who cannot see or hear the non-text
+    content can understand its purpose through text descriptions.
+  - **Example:** Adding `alt` attributes to images, providing transcripts for
+    audio content, and captions for videos.
 
-The purpose of the "Non-text Content" guideline is to ensure that all non-text
-content on a web page is accompanied by a text alternative that conveys the same
-information or function as the non-text content. This allows users with
-disabilities to access and understand the content, regardless of their ability
-to perceive the non-text elements.
+#### Example 1: Images
 
-### Best Practices
+Images should always have an `alt` attribute that describes their content.
 
-To comply with the "Non-text Content" guideline, follow these best practices:
+```html
+<img src="mountains.jpg" alt="A scenic view of mountains during sunset" />
+```
 
-1. **Provide Text Alternatives**: For every non-text element on your web page,
-   provide a text alternative that accurately describes the content or function
-   of the element. This can be done using the `alt` attribute for images,
-   `aria-label` or `aria-labelledby` for icons or other non-text elements, and
-   captions or transcripts for audio and video content.
+#### Example 2: Decorative Images
 
-2. **Be Descriptive and Concise**: Text alternatives should be descriptive
-   enough to convey the essential information or function of the non-text
-   content, but also concise and easy to understand.
+Decorative images, which do not add meaningful content, should have an empty
+`alt` attribute.
 
-3. **Consider Context**: When writing text alternatives, consider the context in
-   which the non-text content appears. The alternative should make sense within
-   the surrounding content and provide enough information for users to
-   understand its purpose.
+```html
+<img src="decorative-border.png" alt="" />
+```
 
-4. **Use Appropriate Techniques**: Different types of non-text content may
-   require different techniques for providing text alternatives. For example,
-   complex images may require longer descriptions, while simple icons may only
-   need a short label.
+#### Example 3: Complex Images
 
-5. **Test and Validate**: Test your web pages with assistive technologies, such
-   as screen readers, to ensure that the text alternatives are properly conveyed
-   and provide a meaningful experience for users with disabilities.
+For complex images like graphs or diagrams, provide a longer description using
+`aria-describedby` or a link to a detailed description.
 
-### Relevant Resources
+```html
+<img
+  src="sales-chart.png"
+  alt="Sales chart for Q1 2024"
+  aria-describedby="chart-description"
+/>
+<p id="chart-description">
+  This chart shows a significant increase in sales during the first quarter of
+  2024...
+</p>
+```
+
+#### Example 4: Audio Content
+
+Provide a transcript for audio content.
+
+```html
+<audio controls>
+  <source src="podcast.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Transcript: Welcome to our podcast. Today, we will discuss...</p>
+```
+
+#### Example 5: Video Content
+
+Provide captions and transcripts for video content.
+
+```html
+<video controls>
+  <source src="video.mp4" type="video/mp4" />
+  <track src="captions_en.vtt" kind="captions" srclang="en" label="English" />
+  Your browser does not support the video tag.
+</video>
+<p>Transcript: This video explains the features of our new product...</p>
+```
+
+## Best Practices for Non-Text Content
+
+1. **Use Descriptive Alt Text for Images:**
+
+   - Ensure that alt text is meaningful and describes the content and function
+     of the image.
+   - Avoid using phrases like "image of" or "picture of."
+
+2. **Provide Transcripts and Captions:**
+
+   - For all audio and video content, provide accurate and synchronized captions
+     and transcripts.
+   - Ensure that captions are readable and appear at a consistent pace.
+
+3. **Use ARIA for Complex Content:**
+
+   - Use ARIA (Accessible Rich Internet Applications) attributes to provide
+     additional context and information for complex non-text content.
+   - Examples include `aria-describedby` for detailed descriptions and
+     `aria-label` for labels.
+
+4. **Ensure Decorative Images are Ignored:**
+
+   - Use empty `alt` attributes for decorative images to ensure screen readers
+     ignore them.
+
+5. **Test with Assistive Technologies:**
+   - Regularly test your content with screen readers and other assistive
+     technologies to ensure that non-text content is accessible.
+
+## Relevant Resources
+
+Here are some valuable online resources to learn more about making non-text
+content accessible:
+
+- <a
+    href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Web Content Accessibility Guidelines (WCAG) Overview
+  </a>{" "}
+
+- <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">
+    W3C Web Accessibility Initiative (WAI) - A comprehensive resource on web
+    accessibility provided by W3C.
+  </a>
+- <a
+    href="https://webaim.org/techniques/alttext/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WebAIM: Alternative Text - Guidelines and techniques for writing effective
+    alt text.
+  </a>
+- <a
+    href="https://www.w3.org/WAI/standards-guidelines/aria/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    W3C ARIA Overview - Information on using ARIA to enhance accessibility.
+  </a>
 
 - <a
     href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html"
     target="_blank"
   >
     Understanding Non-text Content (WCAG 2.2)
-  </a> 
+  </a>{" "}
 - <a href="https://www.w3.org/WAI/tutorials/images/" target="_blank">
     Web Accessibility Tutorials: Text Alternatives
   </a>
-  
-- <a href="https://webaim.org/techniques/alttext/" target="_blank">
-    WebAIM: Alternative Text
-  </a>
-  
 
-By following the "Non-text Content" guideline and providing appropriate text
-alternatives, you can ensure that your web content is accessible to a wider
-audience, including users with disabilities. Non-text Content (Level A)
+---
+
+By following these guidelines and best practices, you can ensure that your
+non-text content is accessible to all users, providing an inclusive and
+enriching experience for everyone.
