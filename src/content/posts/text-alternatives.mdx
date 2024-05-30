@@ -1,78 +1,156 @@
 ---
-title: 'Text Alternatives - Providing Text for Non-Text Content'
+title: "Text Alternatives in Web Accessibility"
 pubDate: 2024-07-11
-description: 'Provide text alternatives for any non-text content so that it can be changed into other forms people need.'
-summary: 'The purpose of this guideline is to ensure that all users, including those who are blind, have low vision, or have cognitive disabilities, can access and understand the information conveyed by non-text content.'
-author: 'A11y.Cafe'
+description:
+  "Provide text alternatives for any non-text content so that it can be changed
+  into other forms people need."
+summary:
+  "The purpose of this guideline is to ensure that all users, including those
+  who are blind, have low vision, or have cognitive disabilities, can access and
+  understand the information conveyed by non-text content."
+author: "A11y.Cafe"
 # image:
 #     url: 'https://picsum.photos/1200'
 #     alt: 'The full Astro logo.'
 #     caption: 'The img caption from my first blog post.'
 tags: ["WCAG", "Guidelines"]
 draft: false
-category: 'guides'
-editUrl: 'blog/my-first-post'
+category: "guides"
+editUrl: "blog/my-first-post"
 ---
 
+## Introduction
 
-# Text Alternatives - Providing Text for Non-Text Content
+Text alternatives are a fundamental aspect of web accessibility, ensuring that
+non-text content is accessible to all users, including those with disabilities.
+The Web Content Accessibility Guidelines (WCAG) emphasize the importance of
+providing text alternatives for non-text content to ensure an inclusive user
+experience. This article will explain the relevant WCAG guidelines and success
+criteria related to text alternatives, and provide practical examples and best
+practices for implementation.
 
-The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
-web content more accessible to people with disabilities. One of the key
-principles is providing text alternatives for non-text content, such as images,
-audio, and video.
+## WCAG Guidelines for Text Alternatives
 
-## Relevant WCAG 2.2 Guidelines
+### 1.1 Text Alternatives (Guideline 1.1)
 
-### 1.1.1 Non-text Content (Level A)
+**Provide text alternatives for any non-text content so that it can be changed
+into other forms people need, such as large print, braille, speech, symbols, or
+simpler language.**
 
-This guideline requires that all non-text content that is presented to the user
-has a text alternative that serves the equivalent purpose. This includes images,
-graphical objects, symbols, audio, video, and other multimedia content.
+#### 1.1.1 Non-text Content (Level A)
 
-The purpose of this guideline is to ensure that all users, including those who
-are blind, have low vision, or have cognitive disabilities, can access and
-understand the information conveyed by non-text content.
+- **Requirement:** All non-text content that is presented to the user must have
+  a text alternative that serves the equivalent purpose.
+- **Purpose:** Ensures that users who cannot see or hear the non-text content
+  can understand its purpose through text descriptions.
 
-Best practices:
+### Examples of Text Alternatives
 
-- Provide descriptive and meaningful alt text for images that convey important
-  information or context.
-- For decorative images that do not convey meaningful information, use an empty
-  alt attribute (`alt=""`).
-- For audio and video content, provide transcripts or captions.
-- For complex images or charts, provide a long description or a link to a
-  text-based alternative.
+#### Example 1: Images
+
+Images should always have an `alt` attribute that describes their content.
+
+```html
+<img src="mountains.jpg" alt="A scenic view of mountains during sunset" />
+```
+
+#### Example 2: Decorative Images
+
+Decorative images, which do not add meaningful content, should have an empty
+`alt` attribute.
+
+```html
+<img src="decorative-border.png" alt="" />
+```
+
+#### Example 3: Complex Images
+
+For complex images like graphs or diagrams, provide a longer description using
+`aria-describedby` or a link to a detailed description.
+
+```html
+<img
+  src="sales-chart.png"
+  alt="Sales chart for Q1 2024"
+  aria-describedby="chart-description"
+/>
+<p id="chart-description">
+  This chart shows a significant increase in sales during the first quarter of
+  2024...
+</p>
+```
+
+#### Example 4: Audio Content
+
+Provide a transcript for audio content.
+
+```html
+<audio controls>
+  <source src="podcast.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Transcript: Welcome to our podcast. Today, we will discuss...</p>
+```
+
+#### Example 5: Video Content
+
+Provide captions and transcripts for video content.
+
+```html
+<video controls>
+  <source src="video.mp4" type="video/mp4" />
+  <track src="captions_en.vtt" kind="captions" srclang="en" label="English" />
+  Your browser does not support the video tag.
+</video>
+<p>Transcript: This video explains the features of our new product...</p>
+```
+
+## Best Practices for Implementing Text Alternatives
+
+1. **Use Descriptive Alt Text for Images:**
+
+   - Ensure that alt text is meaningful and describes the content and function
+     of the image.
+   - Avoid using phrases like "image of" or "picture of."
+
+2. **Provide Transcripts and Captions:**
+
+   - For all audio and video content, provide accurate and synchronized captions
+     and transcripts.
+   - Ensure that captions are readable and appear at a consistent pace.
+
+3. **Use ARIA for Complex Content:**
+
+   - Use ARIA (Accessible Rich Internet Applications) attributes to provide
+     additional context and information for complex non-text content.
+   - Examples include `aria-describedby` for detailed descriptions and
+     `aria-label` for labels.
+
+4. **Ensure Decorative Images are Ignored:**
+
+   - Use empty `alt` attributes for decorative images to ensure screen readers
+     ignore them.
+
+5. **Test with Assistive Technologies:**
+   - Regularly test your content with screen readers and other assistive
+     technologies to ensure that text alternatives are effective and useful.
 
 ## Relevant Resources
 
-- <a
-    href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html"
-    target="_blank"
-  >
-    Understanding Success Criterion 1.1.1: Non-text Content
-  </a>
-  
-- <a
-    href="https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Understanding Success Criterion 1.2.1: Audio-only and Video-only
-    (Prerecorded)
-  </a>
-  <a href="https://webaim.org/techniques/alttext/" target="_blank">
-    WebAIM: Alternative Text
-  </a>
-- <a
-    href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/Multimedia#alternative_text"
-    target="_blank"
-  >
-    MDN Web Docs: Alternative Text
-  </a>
+Here are some valuable online resources to learn more about text alternatives
+and accessibility:
 
-By providing text alternatives for non-text content, you can ensure that your
-web content is accessible to a wider audience, including users with
-disabilities. Follow the WCAG 2.2 guidelines and best practices to create an
-inclusive and accessible web experience for everyone. Text Alternatives -
-Providing Text for Non-Text Content
+- [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/standards-guidelines/wcag/) -
+  The official WCAG documentation by W3C.
+- [W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) - A
+  comprehensive resource on web accessibility provided by W3C.
+- [WebAIM: Alternative Text](https://webaim.org/techniques/alttext/) -
+  Guidelines and techniques for writing effective alt text.
+- [W3C ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/) -
+  Information on using ARIA to enhance accessibility.
+
+These resources will open in a new window for your convenience.
+
+By following these guidelines and best practices, you can ensure that your web
+content is accessible to all users, providing an inclusive and enriching
+experience for everyone.

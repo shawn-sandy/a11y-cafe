@@ -1,7 +1,9 @@
 ---
-title: 'Audio descriptions or media alternatives (pre-recorded)'
+title: 'Audio Descriptions and Media Alternatives (Pre-Recorded) '
 pubDate: 2024-07-13
-description: 'This is the first post of my new Astro blog.'
+description: 'Alternatives for
+multimedia content, such as audio descriptions and media alternatives for
+pre-recorded content'
 summary: 'Audio descriptions provide a narration of the relevant visual
 information, such as actions, scene changes, and other important visual cues, to
 help users who cannot see the content understand what is happening.'
@@ -16,78 +18,152 @@ category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
-The WCAG 2.2 guidelines for Audio Description or Media Alternative (Prerecorded)
-are covered under the **1.2.5 Audio Description (Prerecorded)** success
-criterion. This criterion has a **AA** conformance level.
+## Introduction
 
-**Purpose**: The purpose of this guideline is to ensure that prerecorded audio
-content, such as videos or audio files, is accessible to users who are blind or
-have low vision by providing an alternative in the form of audio descriptions.
+Ensuring web content is accessible involves providing alternatives for
+multimedia content, such as audio descriptions and media alternatives for
+pre-recorded content. The Web Content Accessibility Guidelines (WCAG) provide
+specific guidelines to help make audio and video content accessible to users
+with disabilities. This article will explain the relevant WCAG guidelines and
+success criteria for audio descriptions and media alternatives, along with
+practical examples and best practices for implementation.
 
-**How it Applies**: This guideline applies to all prerecorded audio content,
-including videos, audio files, and other multimedia content that contains audio
-information. Audio descriptions provide a narration of the relevant visual
-information, such as actions, scene changes, and other important visual cues, to
-help users who cannot see the content understand what is happening.
+## WCAG Guidelines for Audio Descriptions and Media Alternatives
 
-**Best Practices**:
+### 1.2 Time-based Media (Guideline 1.2)
 
-- Provide audio descriptions for all prerecorded audio content that contains
-  important visual information.
-- Audio descriptions should be clear, concise, and accurately describe the
-  relevant visual information.
-- Audio descriptions should be synchronized with the audio content and should
-  not interfere with the original audio.
-- Provide a mechanism for users to turn audio descriptions on or off, or to
-  adjust the volume of the audio descriptions separately from the main audio.
+**Provide alternatives for time-based media.**
 
-**Code Examples**:
+#### 1.2.1 Audio-only and Video-only (Prerecorded) (Level A)
+
+- **Requirement:** Provide an alternative for time-based media that presents
+  equivalent information.
+- **Purpose:** Ensures that users who cannot see or hear time-based media
+  content can understand its purpose through alternative formats.
+
+#### Example: Providing a Text Transcript for Audio-only Content
 
 ```html
-<!-- HTML5 video with audio descriptions -->
+<audio controls>
+  <source src="podcast.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Transcript: Welcome to our podcast. Today, we will discuss...</p>
+```
 
+#### 1.2.2 Captions (Prerecorded) (Level A)
+
+- **Requirement:** Provide captions for all prerecorded audio content in
+  synchronized media.
+- **Purpose:** Ensures that users who are deaf or hard of hearing can understand
+  the audio content.
+
+#### Example: Providing Captions for Video Content
+
+```html
 <video controls>
-  <source src="video.mp4" type="video/mp4">
-  <track kind="descriptions" src="descriptions.vtt" srclang="en" label="English Audio Descriptions">
+  <source src="video.mp4" type="video/mp4" />
+  <track src="captions_en.vtt" kind="captions" srclang="en" label="English" />
   Your browser does not support the video tag.
 </video>
 ```
 
-```html
-<!-- HTML5 audio with audio descriptions -->
+#### 1.2.3 Audio Description or Media Alternative (Prerecorded) (Level A)
 
-<audio controls>
-  <source src="audio.mp3" type="audio/mpeg">
-  <track kind="descriptions" src="descriptions.vtt" srclang="en" label="English Audio Descriptions">
-  Your browser does not support the audio tag.
-</audio>
+- **Requirement:** Provide an audio description for all prerecorded video
+  content that is synchronized with audio or provide a media alternative.
+- **Purpose:** Ensures that users who are blind or have low vision can
+  understand the visual content of the video.
+
+#### Example: Providing an Audio Description for Video Content
+
+```html
+<video controls>
+  <source src="video-with-audio-description.mp4" type="video/mp4" />
+  <track
+    src="audio_description_en.vtt"
+    kind="descriptions"
+    srclang="en"
+    label="English"
+  />
+  Your browser does not support the video tag.
+</video>
 ```
 
-**Relevant Resources**:
+#### 1.2.5 Audio Description (Prerecorded) (Level AA)
+
+- **Requirement:** Provide an audio description for all prerecorded video
+  content that is synchronized with audio.
+- **Purpose:** Ensures that users who are blind or have low vision can
+  understand the visual content of the video.
+
+### Best Practices for Implementing Audio Descriptions and Media Alternatives
+
+1. **Provide Text Transcripts:**
+
+   - For all audio-only content, provide a text transcript that conveys the same
+     information.
+   - Ensure transcripts are accurate and easy to read.
+
+2. **Provide Synchronized Captions:**
+
+   - For all video content with audio, provide captions that are synchronized
+     with the audio.
+   - Ensure captions are accurate and appear at a consistent pace.
+
+3. **Provide Audio Descriptions:**
+
+   - For video content, provide audio descriptions that describe important
+     visual information.
+   - Ensure audio descriptions are clear and provide context for visual elements
+     that are not conveyed through the audio.
+
+4. **Use ARIA for Accessibility:**
+
+   - Use ARIA (Accessible Rich Internet Applications) attributes to provide
+     additional context and information for media content.
+   - Examples include `aria-describedby` for detailed descriptions and
+     `aria-label` for labels.
+
+5. **Test with Assistive Technologies:**
+   - Regularly test your content with screen readers and other assistive
+     technologies to ensure that audio descriptions and media alternatives are
+     effective and useful.
+
+## Relevant Resources
+
+Here are some valuable online resources to learn more about audio descriptions
+and media alternatives:
 
 - <a
-    href="https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded"
+    href="https://www.w3.org/WAI/standards-guidelines/wcag/"
     target="_blank"
     rel="noopener noreferrer"
   >
-    WCAG 2.2 Guidelines: 1.2.5 Audio Description (Prerecorded)
+    Web Content Accessibility Guidelines (WCAG) Overview - The official WCAG
+    documentation by W3C.
+  </a>{" "}
+- <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">
+    W3C Web Accessibility Initiative (WAI) - A comprehensive resource on web
+    accessibility provided by W3C.
+  </a>
+- <a
+    href="https://webaim.org/techniques/captions/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WebAIM: Captions, Transcripts, and Audio Descriptions - Guidelines and
+    techniques for creating accessible multimedia content.
   </a>
 - <a
     href="https://www.w3.org/WAI/media/av/"
     target="_blank"
     rel="noopener noreferrer"
   >
-    Web Accessibility Initiative: Audio and Video Content
-  </a>
-- <a
-    href="https://www.w3.org/WAI/media/av/notes/notes.html"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Web Accessibility Initiative: Notes on Audio Description
+    Creating Accessible Multimedia - A guide by W3C on making audio and video
+    content accessible.
   </a>
 
-By following these guidelines and best practices, you can ensure that your
-prerecorded audio content is accessible to users who are blind or have low
-vision, providing them with an equal opportunity to understand and enjoy the
-content. Audio Description or Media Alternative (Prerecorded)
+By following these guidelines and best practices, you can ensure that your audio
+and video content is accessible to all users, providing an inclusive and
+enriching experience for everyone.
