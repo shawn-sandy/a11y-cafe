@@ -17,57 +17,136 @@ category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
- 
+## Introduction
 
+Sign language is an essential communication method for many people who are deaf
+or hard of hearing. Incorporating sign language into web content enhances
+accessibility and ensures a more inclusive experience. The Web Content
+Accessibility Guidelines (WCAG) provide specific guidelines for providing sign
+language alternatives for multimedia content. This article will explain the
+relevant WCAG guidelines and success criteria for sign language, and provide
+practical examples and best practices for implementation.
 
+## WCAG Guidelines for Sign Language
 
-### 1.2.6 Sign Language (Prerecorded) (AAA)
+### 1.2 Time-based Media (Guideline 1.2)
 
-This guideline states that sign language interpretation should be provided for
-prerecorded audio content in synchronized media.
+**Provide alternatives for time-based media.**
 
-**Purpose:** To make prerecorded audio content accessible to individuals who are
-deaf or hard of hearing and use sign language as their primary language.
+#### 1.2.6 Sign Language (Prerecorded) (Level AAA)
 
-**How it applies:** If your website or application includes prerecorded audio
-content, such as videos or podcasts, you should provide a sign language
-interpretation for that content.
+- **Requirement:** Provide a sign language interpretation for all prerecorded
+  audio content in synchronized media.
+- **Purpose:** Ensures that users who are deaf and prefer sign language can
+  understand the audio content through sign language interpretation.
 
-**Best practices:**
+### Best Practices for Implementing Sign Language
 
-- Hire qualified sign language interpreters to translate the audio content into
-  sign language.
-- Ensure the sign language interpretation is synchronized with the audio
-  content.
-- Position the sign language interpreter in a visible area of the video.
-- Provide clear contrast between the interpreter and the background.
+1. **Provide Sign Language Interpretation:**
+   - For all prerecorded audio and video content, provide a sign language
+     interpretation.
+   - Ensure the interpretation is synchronized with the audio and clearly
+     visible.
 
-**Example:**
+#### Example: Embedding a Sign Language Video
 
- ```html
-<div class="video-container">
-    <video controls>
-        <source src="main-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="sign-language-overlay">
-        <video muted autoplay loop>
-            <source src="sign-language-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+You can provide a separate video with sign language interpretation that can be
+displayed alongside the original video.
+
+```html
+<div style="position: relative;">
+  <video controls style="width: 100%;">
+    <source src="main-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <video
+    controls
+    style="position: absolute; bottom: 10px; right: 10px; width: 30%;"
+  >
+    <source src="sign-language-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </div>
+```
 
- ```
- In  this example, the main video content is accompanied by a sign language cideo overlay that provides a sign language interpretation of the audio content.
- 
- **Conformance Level:** AAA
- 
- ### Relevant Resources
- 
- - <a href="https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html" target="_blank" rel="noopener noreferrer">Understanding Sign Language (Prerecorded) (W3C)</a>
- - <a href="https://www.w3.org/WAI/tips/sign-language/" target="_blank" rel="noopener noreferrer">Sign Language on the Web (W3C)</a>
- - <a href="https://www.deque.com/blog/great-markup-captioning-sign-language-video/" target="_blank" rel="noopener noreferrer">Great Markup: Captioning and Sign Language for Video (Deque)</a>
- 
- By following these guidelines and best practices, you can ensure that your prerecorded audio content is accessible to individuals who use sign language, promoting inclusivity and equal access to information.
- 
+2. **Use Picture-in-Picture (PiP):**
+   - Implement a picture-in-picture feature to display the sign language
+     interpreter in a smaller window within the main video player.
+
+#### Example: Picture-in-Picture for Sign Language
+
+```html
+<video controls id="mainVideo" style="width: 100%;">
+  <source src="main-video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+<video id="pipVideo" style="display: none;">
+  <source src="sign-language-video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+<script>
+  document.getElementById("mainVideo").addEventListener("play", function () {
+    let pipVideo = document.getElementById("pipVideo");
+    pipVideo.style.display = "block";
+    pipVideo.play();
+    pipVideo.requestPictureInPicture();
+  });
+</script>
+```
+
+3. **Ensure Quality and Accuracy:**
+
+   - Use qualified sign language interpreters to ensure that the interpretation
+     is accurate and understandable.
+   - Ensure the video quality is high enough for users to clearly see the
+     interpreter’s facial expressions and hand movements.
+
+4. **Provide Multiple Sign Language Options:**
+
+   - If your content is accessed by users who speak different sign languages,
+     consider providing interpretations in multiple sign languages (e.g.,
+     American Sign Language (ASL), British Sign Language (BSL)).
+
+5. **Test with Deaf Users:**
+   - Regularly test your content with deaf users to enfeat: add sign language
+     guidelines for web accessibility
+
+- introduce wcag guidelines for sign language in web content
+- provide best practices for implementing sign language interpretation
+- include code examples for embedding sign language videos and using
+  picture-in-picture
+- add relevant resources for further learning about sign language accessibility
+  sure that the sign language interpretation meets their needs and preferences.
+
+## Relevant Resources
+
+Here are some valuable online resources to learn more about incorporating sign
+language into web content:
+
+- <a
+    href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Web Content Accessibility Guidelines (WCAG) Overview - The official WCAG
+    documentation by W3C.
+  </a>
+- <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">
+    W3C Web Accessibility Initiative (WAI) - A comprehensive resource on web
+    accessibility provided by W3C.
+  </a>
+- <a
+    href="https://www.nad.org/resources/technology/web-accessibility/"
+    target="_blank"
+  >
+    National Association of the Deaf (NAD)- Resources and guidelines for web
+    accessibility from the NAD.
+  </a>{" "}
+- <a href="https://www.w3.org/WAI/media/av/#sign-language" target="_blank">
+    Sign Language Video Guidelines - Guidelines from W3C on incorporating sign
+    language in multimedia content.
+  </a>
+
+By following these guidelines and best practices, you can ensure that your
+multimedia content is accessible to users who rely on sign language, providing a
+more inclusive and engaging experience for everyone.
