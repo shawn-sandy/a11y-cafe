@@ -1,8 +1,8 @@
 ---
 title: 'Robust - Compatibility across current and future devices'
 pubDate: 2024-07-08
-description: 'Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies.'
-summary: Robust provides guidance on making web content more accessible to people with disabilities and focuses on ensuring that content is compatible with current and future user agents, including assistive technologies
+description: 'Robustness ensures that web content works well with both current and future user agents and assistive technologies'
+summary: Robustness ensures that web content works well with both current and future user agents and assistive technologies. This is critical because the web is constantly evolving, and new technologies and devices are continuously being developed. To achieve this, developers should use standard, valid, and well-formed code.
 author: 'A11y.Cafe'
 # image:
 #     url: 'https://picsum.photos/1200'
@@ -14,45 +14,83 @@ draft: false
 editUrl: 'post/robust.mdx'
 ---
 
-## Robust 4
+One of the key principles of the Web Content Accessibility Guidelines (WCAG) is "Robust." This principle focuses on ensuring that content is robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies. This means that as technologies evolve, the content should remain accessible. 
 
-The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
-web content more accessible to people with disabilities. The "Robust" guideline
-(4.1) focuses on ensuring that content is compatible with current and future
-user agents, including assistive technologies.
+### Understanding Robustness in Accessibility
 
-## Guideline 4.1: Compatibility
+Robustness ensures that web content works well with both current and future user agents and assistive technologies. This is critical because the web is constantly evolving, and new technologies and devices are continuously being developed. To achieve this, developers should use standard, valid, and well-formed code.
 
-The Robust guideline aims to maximize the compatibility of web content with
-current and future user agents, including assistive technologies. This guideline
-has two success criteria:
+### Key Concepts of Robustness
 
-### 4.1.1 Parsing (Level A)
+1. **Compatible with Assistive Technologies:** Content should be designed to be usable by assistive technologies, such as screen readers, screen magnifiers, and speech recognition software.
+2. **Valid Code:** Using valid HTML, CSS, and JavaScript helps ensure that content is interpreted correctly by all user agents.
+3. **ARIA (Accessible Rich Internet Applications):** Implementing ARIA landmarks, roles, and properties can enhance accessibility, especially for dynamic content.
 
-This success criterion requires that web pages have valid markup, following the
-specifications for the language or markup format being used. Valid markup helps
-ensure that user agents, including assistive technologies, can accurately
-interpret and render the content.
+### Relevant WCAG 2.2 Guidelines
 
-Best practices:
+Under the principle of Robust, there are specific guidelines and success criteria aimed at ensuring content remains accessible as technology evolves:
 
-- Use valid HTML, CSS, and other markup languages.
-- Validate your code regularly using automated tools.
-- Avoid using non-standard or deprecated features.
+#### Guideline 4.1: Compatible
 
-### 4.1.2 Name, Role, Value (Level A)
+**4.1.1 Parsing (Level A)**
+- Ensure that in content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and IDs are unique.
+  ```html
+  <div id="unique-id">
+      <h1>Title</h1>
+      <p>This is a paragraph.</p>
+  </div>
+  ```
 
-This success criterion requires that all user interface components have their
-name, role, and value properties properly set, so that assistive technologies
-can accurately convey their purpose and state to users.
+**4.1.2 Name, Role, Value (Level A)**
+- For all user interface components, the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.
+  ```html
+  <button aria-label="Close" role="button">X</button>
+  ```
 
-Best practices:
+### Best Practices for Robust Content
 
-- Use semantic HTML elements appropriately.
-- Provide clear and descriptive labels for form controls.
-- Ensure that dynamic content updates are conveyed to assistive technologies.
+To create robust web content, follow these best practices:
 
-## Resources
+1. **Use Valid and Semantic HTML:** Write HTML that adheres to W3C standards and use elements according to their intended purpose.
+   ```html
+   <main>
+       <article>
+           <header>
+               <h1>Accessible Web Content</h1>
+           </header>
+           <p>Ensuring web content is accessible...</p>
+       </article>
+   </main>
+   ```
+
+2. **Ensure Compatibility with Assistive Technologies:** Regularly test your web content with different assistive technologies to ensure compatibility.
+3. **Implement ARIA Correctly:** Use ARIA roles, states, and properties to provide additional information to assistive technologies. Ensure ARIA attributes are used correctly and do not duplicate or conflict with native HTML semantics.
+   ```html
+   <nav aria-label="Main Navigation">
+       <ul>
+           <li><a href="home.html">Home</a></li>
+           <li><a href="about.html">About</a></li>
+           <li><a href="contact.html">Contact</a></li>
+       </ul>
+   </nav>
+   ```
+
+4. **Keep Up with Web Standards:** Stay informed about updates to web standards and best practices to ensure your content remains robust.
+
+### Relevant Resources
+
+For more detailed information about making web content robust, refer to the following resources:
+
+- <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">
+    W3C Web Content Accessibility Guidelines (WCAG) Overview
+  </a> 
+- <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank">
+    ARIA Authoring Practices Guide
+  </a>
+- <a href="https://webaim.org/techniques/aria/" target="_blank">
+    WebAIM: Introduction to ARIA
+  </a>
+
 - <a href="https://www.w3.org/TR/WCAG22/#robust" target="_blank">
     WCAG 2.2 Robust Guideline
   </a>

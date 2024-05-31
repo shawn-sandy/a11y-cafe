@@ -1,0 +1,130 @@
+---
+title: 'Extended Audio Description (Prerecorded)'
+pubDate: 2024-07-15
+description: 'Describes
+important visual details, such as characters, settings, and actions.'
+summary: 'Extended audio descriptions provide additional narration that describes
+important visual details, such as characters, settings, and actions, that are
+not conveyed through dialogue or sound effects alone. This is particularly
+beneficial for users who are blind or have low vision, as it allows them to
+fully understand and engage with the video content.'
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "Time-based media", "Perceivable"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+The WCAG 2.2 guideline 1.2.7 Extended Audio Description (Prerecorded) addresses
+the need for providing additional audio descriptions for prerecorded video
+content. This guideline is at the AAA conformance level, which means it is
+recommended for achieving enhanced accessibility.
+
+### Purpose and Importance
+
+Extended audio descriptions provide additional narration that describes
+important visual details, such as characters, settings, and actions, that are
+not conveyed through dialogue or sound effects alone. This is particularly
+beneficial for users who are blind or have low vision, as it allows them to
+fully understand and engage with the video content.
+
+### How It Applies
+
+This guideline applies to prerecorded video content, such as movies, TV shows,
+and online videos. It requires that extended audio descriptions be provided for
+all important visual information that is not already conveyed through dialogue
+or sound effects.
+
+### Best Practices
+
+1. **Provide separate audio track**: Extended audio descriptions should be
+   provided as a separate audio track that can be turned on or off by the user.
+   This allows users who do not need the descriptions to enjoy the content
+   without interruptions.
+
+2. **Timing and placement**: The extended audio descriptions should be timed and
+   placed appropriately, without overlapping with important dialogue or sound
+   effects.
+
+3. **Describe relevant visual information**: Focus on describing relevant visual
+   information that is essential for understanding the content, such as
+   characters, settings, actions, and visual cues.
+
+4. **Use clear and concise language**: Descriptions should be clear, concise,
+   and easy to understand, without unnecessary details or subjective
+   interpretations.
+
+5. **Involve people with disabilities**: Involve people with disabilities in the
+   creation and testing of extended audio descriptions to ensure their
+   effectiveness and usability.
+
+### Code Examples
+
+```html
+<!-- HTML5 video with separate audio track for extended audio descriptions -->
+
+<video controls>
+  <source src="video.mp4" type="video/mp4" />
+  <track
+    kind="descriptions"
+    src="descriptions.vtt"
+    srclang="en"
+    label="Extended Audio Descriptions"
+  />
+  Your browser does not support the video tag.
+</video>
+```
+
+```jsx
+// React component for rendering video with extended audio descriptions
+
+import React from 'react';
+
+const VideoWithDescriptions = ({ videoSrc, descriptionsSrc }) => (
+
+{" "}
+<video controls>
+  <source src={videoSrc} type="video/mp4" />
+  <track
+    kind="descriptions"
+    src={descriptionsSrc}
+    srclang="en"
+    label="Extended Audio Descriptions"
+  />
+  Your browser does not support the video tag.
+</video>
+);
+
+export default VideoWithDescriptions;
+
+```
+
+### Relevant Resources
+
+- <a
+    href="https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Understanding Extended Audio Description (Prerecorded) | W3C
+  </a>
+- <a
+    href="https://www.w3.org/WAI/media/av/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Accessible Multimedia | W3C
+  </a>
+- <a
+    href="https://www.3playmedia.com/solutions/how-it-works/audio-description/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Audio Description: What It Is and How It Works | 3Play Media
+  </a>
+
+Extended Audio Description (Prerecorded)

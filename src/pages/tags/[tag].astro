@@ -35,11 +35,22 @@ const { posts } = Astro.props;
   <ul data-list="unstyled">
     {
       posts?.map((post) => (
-        <BlogPost
-          url={`/posts/${post.slug}`}
-          title={post.data.title}
-          description={post.data.summary || post.data.description}
-        />
+        <article>
+          <BlogPost
+            url={`/posts/${post.slug}`}
+            title={post.data.title}
+            description={post.data.description}
+          />
+          {/* <p class="align-right">
+            <a
+              href={`/posts/${post.slug}`}
+              aria-label={`Continue reading ${post.data.title}`}
+            >
+              <i aria-hidden="true">Continue reading</i>
+            </a>
+          </p> */}
+          {/* <hr /> */}
+        </article>
       ))
     }
   </ul>

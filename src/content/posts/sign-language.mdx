@@ -1,0 +1,73 @@
+---
+title: 'Sign Language (Prerecorded)'
+pubDate: 2024-07-15
+description: 'Ensures that sign language interpretation is
+provided for all prerecorded audio content in synchronized media'
+summary: 'If your website or application includes prerecorded audio
+content, such as videos or podcasts, you should provide a sign language
+interpretation for that content'
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "Time-based media", "Perceivable"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+ 
+
+
+
+### 1.2.6 Sign Language (Prerecorded) (AAA)
+
+This guideline states that sign language interpretation should be provided for
+prerecorded audio content in synchronized media.
+
+**Purpose:** To make prerecorded audio content accessible to individuals who are
+deaf or hard of hearing and use sign language as their primary language.
+
+**How it applies:** If your website or application includes prerecorded audio
+content, such as videos or podcasts, you should provide a sign language
+interpretation for that content.
+
+**Best practices:**
+
+- Hire qualified sign language interpreters to translate the audio content into
+  sign language.
+- Ensure the sign language interpretation is synchronized with the audio
+  content.
+- Position the sign language interpreter in a visible area of the video.
+- Provide clear contrast between the interpreter and the background.
+
+**Example:**
+
+ ```html
+<div class="video-container">
+    <video controls>
+        <source src="main-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="sign-language-overlay">
+        <video muted autoplay loop>
+            <source src="sign-language-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+ ```
+ In  this example, the main video content is accompanied by a sign language cideo overlay that provides a sign language interpretation of the audio content.
+ 
+ **Conformance Level:** AAA
+ 
+ ### Relevant Resources
+ 
+ - <a href="https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html" target="_blank" rel="noopener noreferrer">Understanding Sign Language (Prerecorded) (W3C)</a>
+ - <a href="https://www.w3.org/WAI/tips/sign-language/" target="_blank" rel="noopener noreferrer">Sign Language on the Web (W3C)</a>
+ - <a href="https://www.deque.com/blog/great-markup-captioning-sign-language-video/" target="_blank" rel="noopener noreferrer">Great Markup: Captioning and Sign Language for Video (Deque)</a>
+ 
+ By following these guidelines and best practices, you can ensure that your prerecorded audio content is accessible to individuals who use sign language, promoting inclusivity and equal access to information.
+ 

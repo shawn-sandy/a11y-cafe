@@ -1,0 +1,152 @@
+---
+title: 'Images of text - ensuring accessibility'
+pubDate: 2024-07-10
+description: 'Text within images can be challenging to read, for some users'
+summary: 'Text within images can be challenging to read, especially when users need to resize text, change contrast settings, or use screen readers. Text rendered as an image does not offer the same flexibility and accessibility as actual text, making it difficult for users to interact with and comprehend the content.'
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+ 
+
+## Introduction
+Using text within images can create significant accessibility barriers for many users, including those with visual impairments, low vision, and those using screen readers. The Web Content Accessibility Guidelines (WCAG) address the use of images of text to ensure that content remains accessible to all users. This article explores the relevant guidelines, their importance, and best practices for avoiding the use of images of text.
+
+## Why Avoid Images of Text?
+Text within images can be challenging to read, especially when users need to resize text, change contrast settings, or use screen readers. Text rendered as an image does not offer the same flexibility and accessibility as actual text, making it difficult for users to interact with and comprehend the content. By adhering to WCAG guidelines and avoiding images of text, you create a more inclusive and adaptable web experience.
+
+## WCAG 2.2 Guidelines for Images of Text
+
+### 1.4.5 Images of Text
+**Guideline:** Avoid using images of text, except for decorative purposes or where a particular presentation of text is essential.
+**Success Criterion:** 1.4.5 Images of Text (Level AA)
+**Best Practice:** Use actual text rather than images of text to ensure scalability, readability, and accessibility.
+
+**Example:**
+
+```html
+<!-- Avoid using images of text -->
+<img src="text-image.png" alt="Welcome to our website">
+
+<!-- Use actual text with CSS styling instead -->
+<h1 style="font-family: 'Arial', sans-serif; font-size: 24px; color: #333;">Welcome to our website</h1>
+```
+
+### Exceptions
+There are limited exceptions where images of text may be acceptable:
+1. **Customizable:** The image can be visually customized to the user's requirements.
+2. **Essential:** A particular presentation of text is essential for conveying information, such as logos or branding.
+
+## Implementing Text Instead of Images
+
+### Using CSS for Text Styling
+CSS allows for extensive customization of text, enabling you to achieve the desired visual effects without compromising accessibility.
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessible Text Styling</title>
+<style>
+  .styled-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+</style>
+</head>
+<body>
+  <h1 class="styled-text">Welcome to our website</h1>
+</body>
+</html>
+```
+
+### SVG for Scalable Graphics
+When specific visual text effects are required, consider using Scalable Vector Graphics (SVG) instead of raster images. SVG text remains selectable and resizable.
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessible SVG Text</title>
+</head>
+<body>
+  <svg width="400" height="60">
+    <text x="0" y="40" font-family="Arial" font-size="24" fill="#333" stroke="#000" stroke-width="1">Welcome to our website</text>
+  </svg>
+</body>
+</html>
+```
+
+### Responsive Text with Media Queries
+Use media queries to ensure that text remains legible and appropriately sized across different devices and screen sizes.
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Text Example</title>
+<style>
+  .responsive-text {
+    font-size: 1.5em;
+    margin: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .responsive-text {
+      font-size: 2em;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .responsive-text {
+      font-size: 2.5em;
+    }
+  }
+</style>
+</head>
+<body>
+  <p class="responsive-text">This text is responsive and adjusts based on screen size.</p>
+</body>
+</html>
+```
+
+## Testing for Accessibility
+To ensure your text is accessible:
+1. **Manual Testing:** Check if text is readable, selectable, and scalable across different devices and browsers.
+2. **Screen Readers:** Use screen readers to verify that text can be read aloud.
+3. **Automated Tools:** Use accessibility testing tools to identify any issues related to text within images.
+
+## Conclusion
+Avoiding images of text is crucial for web accessibility. By using actual text styled with CSS, leveraging SVG for specific visual effects, and ensuring responsive design, you can create content that is accessible, scalable, and user-friendly. Adhering to WCAG guidelines ensures that your content is inclusive and readable for all users.
+
+## Additional Resources
+Here are some valuable resources for learning more about text accessibility and avoiding images of text:
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.2#images-of-text" target="_blank">WCAG 2.2 Quick Reference: Images of Text</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Images_of_Text" target="_blank">MDN Web Docs: Images of Text</a>
+- <a href="https://webaim.org/techniques/fonts/" target="_blank">WebAIM: Fonts and Text</a>
+- <a href="https://www.a11yproject.com/checklist/#images-of-text" target="_blank">The A11Y Project: Images of Text Checklist</a>
+- <a href="https://www.smashingmagazine.com/2020/02/inclusive-design-accessibility/" target="_blank">Smashing Magazine: Inclusive Design and Accessibility</a>
+
+By integrating these guidelines and resources into your web development practices, you can ensure that your content is accessible and inclusive for everyone.
