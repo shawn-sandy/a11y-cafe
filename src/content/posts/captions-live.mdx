@@ -1,7 +1,8 @@
 ---
 title: 'Providing Captions for Live Audio'
 pubDate: 2024-07-13
-description: 'This is the first post of my new Astro blog.'
+description: 'Captions should be provided in real-time for live audio
+content, such as live broadcasts, webinars, or video conferences.'
 summary: 'Providing captions for live audio  ensures that individuals
 who are deaf or hard of hearing can access and understand the audio content in
 real-time. This is particularly important for live events, where the content is
@@ -16,7 +17,6 @@ draft: false
 category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
-
 
 The WCAG 2.2 guidelines provide specific requirements for providing captions for
 live audio content, such as live broadcasts, webinars, or video conferences.
@@ -73,8 +73,8 @@ Here's a simple example of how to provide captions for live audio using the
 
 ```html
 <video controls>
-  <source src="video.mp4" type="video/mp4">
-  <track src="captions.vtt" kind="captions" srclang="en" label="English">
+  <source src="video.mp4" type="video/mp4" />
+  <track src="captions.vtt" kind="captions" srclang="en" label="English" />
 </video>
 ```
 
