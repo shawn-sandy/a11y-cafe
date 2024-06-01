@@ -67,6 +67,7 @@ const collectionResults = (await getCollection(collection || "posts"))
                   title={post.data.title}
                   description={post.data?.summary || post.data.description}
                   url={`/${to || "posts"}/${post.slug}`}
+                  descId={`desc-${post.slug}`}
                 >
                   <p>
                     {post.data.image && post.data?.image && (
