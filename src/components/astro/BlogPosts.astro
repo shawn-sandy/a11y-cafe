@@ -3,15 +3,15 @@ export type Props = {
   title?: string;
   url?: string;
   description?: string;
+  descId?: string;
 };
-const { title, url, description } = Astro.props;
+const { title, url, description, descId } = Astro.props;
+const descriptionId =
+  descId && descId.length > 0 ? `article-${descId}` : undefined;
 ---
 
-<h2 data-ui="display">
+<h2 data-ui="display" aria-describedby={descriptionId}>
   <a href={url}>{title}</a>
 </h2>
 <slot />
-{description && <p>{description}</p>}
-<!-- <p>
-  <a href={url}> <b>Continue</b></a>
-</p> -->
+{description && <p id={descriptionId}>{description}</p>}
