@@ -1,0 +1,304 @@
+---
+title: "Ensuring Accessibility for Content on Hover or Focus"
+pubDate: 2024-07-15
+description:
+  "Ensuring these interactive elements are accessible is crucial for users who
+  rely on keyboards, screen readers, or other assistive technologies."
+summary:
+  "Interactivity is a key aspect of modern web design, often involving content
+  that appears on hover or focus, such as tooltips, dropdown menus, and
+  popovers. Ensuring these interactive elements are accessible is crucial for
+  users who rely on keyboards, screen readers, or other assistive technologies."
+author: "A11y.Cafe"
+# image:
+#   url: "https://picsum.photos/1200"
+#   alt: "The full Astro logo."
+#   caption: "The img caption from my first blog post."
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: "guides"
+editUrl: "blog/my-first-post"
+---
+
+## Introduction
+
+Interactivity is a key aspect of modern web design, often involving content that
+appears on hover or focus, such as tooltips, dropdown menus, and popovers.
+Ensuring these interactive elements are accessible is crucial for users who rely
+on keyboards, screen readers, or other assistive technologies. The Web Content
+Accessibility Guidelines (WCAG) 2.2 outline specific criteria for making content
+that appears on hover or focus accessible. This article will explain these
+guidelines, their importance, and provide practical examples and best practices.
+
+## Why Accessibility for Content on Hover or Focus Matters
+
+Content that appears on hover or focus provides additional information or
+functionality, but it can be challenging for users with disabilities. For
+example, users with motor impairments might find it difficult to hover
+precisely, and users relying on screen readers may not be aware of content that
+only appears on hover. Ensuring this content is accessible improves the
+usability and inclusivity of your web pages.
+
+## Relevant WCAG 2.2 Guidelines
+
+### 1.4.13 Content on Hover or Focus
+
+**Level AA**: This criterion ensures that content that appears when a user
+hovers over or focuses on an element is accessible. The following conditions
+must be met:
+
+- **Dismissible**: The user must be able to dismiss the content without moving
+  their pointer or keyboard focus.
+- **Hoverable**: If the content is triggered via hover, the user must be able to
+  move the pointer to the new content without it disappearing.
+- **Persistent**: The content must remain visible until the user dismisses it,
+  removes the hover or focus, or it is no longer relevant.
+
+### Example:
+
+Ensure that tooltips and popovers are accessible and meet the dismissible,
+hoverable, and persistent conditions.
+
+**Incorrect:**
+
+```html
+<!-- Tooltip that cannot be dismissed -->
+<div class="tooltip" aria-describedby="tooltip-content">Hover over me</div>
+<div id="tooltip-content" role="tooltip" style="display: none;">
+  <p>This is a tooltip</p>
+</div>
+<script>
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseenter", function () {
+      document.getElementById("tooltip-content").style.display = "block";
+    });
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseleave", function () {
+      document.getElementById("tooltip-content").style.display = "none";
+    });
+</script>
+```
+
+**Correct:**
+
+```html
+<!-- Accessible tooltip that can be dismissed -->
+<div class="tooltip" aria-describedby="tooltip-content">Hover over me</div>
+<div id="tooltip-content" role="tooltip" style="display: none;">
+  <p>This is a tooltip</p>
+  <button
+    onclick="document.getElementById('tooltip-content').style.display = 'none';"
+  >
+    Close
+  </button>
+</div>
+<script>
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseenter", function () {
+      document.getElementById("tooltip-content").style.display = "block";
+    });
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseleave", function () {
+      document.getElementById("tooltip-content").style.display = "none";
+    });
+</script>
+```
+
+In the correct example, the tooltip includes a close button that allows users to
+dismiss the content without moving their pointer or keyboard focus.
+
+## Best Practices for Content on Hover or Focus
+
+1. **Provide Keyboard Access**: Ensure that interactive content is accessible
+   via keyboard, not just mouse.
+2. **Make Content Dismissible**: Provide a mechanism for users to dismiss hover
+   or focus-triggered content easily.
+3. **Maintain Hoverable Content**: Ensure that content triggered by hover
+   remains visible when the pointer moves to the content.
+4. **Keep Content Persistent**: Ensure content remains visible until the user
+   decides to dismiss it or it becomes irrelevant.
+5. **Clear Indications**: Clearly indicate when content is interactive and will
+   display additional information on hover or focus.
+
+### Additional Examples
+
+#### Dropdown Menus:
+
+**Incorrect:**
+
+```html
+<!-- Dropdown menu that disappears when trying to interact with it -->
+<ul class="menu">
+  <li>Menu Item 1</li>
+  <li>
+    Menu Item 2
+    <ul class="submenu">
+      <li>Submenu Item 1</li>
+      <li>Submenu Item 2</li>
+    </ul>
+  </li>
+  <li>Menu Item 3</li>
+</ul>
+<style>
+  .submenu {
+    display: none;
+  }
+  .menu li:hover .submenu {
+    display: block;
+  }
+</style>
+```
+
+**Correct:**
+
+```html
+<!-- Accessible dropdown menu -->
+<ul class="menu">
+  <li>Menu Item 1</li>
+  <li>
+    Menu Item 2
+    <ul class="submenu">
+      <li>Submenu Item 1</li>
+      <li>Submenu Item 2</li>
+    </ul>
+  </li>
+  <li>Menu Item 3</li>
+</ul>
+<style>
+  .submenu {
+    display: none;
+  }
+  .menu li:hover .submenu,
+  .submenu:hover {
+    display: block;
+  }
+</style>
+```
+
+#### Focus States for Keyboard Users:
+
+**Incorrect:**
+
+```html
+<!-- Tooltip only accessible by mouse hover -->
+<div class="tooltip" aria-describedby="tooltip-content">Hover over me</div>
+<div id="tooltip-content" role="tooltip" style="display: none;">
+  <p>This is a tooltip</p>
+</div>
+<script>
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseenter", function () {
+      document.getElementById("tooltip-content").style.display = "block";
+    });
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseleave", function () {
+      document.getElementById("tooltip-content").style.display = "none";
+    });
+</script>
+```
+
+**Correct:**
+
+```html
+<!-- Tooltip accessible by both hover and focus -->
+<div class="tooltip" tabindex="0" aria-describedby="tooltip-content">
+  Hover or focus on me
+</div>
+<div id="tooltip-content" role="tooltip" style="display: none;">
+  <p>This is a tooltip</p>
+  <button
+    onclick="document.getElementById('tooltip-content').style.display = 'none';"
+  >
+    Close
+  </button>
+</div>
+<script>
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseenter", function () {
+      document.getElementById("tooltip-content").style.display = "block";
+    });
+  document
+    .querySelector(".tooltip")
+    .addEventListener("mouseleave", function () {
+      document.getElementById("tooltip-content").style.display = "none";
+    });
+  document.querySelector(".tooltip").addEventListener("focus", function () {
+    document.getElementById("tooltip-content").style.display = "block";
+  });
+  document.querySelector(".tooltip").addEventListener("blur", function () {
+    document.getElementById("tooltip-content").style.display = "none";
+  });
+</script>
+```
+
+### Using CSS and JavaScript for Accessibility
+
+Use CSS and JavaScript to ensure that content on hover or focus meets
+accessibility criteria.
+
+#### Example:
+
+```css
+/* CSS for tooltip and dropdown visibility */
+.tooltip-content,
+.submenu {
+  display: none;
+}
+.tooltip:hover .tooltip-content,
+.tooltip:focus .tooltip-content,
+.menu li:hover .submenu,
+.submenu:hover {
+  display: block;
+}
+```
+
+```html
+<!-- Applying accessible classes -->
+<div class="tooltip" tabindex="0" aria-describedby="tooltip-content">
+  Hover or focus on me
+</div>
+<div id="tooltip-content" class="tooltip-content" role="tooltip">
+  <p>This is a tooltip</p>
+  <button
+    onclick="document.getElementById('tooltip-content').style.display = 'none';"
+  >
+    Close
+  </button>
+</div>
+<ul class="menu">
+  <li>Menu Item 1</li>
+  <li>
+    Menu Item 2
+    <ul class="submenu">
+      <li>Submenu Item 1</li>
+      <li>Submenu Item 2</li>
+    </ul>
+  </li>
+  <li>Menu Item 3</li>
+</ul>
+```
+
+## Useful Resources
+
+For more detailed guidance on ensuring accessibility for content on hover or
+focus and other related best practices, explore the following resources:
+
+- [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
+  (opens in a new window)
+- [WebAIM: Accessible Interactions](https://webaim.org/techniques/javascript/eventhandlers)
+  (opens in a new window)
+- [Inclusive Components: Tooltips and Toggles](https://inclusive-components.design/tooltips-toggles/)
+  (opens in a new window)
+- [W3C: WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/)
+  (opens in a new window)
+
+By following these guidelines and best practices, you can ensure that your web
+content remains accessible and user-friendly, providing a better overall
+experience for all users.
