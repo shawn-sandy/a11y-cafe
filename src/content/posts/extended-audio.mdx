@@ -1,13 +1,13 @@
 ---
 title: 'Extended Audio Description (Prerecorded)'
 pubDate: 2024-07-15
-description: 'Describes
-important visual details, such as characters, settings, and actions.'
-summary: 'Extended audio descriptions provide additional narration that describes
-important visual details, such as characters, settings, and actions, that are
-not conveyed through dialogue or sound effects alone. This is particularly
-beneficial for users who are blind or have low vision, as it allows them to
-fully understand and engage with the video content.'
+description: 'narration added to video
+content to describe important visual elements that are not conveyed through the
+main audio track'
+summary: 'Extended audio description refers to the additional narration added to video
+content to describe important visual elements that are not conveyed through the
+main audio track. This narration provides essential context and information,
+enabling users with visual impairments to understand the visual content fully.'
 author: 'A11y.Cafe'
 # image:
 #     url: 'https://picsum.photos/1200'
@@ -19,112 +19,112 @@ category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
-The WCAG 2.2 guideline 1.2.7 Extended Audio Description (Prerecorded) addresses
-the need for providing additional audio descriptions for prerecorded video
-content. This guideline is at the AAA conformance level, which means it is
-recommended for achieving enhanced accessibility.
+### Extended Audio Description for Prerecorded Content
 
-### Purpose and Importance
+Creating accessible multimedia content is a key aspect of ensuring web
+accessibility. One important feature for making video content accessible to
+users with visual impairments is the use of **extended audio description**. This
+article will explore what extended audio descriptions are, why they are
+important, how they fit into the Web Content Accessibility Guidelines (WCAG)
+2.2, and best practices for implementation.
 
-Extended audio descriptions provide additional narration that describes
-important visual details, such as characters, settings, and actions, that are
-not conveyed through dialogue or sound effects alone. This is particularly
-beneficial for users who are blind or have low vision, as it allows them to
-fully understand and engage with the video content.
+#### What is Extended Audio Description?
 
-### How It Applies
+Extended audio description refers to the additional narration added to video
+content to describe important visual elements that are not conveyed through the
+main audio track. This narration provides essential context and information,
+enabling users with visual impairments to understand the visual content fully.
+Unlike standard audio descriptions, extended audio descriptions may require the
+video to be paused to allow more time for these descriptions to be provided.
 
-This guideline applies to prerecorded video content, such as movies, TV shows,
-and online videos. It requires that extended audio descriptions be provided for
-all important visual information that is not already conveyed through dialogue
-or sound effects.
+#### Why is Extended Audio Description Important?
 
-### Best Practices
+1. **Inclusive Access**: It ensures that users with visual impairments have
+   access to the same information as sighted users, promoting inclusivity.
+2. **Enhanced Understanding**: Provides detailed descriptions of visual
+   elements, actions, and other important details that are otherwise
+   inaccessible.
+3. **Compliance with Accessibility Standards**: Helps content creators meet
+   accessibility standards and legal requirements.
 
-1. **Provide separate audio track**: Extended audio descriptions should be
-   provided as a separate audio track that can be turned on or off by the user.
-   This allows users who do not need the descriptions to enjoy the content
-   without interruptions.
+#### WCAG 2.2 Guidelines and Success Criteria
 
-2. **Timing and placement**: The extended audio descriptions should be timed and
-   placed appropriately, without overlapping with important dialogue or sound
-   effects.
+The Web Content Accessibility Guidelines (WCAG) 2.2 include criteria
+specifically related to audio descriptions:
 
-3. **Describe relevant visual information**: Focus on describing relevant visual
-   information that is essential for understanding the content, such as
-   characters, settings, actions, and visual cues.
+1. **1.2.7 Extended Audio Description (Prerecorded)** (Level AAA)
+   - **Description**: Where pauses in foreground audio are insufficient to allow
+     audio descriptions to convey the sense of the video, extended audio
+     descriptions are provided for all prerecorded video content in synchronized
+     media.
+   - **Example**: Adding extended audio descriptions to a training video where
+     critical visual information is conveyed rapidly and cannot be described
+     during natural pauses.
 
-4. **Use clear and concise language**: Descriptions should be clear, concise,
-   and easy to understand, without unnecessary details or subjective
-   interpretations.
+#### Implementing Extended Audio Descriptions
 
-5. **Involve people with disabilities**: Involve people with disabilities in the
-   creation and testing of extended audio descriptions to ensure their
-   effectiveness and usability.
+1. **Script Preparation**: Create a detailed script that includes all visual
+   information necessary for understanding the content. Identify where extended
+   descriptions are needed.
+2. **Timing and Synchronization**: Ensure that the video can be paused or slowed
+   down to allow the extended descriptions to be included without overlapping
+   the main audio.
+3. **Professional Narration**: Use clear and concise narration by a professional
+   voice artist to provide extended descriptions.
+4. **Integration**: Integrate the extended audio descriptions into the video
+   using video editing software, ensuring that they are synchronized properly
+   with the visual content.
 
-### Code Examples
+   ```html
+   <video controls>
+     <source src="video-with-extended-audio-description.mp4" type="video/mp4" />
+     Your browser does not support the video tag.
+   </video>
+   ```
 
-```html
-<!-- HTML5 video with separate audio track for extended audio descriptions -->
+#### Best Practices for Extended Audio Descriptions
 
-<video controls>
-  <source src="video.mp4" type="video/mp4" />
-  <track
-    kind="descriptions"
-    src="descriptions.vtt"
-    srclang="en"
-    label="Extended Audio Descriptions"
-  />
-  Your browser does not support the video tag.
-</video>
-```
+1. **Clarity and Detail**: Provide clear, concise, and detailed descriptions of
+   all relevant visual elements, including actions, expressions, settings, and
+   other important details.
+2. **User Control**: Ensure that users have control over playback to pause,
+   rewind, or skip through descriptions as needed.
+3. **Consistent Quality**: Maintain a high standard of audio quality and
+   consistency throughout the descriptions.
+4. **User Feedback**: Gather feedback from users with visual impairments to
+   continually improve the quality and effectiveness of the audio descriptions.
 
-```jsx
-// React component for rendering video with extended audio descriptions
+#### Example of Extended Audio Description
 
-import React from 'react';
+Consider a scene in a video where a character silently picks up a mysterious
+object and examines it closely. The extended audio description might be:
 
-const VideoWithDescriptions = ({ videoSrc, descriptionsSrc }) => (
+> "The character slowly reaches out and picks up a small, intricately carved
+> wooden box. She turns it over in her hands, examining the detailed patterns
+> and symbols etched into the surface. Her brow furrows in concentration as she
+> tries to decipher the markings."
 
-{" "}
-<video controls>
-  <source src={videoSrc} type="video/mp4" />
-  <track
-    kind="descriptions"
-    src={descriptionsSrc}
-    srclang="en"
-    label="Extended Audio Descriptions"
-  />
-  Your browser does not support the video tag.
-</video>
-);
+#### Relevant Resources
 
-export default VideoWithDescriptions;
-
-```
-
-### Relevant Resources
+For more information on creating and implementing extended audio descriptions,
+refer to the following resources:
 
 - <a
-    href="https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html"
+    href="https://www.w3.org/WAI/WCAG22/quickref/#media-alternative-prerecorded"
     target="_blank"
-    rel="noopener noreferrer"
   >
-    Understanding Extended Audio Description (Prerecorded) | W3C
+    WCAG 2.2 Quick Reference: Media Alternatives
   </a>
-- <a
-    href="https://www.w3.org/WAI/media/av/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Accessible Multimedia | W3C
+- <a href="https://www.3playmedia.com/learn/audio-description/" target="_blank">
+    3Play Media: Audio Description Services
   </a>
-- <a
-    href="https://www.3playmedia.com/solutions/how-it-works/audio-description/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Audio Description: What It Is and How It Works | 3Play Media
+- <a href="https://www.w3.org/WAI/media/av/extended-ad/" target="_blank">
+    W3C WAI: Extended Audio Description
+  </a>
+- <a href="https://www.acb.org/adp/guidelines.html" target="_blank">
+    Audio Description Project: Guidelines for Audio Description
   </a>
 
-Extended Audio Description (Prerecorded)
+By incorporating extended audio descriptions into your multimedia content, you
+ensure that it is accessible to all users, enhancing inclusivity and meeting
+important accessibility standards.
