@@ -1,0 +1,184 @@
+---
+title: "Ensuring Non-Text Contrast for Web Accessibility"
+pubDate: 2024-07-10
+description: "This is the first post of my new Astro blog."
+summary:
+  "Adequate contrast for non-text elements helps users identify and interact
+  with different components on a web page, such as buttons, icons, form
+  controls, and visual indicators. Insufficient contrast can make it difficult
+  for users to distinguish these elements, hindering navigation and
+  functionality."
+author: "A11y.Cafe"
+image:
+  url: "https://picsum.photos/1200"
+  alt: "The full Astro logo."
+  caption: "The img caption from my first blog post."
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: "guides"
+editUrl: "blog/my-first-post"
+---
+
+### Introduction
+
+Non-text elements, such as user interface components and graphical objects, are
+integral to the usability and accessibility of web content. The Web Content
+Accessibility Guidelines (WCAG) 2.2 include specific criteria to ensure that
+non-text elements have sufficient contrast, making them easily distinguishable
+for all users, including those with visual impairments. This article will
+explain these guidelines, their importance, and provide practical examples and
+best practices.
+
+### Why Non-Text Contrast Matters
+
+Adequate contrast for non-text elements helps users identify and interact with
+different components on a web page, such as buttons, icons, form controls, and
+visual indicators. Insufficient contrast can make it difficult for users to
+distinguish these elements, hindering navigation and functionality.
+
+### Relevant WCAG 2.2 Guidelines
+
+### 1.4.11 Non-Text Contrast
+
+**Level AA**: This criterion requires that visual information used to identify
+user interface components and graphical objects have a contrast ratio of at
+least 3:1 against adjacent colors. This includes controls, input fields, and any
+other interactive elements.
+
+#### Example:
+
+Ensuring that buttons and other interactive elements are easily distinguishable
+from their backgrounds.
+
+**Incorrect:**
+
+```html
+<!-- Button with insufficient contrast -->
+<button
+  style="color: #AAAAAA; background-color: #CCCCCC; border: 1px solid #CCCCCC;"
+>
+  Submit
+</button>
+```
+
+**Correct:**
+
+```html
+<!-- Button with sufficient contrast -->
+<button
+  style="color: #FFFFFF; background-color: #007BFF; border: 1px solid #0056b3;"
+>
+  Submit
+</button>
+```
+
+In the correct example, the button's text and background colors have a contrast
+ratio of at least 3:1, making it more visible and easier to identify.
+
+## Best Practices for Ensuring Non-Text Contrast
+
+1. **High Contrast Colors**: Use color combinations that provide sufficient
+   contrast for user interface components and graphical objects. Verify contrast
+   ratios using tools like the
+   [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
+2. **Consistent Design**: Maintain consistent color schemes and contrast levels
+   across your website to help users quickly recognize and interact with
+   different elements.
+3. **State Indicators**: Ensure that focus indicators, hover states, and active
+   states of interactive elements have sufficient contrast to be easily
+   distinguishable.
+4. **Accessibility Testing**: Conduct regular accessibility testing with users,
+   including those with visual impairments, to ensure that non-text elements are
+   easily distinguishable and usable.
+
+### Additional Examples
+
+#### Form Controls:
+
+**Incorrect:**
+
+```html
+<!-- Input field with insufficient contrast -->
+<input
+  type="text"
+  style="color: #666666; background-color: #EEEEEE; border: 1px solid #CCCCCC;"
+  placeholder="Enter your name"
+/>
+```
+
+**Correct:**
+
+```html
+<!-- Input field with sufficient contrast -->
+<input
+  type="text"
+  style="color: #000000; background-color: #FFFFFF; border: 1px solid #000000;"
+  placeholder="Enter your name"
+/>
+```
+
+#### Icons and Graphical Objects:
+
+**Incorrect:**
+
+```html
+<!-- Icon with insufficient contrast -->
+<i class="fas fa-info-circle" style="color: #CCCCCC;"></i>
+```
+
+**Correct:**
+
+```html
+<!-- Icon with sufficient contrast -->
+<i class="fas fa-info-circle" style="color: #007BFF;"></i>
+```
+
+### Using CSS for Non-Text Contrast
+
+Use CSS to ensure that non-text elements have sufficient contrast against their
+backgrounds.
+
+#### Example:
+
+```css
+/* CSS for high contrast button */
+.high-contrast-button {
+  color: #ffffff; /* White text */
+  background-color: #007bff; /* Blue background */
+  border: 1px solid #0056b3; /* Darker blue border */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* CSS for high contrast input field */
+.high-contrast-input {
+  color: #000000; /* Black text */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #000000; /* Black border */
+  padding: 5px;
+}
+```
+
+```html
+<!-- Applying the high contrast classes -->
+<button class="high-contrast-button">Submit</button>
+<input type="text" class="high-contrast-input" placeholder="Enter your name" />
+```
+
+## Useful Resources
+
+For more detailed guidance on ensuring non-text contrast and other accessibility
+best practices, explore the following resources:
+
+- [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
+  (opens in a new window)
+- [WebAIM: Contrast and Color Accessibility](https://webaim.org/articles/contrast/)
+  (opens in a new window)
+- [Color Contrast Checker](https://webaim.org/resources/contrastchecker/) (opens
+  in a new window)
+- [Accessible Rich Internet Applications (ARIA) Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
+  (opens in a new window)
+
+By following these guidelines and best practices, you can ensure that non-text
+elements in your web content are accessible and distinguishable to all users,
+providing a better overall user experience.
