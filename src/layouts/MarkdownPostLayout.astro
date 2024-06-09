@@ -5,10 +5,8 @@ import GithubSupport from "#components/GithubSupport.astro";
 import GithubEdit from "#components/GithubEdit.astro";
 import Img from "#components/astro/Img.astro";
 
-const { frontmatter, headings } = Astro.props;
+const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
-console.log(Astro.props);
-console.log(Astro.props);
 
 const contentRoute = [
   {
@@ -17,7 +15,7 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-
+const { url } = Astro.props;
 const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content/posts/${slug}.mdx`;
 ---
 
@@ -51,6 +49,9 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
   }
 
   <slot />
+  <section>
+    UTL {url}
+  </section>
   {
     frontmatter.tags && frontmatter.tags.length > 0 && (
       <div>
