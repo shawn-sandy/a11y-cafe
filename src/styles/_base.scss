@@ -184,6 +184,9 @@ article {
   img {
     /* border: 2px lightgray solid; */
     border-radius: 0.3rem;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 25% cover 50%;
   }
   + article {
     margin-block-start: 3rem;
@@ -227,12 +230,7 @@ a[href] {
     color: var(--cafe-accent-800);
   }
 }
-
-img {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 25% cover 50%;
-}
+ 
 
 .gochi {
   font-family: "Gochi Hand", cursive;
