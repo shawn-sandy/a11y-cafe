@@ -228,6 +228,12 @@ a[href] {
   }
 }
 
+.img {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 25% cover 50%;
+}
+
 .gochi {
   font-family: "Gochi Hand", cursive;
   font-weight: 400;
