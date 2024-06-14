@@ -17,8 +17,6 @@ category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
-## WCAG 2.2 Guidelines
-
 The Web Content Accessibility Guidelines (WCAG) 2.2 provide guidance on making
 pre-recorded audio-only and video-only content accessible. The relevant
 guidelines are:
@@ -65,7 +63,7 @@ achieved by providing text transcripts, captions, or audio descriptions.
 <!-- Audio player -->
 
 <audio controls>
-  <source src="podcast-episode.mp3" type="audio/mpeg">
+  <source src="podcast-episode.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
 </audio>
 
@@ -84,12 +82,16 @@ achieved by providing text transcripts, captions, or audio descriptions.
 <!-- Video player -->
 
 <video controls>
-  <source src="silent-movie.mp4" type="video/mp4">
-  <track kind="captions" src="silent-movie-captions.vtt" srclang="en" label="English">
+  <source src="silent-movie.mp4" type="video/mp4" />
+  <track
+    kind="captions"
+    src="silent-movie-captions.vtt"
+    srclang="en"
+    label="English"
+  />
   Your browser does not support the video element.
 </video>
 ```
-
 
 **Providing Audio Descriptions for Video-only Content**
 
@@ -97,8 +99,13 @@ achieved by providing text transcripts, captions, or audio descriptions.
 <!-- Video player -->
 
 <video controls>
-  <source src="nature-documentary.mp4" type="video/mp4">
-  <track kind="descriptions" src="nature-documentary-descriptions.vtt" srclang="en" label="English Audio Descriptions">
+  <source src="nature-documentary.mp4" type="video/mp4" />
+  <track
+    kind="descriptions"
+    src="nature-documentary-descriptions.vtt"
+    srclang="en"
+    label="English Audio Descriptions"
+  />
   Your browser does not support the video element.
 </video>
 ```
@@ -134,4 +141,3 @@ achieved by providing text transcripts, captions, or audio descriptions.
   >
     WebAIM: Captions for Video Content
   </a>
- 
