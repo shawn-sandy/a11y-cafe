@@ -20,7 +20,7 @@
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2024-05-30}",
+			"pubDate: ${2:2024-06-30}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
 			"author: '${4:A11y.Cafe}'",
 			"image:",
