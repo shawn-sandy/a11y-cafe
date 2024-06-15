@@ -20,7 +20,7 @@
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2024-07-00}",
+			"pubDate: ${2:2024-05-30}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
 			"author: '${4:A11y.Cafe}'",
 			"image:",
@@ -43,7 +43,7 @@
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2024-07-10}",
+			"pubDate: ${2:2024-05-10}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
 			"summary: '${14:}'",
 			"author: '${4:A11y.Cafe}'",
