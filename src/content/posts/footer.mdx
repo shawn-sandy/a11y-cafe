@@ -1,0 +1,155 @@
+---
+title: 'The Role of Footer Landmarks in Web Accessibility'
+pubDate: 2024-06-16
+description: 'The footer landmark is an ARIA role used to define the footer section of a web page'
+summary: This section typically contains metadata about the document, links to related content, copyright information, or other supplementary information.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+
+### What is the Footer Landmark?
+
+The footer landmark is an ARIA (Accessible Rich Internet Applications) role used to define the footer section of a web page. This section typically contains metadata about the document, links to related content, copyright information, or other supplementary information that is not part of the main content.
+
+### Semantic HTML Equivalent
+
+In HTML5, the `<footer>` element serves the same purpose as the `footer` ARIA role. It is used to encapsulate the footer of a document or a section, providing a clear signal to assistive technologies about the nature of the content contained within.
+
+### Why the Footer Landmark Matters
+
+### Enhancing Accessibility
+
+For users who rely on assistive technologies, the footer landmark provides a way to quickly locate the footer section of a page. This is particularly useful for users who need to access metadata, contact information, or related links without navigating through the main content.
+
+### Improving User Experience
+
+Using the footer landmark helps create a well-structured and semantically meaningful web page. This improves the overall user experience by providing clear navigation cues and making the page easier to understand and navigate.
+
+### Consistency Across Pages
+
+By consistently using the footer landmark, you can ensure that the footer section is easily identifiable across all pages of your website. This consistency helps users quickly find important information and links, enhancing the usability of your site.
+
+### Best Practices for Using the Footer Landmark
+
+### Use Once Per Page Section
+
+The footer landmark should be used at the end of the document or at the end of a section within the document. It should contain content that is related to the entire page or section, such as copyright information, links to related content, or contact information.
+
+### Combine with Other Landmarks
+
+Use the footer landmark in conjunction with other ARIA landmarks to provide a clear, well-defined structure for your web page. For example, you might use `<header>` for the header section, `<nav>` for navigation menus, and `<main>` for the main content.
+
+### Nesting and Placement
+
+Ensure that the `<footer>` element is correctly nested within the `<body>` or within a sectioning element like `<article>`, `<section>`, or `<aside>`. This helps maintain a clear and logical document structure.
+
+### Code Examples
+
+### Basic Usage of the `<footer>` Element
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Landmark Example</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Article Title</h2>
+            <p>This is an example of the main content area.</p>
+        </article>
+    </main>
+    <aside>
+        <h2>Related Information</h2>
+        <p>This is an example of an aside section.</p>
+    </aside>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+```
+
+### Using ARIA Role `contentinfo` for Backward Compatibility
+
+If you need to support older browsers that do not recognize the `<footer>` element, you can use the `role="contentinfo"` attribute:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Landmark with ARIA Example</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Article Title</h2>
+            <p>This is an example of the main content area.</p>
+        </article>
+    </main>
+    <aside>
+        <h2>Related Information</h2>
+        <p>This is an example of an aside section.</p>
+    </aside>
+    <footer role="contentinfo">
+        <p>&copy; 2024 Your Website</p>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+```
+
+### Relevant Links
+
+Here are some resources to further explore the footer landmark and its importance in web accessibility:
+
+- [Web Accessibility Initiative (WAI) - ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/) - Opens in a new window
+- [Mozilla Developer Network (MDN) - Using the Footer Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) - Opens in a new window
+- [WebAIM - ARIA Landmarks](https://webaim.org/techniques/aria/#landmarks) - Opens in a new window
+- [W3C - ARIA in HTML](https://www.w3.org/TR/html-aria/) - Opens in a new window
+
+By incorporating the footer landmark into your web development practices, you can significantly enhance the accessibility and user experience of your website. This not only benefits users with disabilities but also contributes to a more organized and semantically meaningful web.
