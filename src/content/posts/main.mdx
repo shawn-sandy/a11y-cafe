@@ -1,0 +1,143 @@
+---
+title: 'The Importance of the Main Landmark in Web Accessibility'
+pubDate: 2024-07-16
+description: 'The Main landmark is an ARIA (Accessible Rich Internet Applications) role used to designate the primary content of a web page.'
+summary: This landmark helps users of assistive technologies, like screen readers, to quickly and easily locate the main content of a page, bypassing repetitive navigational links and other elements that are present on multiple pages.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines",  "Semantic HTML"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+ 
+
+### What is the `main` Landmark?
+
+The `main` landmark is an ARIA (Accessible Rich Internet Applications) role used to designate the primary content of a web page. This landmark helps users of assistive technologies, like screen readers, to quickly and easily locate the main content of a page, bypassing repetitive navigational links and other elements that are present on multiple pages.
+
+### Semantic HTML Equivalent
+
+In HTML5, the `<main>` element serves the same purpose as the `main` ARIA role. It is used to encapsulate the dominant content of the `<body>` of a document, excluding any content that is repeated across a set of documents such as headers, footers, and navigation links.
+
+### Why the `main` Landmark Matters
+
+### Enhancing Accessibility
+
+For users who rely on screen readers, the ability to skip directly to the main content is crucial. Without the `main` landmark, these users would need to navigate through potentially large sections of repetitive content (like navigation menus and headers) before reaching the primary information on the page.
+
+### Improving User Experience
+
+By marking the main content area, developers can ensure that all users, including those using assistive technologies, have a more streamlined and efficient browsing experience. This is particularly beneficial on complex websites with extensive navigation and numerous sections.
+
+### Search Engine Optimization (SEO)
+
+Using semantic HTML and landmarks like `<main>` can also improve your site’s SEO. Search engines use the structure provided by these elements to better understand the content of your web pages, which can help improve your site’s ranking in search results.
+
+## Best Practices for Using the `main` Landmark
+
+### Use Once Per Page
+
+The `main` landmark should be used only once per page. It should contain the primary content of that particular page, ensuring that users can quickly access the most important information.
+
+### Combine with Other Landmarks
+
+Use the `main` landmark in conjunction with other ARIA landmarks to provide a clear, well-defined structure for your web page. For example, you might use `<header>` and `<footer>` for the header and footer sections, and `<nav>` for navigation menus.
+
+### Nesting and Placement
+
+Ensure that the `<main>` element is correctly nested within the `<body>` but not within other landmark elements like `<header>`, `<footer>`, or `<aside>`. This helps maintain a clear and logical document structure.
+
+### Code Examples
+
+### Basic Usage of the `<main>` Element
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Landmark Example</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Article Title</h2>
+            <p>This is an example of the main content area.</p>
+        </article>
+    </main>
+    <aside>
+        <h2>Related Information</h2>
+        <p>This is an example of an aside section.</p>
+    </aside>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+</body>
+</html>
+```
+
+### Using ARIA Role `main` for Backward Compatibility
+
+If you need to support older browsers that do not recognize the `<main>` element, you can use the `role="main"` attribute:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Landmark with ARIA Example</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div role="main">
+        <article>
+            <h2>Article Title</h2>
+            <p>This is an example of the main content area.</p>
+        </article>
+    </div>
+    <aside>
+        <h2>Related Information</h2>
+        <p>This is an example of an aside section.</p>
+    </aside>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+</body>
+</html>
+```
+
+### Relevant Links
+
+Here are some resources to further explore the `main` landmark and its importance in web accessibility:
+
+- [Web Accessibility Initiative (WAI) - ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/) - Opens in a new window
+- [Mozilla Developer Network (MDN) - Using the Main Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) - Opens in a new window
+- [WebAIM - ARIA Landmarks](https://webaim.org/techniques/aria/#landmarks) - Opens in a new window
+- [W3C - ARIA in HTML](https://www.w3.org/TR/html-aria/) - Opens in a new window
+
+By incorporating the `main` landmark into your web development practices, you can significantly enhance the accessibility and user experience of your website. This not only benefits users with disabilities but also contributes to a more organized and semantically meaningful web.
