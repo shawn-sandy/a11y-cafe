@@ -97,7 +97,7 @@ const collectionResults = (await getCollection(collection || "posts"))
               <hr />
               <Pagination
                 collection={collection}
-                itemsPerPage={itemsPerPage || PAGINATION_COUNT}
+                itemsPerPage={pageSize || itemsPerPage || PAGINATION_COUNT}
               />
             </p>
           </>
