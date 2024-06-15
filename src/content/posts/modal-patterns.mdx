@@ -1,25 +1,25 @@
 ---
 title: 'Modal Patterns for Web Accessibility'
-pubDate: 2024-05-10
-description: 'This is the first post of my new Astro blog.'
-summary: ''
+pubDate: 2024-06-10
+description: 'Enhance user experience without creating accessibility barriers'
+summary: 'A look at different modal patterns, their impact on accessibility, and best practices to ensure they are usable by everyone, including those with disabilities.'
 author: 'A11y.Cafe'
-image:
-    url: 'https://picsum.photos/1200'
-    alt: 'The full Astro logo.'
-    caption: 'The img caption from my first blog post.'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
 tags: ["WCAG", "Guidelines"]
 draft: false
-category: 'guides'
+category: 'patterns'
 editUrl: 'blog/my-first-post'
 ---
 
 
 Modals, or dialog boxes, are an integral part of web interfaces, providing essential interactive elements for users. Properly implemented, they enhance user experience without creating accessibility barriers. This article delves into different modal patterns, their impact on accessibility, and best practices to ensure they are usable by everyone, including those with disabilities.
 
-## Common Modal Patterns
+### Common Modal Patterns
 
-### 1. **Simple Alert Modal**
+ 1. **Simple Alert Modal**
 Alert modals are used to present critical information or confirmation messages. They are typically non-interactive beyond acknowledging the message.
 
 **Example Use Case:** Warning about unsaved changes.
@@ -38,7 +38,7 @@ Alert modals are used to present critical information or confirmation messages. 
 </div>
 ```
 
-### 2. **Form Modal**
+2. **Form Modal**
 Form modals contain interactive elements such as input fields, buttons, and dropdowns, allowing users to enter data.
 
 **Example Use Case:** User registration form.
@@ -65,7 +65,7 @@ Form modals contain interactive elements such as input fields, buttons, and drop
 </div>
 ```
 
-### 3. **Confirmation Modal**
+3. **Confirmation Modal**
 Confirmation modals seek user confirmation for actions such as deleting content or confirming an order.
 
 **Example Use Case:** Deleting a user account.
@@ -85,9 +85,9 @@ Confirmation modals seek user confirmation for actions such as deleting content 
 </div>
 ```
 
-## Best Practices for Accessible Modals
+### Best Practices for Accessible Modals
 
-### 1. **Focus Management**
+1. **Focus Management**
 Ensure that when the modal opens, focus is moved to the first interactive element within the modal. When the modal is closed, focus should return to the element that triggered the modal.
 
 **Example:**
@@ -103,10 +103,10 @@ function closeModal(modal, trigger) {
 }
 ```
 
-### 2. **ARIA Attributes**
+2. **ARIA Attributes**
 Use appropriate ARIA roles and properties to make modals accessible. This includes using `role="dialog"` or `role="alertdialog"`, `aria-labelledby` for the modal title, and `aria-describedby` for the modal content.
 
-### 3. **Keyboard Accessibility**
+3. **Keyboard Accessibility**
 Ensure that users can navigate through modal content using the keyboard. Allow users to close the modal using the Escape key.
 
 **Example:**
@@ -118,10 +118,10 @@ modalElement.addEventListener('keydown', (event) => {
 });
 ```
 
-### 4. **Descriptive Labels**
+4. **Descriptive Labels**
 Provide descriptive labels for modal elements to ensure that screen readers can effectively communicate the purpose and content of the modal to users.
 
-### 5. **Focus Trap**
+5. **Focus Trap**
 Ensure that focus remains within the modal while it is open. This prevents users from accidentally tabbing out of the modal and losing context.
 
 **Example:**
@@ -134,7 +134,7 @@ modalElement.addEventListener('keydown', (event) => {
 });
 ```
 
-## Resources
+### Resources
 
 For further reading on creating accessible modals, consider these resources:
 
