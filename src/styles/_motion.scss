@@ -8,3 +8,8 @@
     scale: 1;
   }
 }
+.appear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 25% cover 50%;
+}
