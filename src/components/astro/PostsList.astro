@@ -1,13 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-const postListTitle = Astro.props.postListTitle || "Latest Posts";
-const postLength = Astro.props.postLength || 10;
+export type Props = {
+  postListTitle: string;
+  postLength: number;
+};
+
+const {  postListTitle, postLength } = Astro.props;
 const postsResults = (await getCollection("posts"))
+
   .filter(({ data }) => {
     return data.draft === false;
   })
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-const paginatedPosts = postsResults.slice(0, postLength);
+const paginatedPosts = postsResults.slice(0, postLength || 10);
 ---
 
 <h4 data-ui="display">
