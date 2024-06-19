@@ -14,4 +14,4 @@ const descriptionId =
   <a href={url}>{title}</a>
 </h2>
 <slot />
-{description && <p id={descriptionId}>{description}</p>}
+{description && description.length && <p id={descriptionId}>{description}</p>}

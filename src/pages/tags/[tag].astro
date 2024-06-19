@@ -42,17 +42,17 @@ const { posts } = Astro.props;
             description={post.data.description}
             descId={`tags-${post.slug}`}
           />
-          {/* <p class="align-right">
+          <p class="align-right">
             <a
               href={`/posts/${post.slug}`}
               aria-label={`Continue reading ${post.data.title}`}
             >
               <i aria-hidden="true">Continue reading</i>
             </a>
-          </p> */}
+          </p>
           {/* <hr /> */}
         </article>
       ))
     }
   </ul>
-</Layout>
+</Layout> 

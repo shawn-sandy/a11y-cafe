@@ -145,6 +145,7 @@ h4 {
 pre {
   padding: 1rem;
   border-radius: 0.5rem;
+  margin-inline: 0;
 }
 
 footer > div {
@@ -220,7 +221,7 @@ article > figure > img[alt] {
 }
 
 pre {
-  margin-inline: clamp(0.5rem, 2rem, 3rem);
+  margin-inline: 0;
   margin-block-end: 3rem;
   // border: solid gray 1px !important;
 }
