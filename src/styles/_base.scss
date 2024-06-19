@@ -66,9 +66,11 @@ header {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      font-size: var(--h1);
+      font-size: clamp(1.5rem, var(--h1), 5.625rem);
       line-height: 1.1;
-      text-wrap: pretty;
+      text-wrap: balance;
+      word-break: auto;
+      hyphens: auto;
     }
 
     > p {
