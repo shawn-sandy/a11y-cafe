@@ -23,6 +23,7 @@ type Props = {
   breadcrumbRoutes?: routeItem[];
   showFeature?: boolean;
   ogImage?: string;
+  ogDescription?: string;
 };
 
 const showBreadcrumb =
@@ -32,7 +33,7 @@ const showHeader = Astro.props.showHeader || true;
 
 const showNavigation = Astro.props.showNavigation || true;
 
-const { pageTitle, pageDescription, breadcrumbRoutes, showFeature, ogImage } =
+const { pageTitle, pageDescription, breadcrumbRoutes, showFeature, ogImage, ogDescription } =
   Astro.props;
 import "../styles/index.css";
 import Feature from "#components/Feature.astro";
@@ -44,7 +45,7 @@ import OpenGraph from "#components/OpenGraph.astro";
     <meta charset="utf-8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={SITE_DESCRIPTION} />
+    <meta name="description" content={pageDescription || SITE_DESCRIPTION} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -55,7 +56,7 @@ import OpenGraph from "#components/OpenGraph.astro";
       href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
       rel="stylesheet"
     />
-    <OpenGraph title={pageTitle || SITE_TITLE} description={SITE_DESCRIPTION} url={Astro.url.href} image={ogImage || "/images/a11y-banner.webp"} />
+    <OpenGraph title={pageTitle || SITE_TITLE} description={ogDescription || pageDescription || SITE_DESCRIPTION} url={Astro.url.href} image={ogImage || "/images/a11y-banner.webp"} />
     <ViewTransitions />
   </head>
   <body>
