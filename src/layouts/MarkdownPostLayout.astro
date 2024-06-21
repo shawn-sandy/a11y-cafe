@@ -23,6 +23,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
   pageTitle={frontmatter.title}
   pageDescription={frontmatter.description}
   breadcrumbRoutes={contentRoute}
+  ogImage={frontmatter.image?.url || null}
 >
   {
     frontmatter.image && (
