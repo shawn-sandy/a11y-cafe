@@ -1,0 +1,21 @@
+---
+export type Props = {
+  description: string;
+  title: string;
+  url: string;
+  image?: string;
+  type?: "website" | "article";
+};
+const { description, title, url, image, type } = Astro.props;
+---
+
+<meta
+  property="og:title"
+  content={title}
+/>
+<meta property="og:type" content={type || 'website'} />
+<meta
+  property="og:image"
+  content={image}
+/>
+<meta property="og:url" content={url} />
