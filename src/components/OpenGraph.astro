@@ -8,22 +8,24 @@ export type Props = {
   url: string;
   /** Optional image URL for the page */
   image?: string;
+  imgWidth?: string;
+  imgHeight?: string;
   /** Optional type of the page, either "website" or "article" */
-  type?: "website" | "article";
-
+  type?: "website" | "article" | "book" | "profile";
+  /** Twitter username */
+  twitterUsername?: string;
 };
-const { description, title, url, image, type } = Astro.props;
+const { description, title, url, image, type, twitterUsername, imgHeight, imgWidth } = Astro.props;
 ---
 
-<meta
-  property="og:title"
-  content={title}
-/>
-<meta property="og:type" content={type || 'website'} />
-<meta
-  property="og:image"
-  content={image}
-/>
+<meta property="og:title" content={title} />
+<meta property="og:type" content={type || "website"} />
+<meta property="og:image" content={image} />
 <meta property="og:url" content={url} />
 <meta property="og:description" content={description} />
-<meta property="og:image:height" content="480" />
+<!-- Twitter -->
+<meta property="og:image:width" content={imgWidth || "1280"} />
+<meta property="og:image:height" content={imgHeight || "640"} />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content={image} />
+<meta property="twitter:site" content={twitterUsername} />
