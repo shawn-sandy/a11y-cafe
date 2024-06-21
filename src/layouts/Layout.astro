@@ -35,6 +35,7 @@ const { pageTitle, pageDescription, breadcrumbRoutes, showFeature } =
   Astro.props;
 import "../styles/index.css";
 import Feature from "#components/Feature.astro";
+import OpenGraph from "#components/OpenGraph.astro";
 ---
 
 <html lang="en">
@@ -53,6 +54,7 @@ import Feature from "#components/Feature.astro";
       href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
       rel="stylesheet"
     />
+    <OpenGraph title={pageTitle || SITE_TITLE} description={SITE_DESCRIPTION} url={Astro.url.href} image="/images/a11y-banner.webp" />
     <ViewTransitions />
   </head>
   <body>
