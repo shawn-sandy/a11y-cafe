@@ -1,18 +1,95 @@
 ---
-title: 'Blog Post Titled Here'
-pubDate: 2024-05-10
-description: 'This is the first post of my new Astro blog.'
-summary: ''
+title: 'Introduction to Usability in Web Accessibility'
+pubDate: 2024-06-22
+description: 'Ensuring that websites are not only accessible but also easy and efficient to use for all people'
+summary: Usability enhances the overall user experience by making websites more intuitive and user-friendly. This is particularly important for users with disabilities who may rely on assistive technologies to navigate the web. By following WCAG 2.2 guidelines, web developers can create sites that are more inclusive and accessible to everyone.
 author: 'A11y.Cafe'
-# image:
-#     url: 'https://picsum.photos/1200'
-#     alt: 'The full Astro logo.'
+image:
+    url: '/images/usability-2.webp'
+    alt: 'The full Astro logo.'
 #     caption: 'The img caption from my first blog post.'
-tags: ["WCAG", "Guidelines"]
+tags: ["WCAG", "Guidelines", "Usability"]
 draft: false
-category: 'guides'
+category: 'articles'
 editUrl: 'blog/my-first-post'
 ---
 
 
-This is where the blog post content would go.
+## Introduction to Usability in Web Accessibility
+
+Usability is a critical aspect of web accessibility, ensuring that websites are not only accessible but also easy and efficient to use for all people, including those with disabilities. Web Content Accessibility Guidelines (WCAG) 2.2 provides a comprehensive set of recommendations for making web content more accessible. These guidelines are organized around four principles: Perceivable, Operable, Understandable, and Robust (POUR). 
+
+## Why Usability Matters
+
+Usability enhances the overall user experience by making websites more intuitive and user-friendly. This is particularly important for users with disabilities who may rely on assistive technologies to navigate the web. By following WCAG 2.2 guidelines, web developers can create sites that are more inclusive and accessible to everyone.
+
+## WCAG 2.2 Guidelines and Best Practices
+
+### Perceivable
+
+Users must be able to perceive the information being presented. This includes providing text alternatives for non-text content, ensuring content is adaptable, and making it easier for users to see and hear content.
+
+#### Example
+```html
+<img src="logo.png" alt="Company Logo">
+```
+In this example, the `alt` attribute provides a text alternative for the image, which can be read by screen readers.
+
+### Operable
+
+Users must be able to operate the interface. This includes making all functionality available from a keyboard, providing users enough time to read and use content, and not designing content in a way that is known to cause seizures.
+
+#### Example
+```html
+<button>Submit</button>
+```
+Ensure that all interactive elements, such as buttons and links, are accessible via keyboard navigation.
+
+### Understandable
+
+Users must be able to understand the information as well as the operation of the user interface. This involves making text readable and understandable, ensuring web pages appear and operate in predictable ways, and helping users avoid and correct mistakes.
+
+#### Example
+```html
+<label for="email">Email:</label>
+<input type="email" id="email" name="email">
+```
+Using the `label` element helps screen reader users understand the purpose of the input field.
+
+### Robust
+
+Content must be robust enough that it can be reliably interpreted by a wide variety of user agents, including assistive technologies. This means ensuring compatibility with current and future user tools.
+
+#### Example
+```html
+<article role="article">
+  <h1>Main Title</h1>
+  <p>This is the content of the article.</p>
+</article>
+```
+Using semantic HTML and ARIA roles ensures that content is accessible to all user agents and assistive technologies.
+
+## Conformance Levels and Success Criteria
+
+WCAG 2.2 defines three levels of conformance:
+
+- **Level A**: The most basic web accessibility features.
+- **Level AA**: Deals with the biggest and most common barriers for disabled users.
+- **Level AAA**: The highest and most complex level of web accessibility.
+
+Each guideline contains testable success criteria, which are used to measure conformance.
+
+## Relevant Resources
+
+For further reading and resources, you can visit the following links:
+
+- [WCAG 2.2 Guidelines](https://www.w3.org/TR/WCAG22/)
+- [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
+- [Accessible Rich Internet Applications (ARIA)](https://www.w3.org/TR/wai-aria-1.2/)
+- [W3C Accessibility Checker](https://www.w3.org/WAI/test-evaluate/tools/)
+
+These resources will open in a new window for your convenience.
+
+## Conclusion
+
+Usability is a fundamental aspect of web accessibility, ensuring that websites are not only accessible but also user-friendly for everyone. By adhering to WCAG 2.2 guidelines, developers can create inclusive digital experiences that benefit all users, regardless of their abilities.
