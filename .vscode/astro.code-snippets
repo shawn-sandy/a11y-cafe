@@ -20,7 +20,7 @@
 		"body": [
 			"---",
 			"title: '${1:Blog Post Titled Here}'",
-			"pubDate: ${2:2024-06-30}",
+			"pubDate: ${2:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
 			"author: '${4:A11y.Cafe}'",
 			"image:",
@@ -61,5 +61,12 @@
 			"${13:This is where the blog post content would go.}",
 		],
 		"description": "Snippet for a blog post frontmatter meta"
-	}
+	},
+    "Insert Current Date": {
+        "prefix": "insertDate",
+        "body": [
+            "${CURRENT_DATE}-${currentMonth}-${currentDay}"
+        ],
+        "description": "Insert the current date in YYYY-MM-DD format"
+    }
 }
