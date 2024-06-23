@@ -18,24 +18,24 @@ editUrl: 'blog/my-first-post'
 
 Scalable Vector Graphics (SVG) are widely used on the web due to their scalability and clarity at any size. However, like any other web element, SVGs must be made accessible to ensure all users, including those with disabilities, can interact with and understand their content. This guide will introduce you to the WCAG 2.2 guidelines and ARIA practices necessary for creating accessible SVGs.
 
-## Why Accessibility in SVGs Matters
+### Why Accessibility in SVGs Matters
 
 Accessibility in SVGs ensures that users who rely on screen readers, keyboard navigation, and other assistive technologies can interact with the graphical content. Making SVGs accessible enhances the user experience for everyone, including those with visual impairments, cognitive disabilities, and motor disabilities.
 
-## WCAG 2.2 Guidelines for Accessible SVGs
+### WCAG 2.2 Guidelines for Accessible SVGs
 
-### 1.1.1 Non-text Content
+#### 1.1.1 Non-text Content
 **Level A:** All non-text content that is presented to the user must have a text alternative that serves the equivalent purpose.
 
-### 1.4.5 Images of Text
+#### 1.4.5 Images of Text
 **Level AA:** If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text.
 
-### 4.1.2 Name, Role, Value
+#### 4.1.2 Name, Role, Value
 **Level A:** For all user interface components, the name and role can be programmatically determined, and states, properties, and values that can be set by the user can be programmatically set.
 
-## Best Practices for Creating Accessible SVGs
+### Best Practices for Creating Accessible SVGs
 
-### 1. Add Descriptive Text
+#### 1. Add Descriptive Text
 Use the `<title>` and `<desc>` elements to provide descriptive text for your SVGs. The `<title>` provides a short description, while the `<desc>` can give more detailed information.
 
 ```html
@@ -47,7 +47,7 @@ Use the `<title>` and `<desc>` elements to provide descriptive text for your SVG
 </svg>
 ```
 
-### 2. Use ARIA Roles
+#### 2. Use ARIA Roles
 Ensure SVGs that serve as interactive elements are correctly identified by assistive technologies. Use ARIA roles such as `img`, `button`, or `link`.
 
 ```html
@@ -57,7 +57,7 @@ Ensure SVGs that serve as interactive elements are correctly identified by assis
 </svg>
 ```
 
-### 3. Ensure Keyboard Accessibility
+#### 3. Ensure Keyboard Accessibility
 Interactive SVGs, such as those used in buttons or links, should be navigable via the keyboard. This often involves wrapping the SVG in a `<button>` or `<a>` element.
 
 ```html
@@ -68,7 +68,7 @@ Interactive SVGs, such as those used in buttons or links, should be navigable vi
 </button>
 ```
 
-### 4. Avoid Inline Styles
+#### 4. Avoid Inline Styles
 Use CSS for styling SVGs to ensure that high contrast settings and user styles are respected.
 
 ```html
@@ -80,7 +80,7 @@ Use CSS for styling SVGs to ensure that high contrast settings and user styles a
 </svg>
 ```
 
-## Conformance Levels and Success Criteria
+### Conformance Levels and Success Criteria
 
 WCAG defines three levels of conformance to ensure accessibility:
 
@@ -90,7 +90,7 @@ WCAG defines three levels of conformance to ensure accessibility:
 
 To conform to these levels, use the success criteria relevant to your SVGs as outlined in the WCAG 2.2 guidelines.
 
-## Additional Resources
+### Additional Resources
 
 To deepen your understanding of accessible SVGs, check out the following resources:
 
@@ -100,3 +100,4 @@ To deepen your understanding of accessible SVGs, check out the following resourc
 <a href="https://a11yproject.com/" target="_blank">The A11Y Project</a>
 
 By following these guidelines and best practices, you can ensure that your SVGs are accessible to all users, creating a more inclusive web experience.
+
