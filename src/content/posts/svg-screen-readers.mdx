@@ -1,0 +1,93 @@
+---
+title: 'Screen Reader Behavior with SVG Title and Desc attributes.'
+pubDate: 2024-06-23
+description: 'Understand how to ensure your SVGs are accessible across different screen readers.'
+summary: Not all screen readers handle SVG `<title>` and `<desc>` elements consistently. Here's a summary of how major screen readers interact with these elements. Understand how to ensure your SVGs are accessible across different screen readers.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "Content", "Screen Readers"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+Not all screen readers handle SVG `<title>` and `<desc>` elements consistently. Here's a summary of how major screen readers interact with these elements. We help you understand how to ensure your SVGs are accessible across different screen readers.
+
+
+#### NVDA (Windows)
+- **Title**: Generally reads the `<title>` element when it encounters an SVG, treating it as the accessible name.
+- **Desc**: May or may not read the `<desc>` element reliably.
+
+#### JAWS (Windows)
+- **Title**: Reads the `<title>` element for SVGs, using it as the accessible name.
+- **Desc**: Often ignores the `<desc>` element.
+
+#### VoiceOver (macOS and iOS)
+- **Title**: Reads the `<title>` element.
+- **Desc**: Has limited support and may not read the `<desc>` element consistently.
+
+#### Narrator (Windows)
+- **Title**: Reads the `<title>` element.
+- **Desc**: Similar to others, may not read the `<desc>` element reliably.
+
+#### TalkBack (Android)
+- **Title**: Reads the `<title>` element when SVGs are properly implemented in web content.
+- **Desc**: Inconsistent support for reading the `<desc>` element.
+
+Given this variability, it's crucial to ensure your SVGs are as accessible as possible across different screen readers. Here are some best practices:
+
+### Best Practices for Ensuring SVG Accessibility Across Screen Readers
+
+#### 1. Use `aria-labelledby` and `aria-describedby`
+To improve reliability, use ARIA attributes to link the SVG to text elements. This ensures that the screen reader will read the intended text.
+
+```html
+<svg role="img" aria-labelledby="svgTitle svgDesc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title id="svgTitle">Accessible Icon</title>
+  <desc id="svgDesc">A blue square with rounded corners.</desc>
+  <rect x="10" y="10" width="80" height="80" rx="10" ry="10" fill="blue"/>
+</svg>
+```
+
+#### 2. Provide Redundant Text Outside SVG
+For critical information, provide a redundant text description outside the SVG to ensure all users can access it, regardless of the screen reader they use.
+
+```html
+<svg role="img" aria-labelledby="svgTitle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title id="svgTitle">Sales Chart</title>
+  <rect x="10" y="20" width="20" height="60" fill="blue"/>
+  <rect x="40" y="30" width="20" height="50" fill="green"/>
+  <rect x="70" y="10" width="20" height="70" fill="red"/>
+</svg>
+<p id="svgDesc">This chart shows sales data for January, February, and March. The blue bar represents January, the green bar February, and the red bar March.</p>
+```
+
+#### 3. Test with Multiple Screen Readers
+Testing your SVG content with various screen readers ensures compatibility and reveals any issues with how different screen readers interpret the SVG elements.
+
+#### 4. Use `role="img"`
+Explicitly setting the role of the SVG to `img` can help some screen readers understand how to treat the SVG content.
+
+```html
+<svg role="img" aria-labelledby="svgTitle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title id="svgTitle">Checkmark Icon</title>
+  <path d="M10 50 L40 80 L90 20" stroke="green" stroke-width="10" fill="none"/>
+</svg>
+```
+
+#### 5. Ensure High Contrast and Readability
+Make sure the visual content within the SVG is easily discernible with sufficient contrast, so users with partial sight can also benefit from the graphic content.
+
+### Additional Resources
+
+To further explore SVG accessibility and compatibility with screen readers, refer to the following resources:
+
+- <a href="https://www.w3.org/WAI/test-evaluate/preliminary/" target="_blank">W3C WAI - Preliminary Review of Web Accessibility</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles" target="_blank">MDN Web Docs - ARIA Roles</a>
+- <a href="https://www.w3.org/TR/SVG2/" target="_blank">W3C SVG 2 Specification</a>
+- <a href="https://a11yproject.com/" target="_blank">The A11Y Project</a>
+
+By following these guidelines and best practices, you can ensure that your SVGs are accessible and provide a more inclusive web experience for users of all abilities.
