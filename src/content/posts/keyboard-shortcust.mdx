@@ -1,13 +1,13 @@
 ---
-title: 'Blog Post Titled Here'
+title: 'Understanding Custom Keyboard Shortcuts for Web Accessibility'
 pubDate: 2024-06-24
-description: 'This is the first post of my new Astro blog.'
-summary: ''
+description: 'Custom keyboard shortcuts are essential for making web applications more accessible to users with disabilities'
+summary: Custom keyboard shortcuts are essential for making web applications more accessible to users with disabilities, particularly those who rely on keyboard navigation. By implementing these shortcuts, you enhance the usability of your website for individuals with motor impairments, vision impairments, or those who simply prefer using a keyboard over a mouse.
 author: 'A11y.Cafe'
-image:
-    url: 'https://picsum.photos/1200'
-    alt: 'The full Astro logo.'
-    caption: 'The img caption from my first blog post.'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
 tags: ["WCAG", "Guidelines"]
 draft: false
 category: 'guides'
@@ -15,4 +15,142 @@ editUrl: 'blog/my-first-post'
 ---
 
 
-This is where the blog post content would go.
+
+
+Custom keyboard shortcuts are essential for making web applications more accessible to users with disabilities, particularly those who rely on keyboard navigation. By implementing these shortcuts, you enhance the usability of your website for individuals with motor impairments, vision impairments, or those who simply prefer using a keyboard over a mouse. This article will guide you through the relevant WCAG 2.2 guidelines, ARIA roles, best practices, and provide practical examples to help you implement custom keyboard shortcuts effectively.
+
+### Introduction to WCAG and Accessibility Guidelines
+
+The Web Content Accessibility Guidelines (WCAG) 2.2 are a set of recommendations for making web content more accessible. They are organized around four principles: Perceivable, Operable, Understandable, and Robust (POUR). Custom keyboard shortcuts fall under the "Operable" principle, ensuring users can interact with your content effectively.
+
+#### Why Custom Keyboard Shortcuts Matter
+
+1. **Accessibility**: They enable users with disabilities to navigate and interact with web applications without relying on a mouse.
+2. **Efficiency**: Keyboard shortcuts can speed up tasks for all users, improving the overall user experience.
+3. **Inclusivity**: They help create an inclusive environment where all users, regardless of their abilities, can access your content.
+
+### Relevant WCAG 2.2 Guidelines
+
+#### 2.1.1 Keyboard
+
+**Guideline**: Make all functionality available from a keyboard.
+
+**Success Criteria**: Ensure that all interactive elements can be operated using a keyboard. This includes buttons, links, and form controls.
+
+**Example**: 
+```html
+<button id="submitBtn" onclick="submitForm()">Submit</button>
+<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      document.getElementById('submitBtn').click();
+    }
+  });
+</script>
+```
+
+#### 2.1.4 Character Key Shortcuts
+
+**Guideline**: If a keyboard shortcut is implemented using only a letter, number, punctuation, or symbol character, then at least one of the following is true: 
+- The user can turn the shortcut off.
+- The user can remap the shortcut to use one or more non-printable keyboard characters (e.g., Ctrl, Alt).
+- The keyboard shortcut for a user interface component is only active when that component has focus.
+
+**Example**:
+```html
+<button id="saveBtn" accesskey="s">Save</button>
+<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.altKey && event.key === 's') {
+      document.getElementById('saveBtn').click();
+    }
+  });
+</script>
+```
+
+#### 2.1.2 No Keyboard Trap
+
+**Guideline**: If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than standard exit methods, the user is advised of the method for moving focus away.
+
+**Example**:
+```html
+<div tabindex="0" onfocus="this.style.outline='2px solid blue'" onblur="this.style.outline='none'">
+  Focusable Div
+</div>
+```
+
+### Best Practices for Implementing Custom Keyboard Shortcuts
+
+1. **Consistency**: Use common conventions for shortcuts (e.g., Ctrl + S for save).
+2. **Customizability**: Allow users to customize or disable shortcuts to prevent conflicts with assistive technologies.
+3. **Documentation**: Provide clear documentation on available shortcuts.
+4. **Focus Management**: Ensure focus management is intuitive and logical.
+
+### ARIA Roles and Attributes
+
+#### ARIA Role: `role="button"`
+
+Use the `button` role to ensure assistive technologies recognize the element as a button.
+
+**Example**:
+```html
+<div role="button" tabindex="0" onclick="performAction()">Click me</div>
+```
+
+#### ARIA Attribute: `aria-label`
+
+Use `aria-label` to provide an accessible name for the element.
+
+**Example**:
+```html
+<button aria-label="Save changes">Save</button>
+```
+
+### Practical Examples
+
+#### Implementing a Save Shortcut (Ctrl + S)
+
+```html
+<button id="saveBtn" aria-label="Save changes">Save</button>
+<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 's') {
+      event.preventDefault(); // Prevent the default browser save dialog
+      document.getElementById('saveBtn').click();
+    }
+  });
+</script>
+```
+
+#### Customizable Keyboard Shortcuts
+
+```html
+<button id="customShortcutBtn" aria-label="Custom action">Custom Action</button>
+<script>
+  let shortcut = { key: 'a', ctrl: true };
+
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey === shortcut.ctrl && event.key === shortcut.key) {
+      document.getElementById('customShortcutBtn').click();
+    }
+  });
+
+  // Function to update shortcut based on user preference
+  function updateShortcut(newKey, ctrlRequired) {
+    shortcut.key = newKey;
+    shortcut.ctrl = ctrlRequired;
+  }
+
+  // Example: Change shortcut to Ctrl + B
+  updateShortcut('b', true);
+</script>
+```
+
+### Relevant Resources
+
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2" target="_blank">WCAG 2.2 Quick Reference</a>
+- <a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank">WAI-ARIA 1.2 Specification</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank">MDN Web Docs: ARIA</a>
+- <a href="https://webaim.org/" target="_blank">WebAIM: Web Accessibility In Mind</a>
+
+By following these guidelines and best practices, you can create a more accessible web environment that caters to the needs of all users, ensuring an inclusive and efficient user experience.
