@@ -1,20 +1,19 @@
 ---
-title: 'Blog Post Titled Here'
+title: 'Understanding Advisory Techniques in WCAG 2.2'
 pubDate: 2024-06-25
-description: 'This is the first post of my new Astro blog.'
-summary: ''
+description: 'Advisory techniques in WCAG are suggested practices that can enhance the accessibility of web content but are not required to meet WCAG conformance.'
+summary: Advisory techniques in WCAG are suggested practices that can enhance the accessibility of web content but are not required to meet WCAG conformance levels (A, AA, AAA). These techniques go beyond the minimum requirements and offer additional ways to improve the user experience for people with disabilities.
 author: 'A11y.Cafe'
-image:
-    url: 'https://picsum.photos/1200'
-    alt: 'The full Astro logo.'
-    caption: 'The img caption from my first blog post.'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
 tags: ["WCAG", "Guidelines"]
 draft: false
 category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
-### Understanding Advisory Techniques in WCAG 2.2
 
 When it comes to web accessibility, ensuring that your content is usable by everyone, including people with disabilities, is crucial. The Web Content Accessibility Guidelines (WCAG) 2.2 provide a comprehensive set of guidelines to help make web content more accessible. Among the various components of WCAG, advisory techniques play an essential role. This article introduces advisory techniques, their purpose, and best practices to implement them.
 
@@ -39,7 +38,7 @@ Even if an element is accessible, additional instructions can make it easier to 
 <small id="passwordHelp">Your password must be 8-20 characters long.</small>
 ```
 
-##### Technique: Enhanced Keyboard Navigation
+#### Technique: Enhanced Keyboard Navigation
 Improving the focus styles to make navigation more apparent for keyboard users.
 
 ```css
@@ -49,7 +48,7 @@ button:focus, a:focus {
 }
 ```
 
-##### Technique: Using ARIA Landmarks
+#### Technique: Using ARIA Landmarks
 ARIA landmarks help screen reader users navigate complex page structures more easily.
 
 ```html
