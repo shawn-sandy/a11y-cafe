@@ -14,100 +14,146 @@ category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
 
+# Understanding WCAG 2.1.4 Character Key Shortcuts
 
-### Introduction
+Web Content Accessibility Guidelines (WCAG) 2.2 provides comprehensive standards to make web content more accessible to people with disabilities. One of the key criteria under Guideline 2.1 is Success Criterion 2.1.4, which focuses on character key shortcuts. This criterion addresses the accessibility challenges posed by single-character shortcuts, which can interfere with assistive technologies and accidental keystrokes. Let's delve into the details of this criterion and explore how to implement it effectively.
 
-The Web Content Accessibility Guidelines (WCAG) are essential for ensuring that web content is accessible to all users, including those with disabilities. One of the critical guidelines within WCAG 2.2 is 2.1.4 Character Key Shortcuts. This guideline is designed to prevent issues that can arise from the use of single-character key shortcuts, particularly for users who rely on speech input or screen readers.
+## What is WCAG 2.1.4 Character Key Shortcuts?
 
-### What is 2.1.4 Character Key Shortcuts?
+**Success Criterion 2.1.4 Character Key Shortcuts (Level A):** If a keyboard shortcut is implemented using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:
+- The user can turn off the shortcut.
+- The user can remap the shortcut to a non-printable key.
+- The keyboard shortcut for a user interface component is only active when that component has focus.
 
-**Guideline 2.1.4** requires that if a keyboard shortcut is implemented using only a letter, number, punctuation, or symbol character, then at least one of the following must be true:
+### Purpose of This Criterion
 
-1. **Turn Off**: The user can turn the shortcut off.
-2. **Remap**: The user can remap the shortcut to use one or more non-printable keyboard characters (e.g., Ctrl, Alt).
-3. **Focus**: The keyboard shortcut for a user interface component is only active when that component has focus.
+The purpose of this criterion is to prevent unintended actions that can occur when single-character shortcuts are active. These shortcuts can be particularly problematic for users who rely on speech input or screen readers, as well as users with motor disabilities who may press keys accidentally.
 
-### Why It Matters
+### Key Requirements
 
-Single-character shortcuts can conflict with assistive technologies, such as screen readers, or can be accidentally activated, causing confusion or unintended actions. By providing users with control over these shortcuts, we can improve the accessibility and usability of web content for all users.
+To conform to this criterion, your web content must ensure that single-character shortcuts meet one of the following conditions:
 
-### Implementing 2.1.4 Character Key Shortcuts
+1. **Turn Off:** Provide a mechanism for users to disable the shortcut if it interferes with their use of the site.
+2. **Remap:** Allow users to remap the shortcut to a key combination that is less likely to be activated accidentally.
+3. **Focus Activation:** Ensure that the shortcut only activates when the relevant user interface component has focus.
 
-#### Example 1: Allowing Users to Turn Off Shortcuts
+## Implementing WCAG 2.1.4: Best Practices
 
-In this example, users can toggle the use of a single-character shortcut on or off.
+Here are best practices for implementing character key shortcuts in a way that conforms to WCAG 2.1.4:
+
+### 1. Provide a Mechanism to Turn Off Shortcuts
+
+Allow users to disable single-character shortcuts if they find them problematic. This can be done through an accessibility settings menu.
+
+#### Example
 
 ```html
-<button id="saveBtn">Save</button>
-<label for="toggleShortcut">Enable Save Shortcut (S)</label>
-<input type="checkbox" id="toggleShortcut" checked>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Disable Shortcuts Example</title>
+</head>
+<body>
+<button id="toggleShortcut">Press "s" to Submit</button>
+<button onclick="toggleShortcut()">Disable Shortcut</button>
 <script>
-  let saveShortcutEnabled = true;
-
-  document.getElementById('toggleShortcut').addEventListener('change', function(event) {
-    saveShortcutEnabled = event.target.checked;
-  });
+  let shortcutEnabled = true;
 
   document.addEventListener('keydown', function(event) {
-    if (saveShortcutEnabled && event.key === 's') {
-      document.getElementById('saveBtn').click();
+    if (shortcutEnabled && event.key === 's') {
+      event.preventDefault();
+      document.getElementById('toggleShortcut').click();
     }
   });
+
+  function toggleShortcut() {
+    shortcutEnabled = !shortcutEnabled;
+  }
 </script>
+</body>
+</html>
 ```
 
-#### Example 2: Allowing Users to Remap Shortcuts
+### 2. Allow Users to Remap Shortcuts
 
-In this example, users can remap a single-character shortcut to a different key combination.
+Provide an option for users to customize their keyboard shortcuts according to their preferences.
+
+#### Example
 
 ```html
-<button id="customShortcutBtn">Custom Action</button>
-<label for="shortcutKey">Set Custom Shortcut:</label>
-<input type="text" id="shortcutKey" value="c">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Remap Shortcuts Example</title>
+</head>
+<body>
+<button id="remapButton">Press Custom Shortcut to Submit</button>
+<button onclick="changeShortcut()">Change Shortcut</button>
 <script>
-  let customShortcut = 'c';
-
-  document.getElementById('shortcutKey').addEventListener('input', function(event) {
-    customShortcut = event.target.value;
-  });
+  let customShortcut = 's';
 
   document.addEventListener('keydown', function(event) {
     if (event.key === customShortcut) {
-      document.getElementById('customShortcutBtn').click();
+      event.preventDefault();
+      document.getElementById('remapButton').click();
     }
   });
+
+  function changeShortcut() {
+    customShortcut = prompt('Enter new shortcut key:');
+  }
 </script>
+</body>
+</html>
 ```
 
-#### Example 3: Activating Shortcuts Only When Component Has Focus
+### 3. Activate Shortcuts Only When Component Has Focus
 
-In this example, the shortcut is only active when the associated component has focus.
+Ensure that character key shortcuts only function when their associated UI component is in focus.
+
+#### Example
 
 ```html
-<button id="focusShortcutBtn" tabindex="0">Focus Action</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Focus Activation Example</title>
+</head>
+<body>
+<input type="text" id="textInput" placeholder="Press 's' when focused">
 <script>
-  document.getElementById('focusShortcutBtn').addEventListener('keydown', function(event) {
-    if (event.key === 'f') {
-      this.click();
+  document.getElementById('textInput').addEventListener('keydown', function(event) {
+    if (event.key === 's') {
+      alert('Shortcut activated');
     }
   });
 </script>
+</body>
+</html>
 ```
 
-### Best Practices
+## Techniques and Failures for WCAG 2.1.4
 
-1. **User Control**: Always provide options for users to enable, disable, or remap keyboard shortcuts.
-2. **Documentation**: Clearly document available shortcuts and how to modify them.
-3. **Feedback**: Provide feedback when a shortcut is activated, especially if the action is not immediately visible.
-4. **Testing**: Regularly test your site with various assistive technologies to ensure compatibility and usability.
+### Sufficient Techniques
 
-### Conclusion
+- **G202:** Ensuring keyboard control for all functionality.
+- **C15:** Using the user interface from the operating system or platform to reassign or remap a shortcut.
+- **SCR35:** Using client-side scripts to implement keyboard shortcuts.
 
-By adhering to WCAG 2.1.4 Character Key Shortcuts, you can enhance the accessibility of your web content, making it more usable for everyone, including those who rely on assistive technologies. Implementing these guidelines helps create a more inclusive web environment.
+### Common Failures
 
-### Relevant Resources
+- **F42:** Failure due to using scripts that trap keyboard focus.
+- **F58:** Failure due to not providing a way to cancel or abort an action that was initiated through a keyboard interface.
 
-- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2#keyboard" target="_blank">WCAG 2.2 Guideline 2.1.4</a>
-- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank">MDN Web Docs: Keyboard-navigable JavaScript Widgets</a>
-- <a href="https://webaim.org/techniques/keyboard/" target="_blank">WebAIM: Keyboard Accessibility</a>
-- <a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank">WAI-ARIA 1.2 Specification</a>
+## Relevant Links and Resources
+
+- [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/) (opens in a new window)
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) (opens in a new window)
+- [Keyboard Accessibility and WCAG](https://webaim.org/techniques/keyboard/) (opens in a new window)
+- [MDN Web Docs: Keyboard Events](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) (opens in a new window)
+- [WebAIM: Keyboard Shortcuts](https://webaim.org/resources/shortcuts/) (opens in a new window)
+
+By adhering to the guidelines set out in WCAG 2.1.4, you can make your web content more accessible and usable for everyone, particularly those who rely on keyboard navigation.
