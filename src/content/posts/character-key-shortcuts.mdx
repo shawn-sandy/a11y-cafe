@@ -13,23 +13,22 @@ draft: false
 category: 'guides'
 editUrl: 'blog/my-first-post'
 ---
-
-# Understanding WCAG 2.1.4 Character Key Shortcuts
+ 
 
 Web Content Accessibility Guidelines (WCAG) 2.2 provides comprehensive standards to make web content more accessible to people with disabilities. One of the key criteria under Guideline 2.1 is Success Criterion 2.1.4, which focuses on character key shortcuts. This criterion addresses the accessibility challenges posed by single-character shortcuts, which can interfere with assistive technologies and accidental keystrokes. Let's delve into the details of this criterion and explore how to implement it effectively.
 
-## What is WCAG 2.1.4 Character Key Shortcuts?
+### What is WCAG 2.1.4 Character Key Shortcuts?
 
 **Success Criterion 2.1.4 Character Key Shortcuts (Level A):** If a keyboard shortcut is implemented using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:
 - The user can turn off the shortcut.
 - The user can remap the shortcut to a non-printable key.
 - The keyboard shortcut for a user interface component is only active when that component has focus.
 
-### Purpose of This Criterion
+#### Purpose of This Criterion
 
 The purpose of this criterion is to prevent unintended actions that can occur when single-character shortcuts are active. These shortcuts can be particularly problematic for users who rely on speech input or screen readers, as well as users with motor disabilities who may press keys accidentally.
 
-### Key Requirements
+#### Key Requirements
 
 To conform to this criterion, your web content must ensure that single-character shortcuts meet one of the following conditions:
 
@@ -37,15 +36,15 @@ To conform to this criterion, your web content must ensure that single-character
 2. **Remap:** Allow users to remap the shortcut to a key combination that is less likely to be activated accidentally.
 3. **Focus Activation:** Ensure that the shortcut only activates when the relevant user interface component has focus.
 
-## Implementing WCAG 2.1.4: Best Practices
+### Implementing WCAG 2.1.4: Best Practices
 
 Here are best practices for implementing character key shortcuts in a way that conforms to WCAG 2.1.4:
 
-### 1. Provide a Mechanism to Turn Off Shortcuts
+#### 1. Provide a Mechanism to Turn Off Shortcuts
 
 Allow users to disable single-character shortcuts if they find them problematic. This can be done through an accessibility settings menu.
 
-#### Example
+##### Example
 
 ```html
 <!DOCTYPE html>
@@ -75,11 +74,11 @@ Allow users to disable single-character shortcuts if they find them problematic.
 </html>
 ```
 
-### 2. Allow Users to Remap Shortcuts
+#### 2. Allow Users to Remap Shortcuts
 
 Provide an option for users to customize their keyboard shortcuts according to their preferences.
 
-#### Example
+##### Example
 
 ```html
 <!DOCTYPE html>
@@ -109,11 +108,11 @@ Provide an option for users to customize their keyboard shortcuts according to t
 </html>
 ```
 
-### 3. Activate Shortcuts Only When Component Has Focus
+#### 3. Activate Shortcuts Only When Component Has Focus
 
 Ensure that character key shortcuts only function when their associated UI component is in focus.
 
-#### Example
+##### Example
 
 ```html
 <!DOCTYPE html>
@@ -135,20 +134,20 @@ Ensure that character key shortcuts only function when their associated UI compo
 </html>
 ```
 
-## Techniques and Failures for WCAG 2.1.4
+### Techniques and Failures for WCAG 2.1.4
 
-### Sufficient Techniques
+#### Sufficient Techniques
 
 - **G202:** Ensuring keyboard control for all functionality.
 - **C15:** Using the user interface from the operating system or platform to reassign or remap a shortcut.
 - **SCR35:** Using client-side scripts to implement keyboard shortcuts.
 
-### Common Failures
+#### Common Failures
 
 - **F42:** Failure due to using scripts that trap keyboard focus.
 - **F58:** Failure due to not providing a way to cancel or abort an action that was initiated through a keyboard interface.
 
-## Relevant Links and Resources
+### Relevant Links and Resources
 
 - [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/) (opens in a new window)
 - [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) (opens in a new window)
