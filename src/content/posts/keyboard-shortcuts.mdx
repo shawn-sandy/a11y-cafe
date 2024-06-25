@@ -22,9 +22,11 @@ The Web Content Accessibility Guidelines (WCAG) 2.2 are a set of recommendations
 
 #### Why Custom Keyboard Shortcuts Matter
 
-1. **Accessibility**: They enable users with disabilities to navigate and interact with web applications without relying on a mouse.
-2. **Efficiency**: Keyboard shortcuts can speed up tasks for all users, improving the overall user experience.
-3. **Inclusivity**: They help create an inclusive environment where all users, regardless of their abilities, can access your content.
+Keyboard shortcuts improve the usability of a website for all users, but they are particularly crucial for those who rely on keyboards or assistive technologies. They help users:
+
+- **Navigate complex web pages** quickly and easily.
+- **Perform frequent actions** without relying on a mouse.
+- **Enhance productivity** by reducing the number of interactions needed.
 
 ### Relevant WCAG 2.2 Guidelines
 
@@ -142,6 +144,19 @@ Use `aria-label` to provide an accessible name for the element.
   updateShortcut('b', true);
 </script>
 ```
+
+### Sufficient Techniques and Common Failures
+
+### Sufficient Techniques
+
+- **G202:** Ensuring keyboard control for all functionality.
+- **C15:** Using the user interface from the operating system or platform to reassign or remap a shortcut.
+- **SCR35:** Using client-side scripts to implement keyboard shortcuts.
+
+### Common Failures
+
+- **F42:** Failure due to using scripts that trap keyboard focus.
+- **F58:** Failure due to not providing a way to cancel or abort an action that was initiated through a keyboard interface
 
 ### Relevant Resources
 
