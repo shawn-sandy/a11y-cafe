@@ -1,0 +1,103 @@
+---
+title: 'ARIA-Expanded - Enhancing Accessibility with State Information'
+pubDate: 2024-06-26
+description: 'Indicates whether a control, such as a button, a link, or a toggle, is expanded or collapsed.'
+summary: ARIA (Accessible Rich Internet Applications) attributes help enhance accessibility for web applications. One such attribute is `aria-expanded`. This attribute is crucial for users relying on assistive technologies, providing them with important information about the state of UI components that can expand or collapse content.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+ARIA (Accessible Rich Internet Applications) attributes help enhance accessibility for web applications. One such attribute is `aria-expanded`. This attribute is crucial for users relying on assistive technologies, providing them with important information about the state of UI components that can expand or collapse content.
+
+#### What is `aria-expanded`?
+
+The `aria-expanded` attribute indicates whether a control, such as a button, a link, or a toggle, is expanded or collapsed. It is commonly used in components like accordions, menus, and dropdown lists. The attribute can have three possible values:
+- **true**: The element is expanded and its content is visible.
+- **false**: The element is collapsed and its content is hidden.
+- **undefined (or omitted)**: The default state when the element does not control expandable content.
+
+#### Why `aria-expanded` Matters
+
+For users with visual impairments who rely on screen readers, knowing the state of interactive elements is vital for navigating and understanding web content. The `aria-expanded` attribute helps communicate whether additional content is available and visible, providing a better user experience.
+
+#### Applying `aria-expanded` in Practice
+
+Here are some best practices for using `aria-expanded`:
+
+1. **Match with Visible State**: Ensure the value of `aria-expanded` always matches the visual state of the element. If the content is visible, `aria-expanded` should be `true`. If the content is hidden, `aria-expanded` should be `false`.
+2. **Update Dynamically**: When the state of the element changes (e.g., a menu opens or closes), dynamically update the `aria-expanded` attribute to reflect the new state.
+3. **Use with Appropriate Roles**: `aria-expanded` should be used with elements that have roles like `button`, `link`, or `menuitem` to ensure that the intended functionality is clear.
+
+#### Example Code
+
+Here's a simple example of how to use `aria-expanded` in a button that controls the visibility of a panel:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARIA-Expanded Example</title>
+    <style>
+        #panel {
+            display: none;
+        }
+        #panel[aria-expanded="true"] {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton" aria-expanded="false" aria-controls="panel">Show More</button>
+    <div id="panel" role="region" aria-expanded="false">
+        <p>This is the expandable content.</p>
+    </div>
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var button = this;
+            var panel = document.getElementById('panel');
+            var isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Toggle the state
+            button.setAttribute('aria-expanded', !isExpanded);
+            panel.setAttribute('aria-expanded', !isExpanded);
+
+            // Optionally change button text
+            button.textContent = isExpanded ? 'Show More' : 'Show Less';
+        });
+    </script>
+</body>
+</html>
+```
+
+In this example:
+- The button has an `aria-expanded` attribute set to `false` initially, indicating the panel is collapsed.
+- The panel has a corresponding `aria-expanded` attribute that also starts as `false`.
+- When the button is clicked, both `aria-expanded` attributes are toggled between `true` and `false`, and the panel's visibility is adjusted accordingly.
+
+#### Sufficient Techniques and Failures
+
+**Techniques:**
+- Using `aria-expanded` on a button to control the visibility of a panel or section.
+- Updating the `aria-expanded` attribute dynamically with JavaScript when the controlled content's visibility changes.
+
+**Failures:**
+- Not updating the `aria-expanded` attribute when the state of the content changes, leading to a mismatch between the visual state and the ARIA state.
+- Using `aria-expanded` on elements that do not control expandable content, causing confusion for assistive technology users.
+
+#### Further Resources
+
+For more information on ARIA and accessibility best practices, visit these resources:
+- [W3C ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/) - A comprehensive guide to implementing ARIA.
+- [MDN Web Docs: ARIA: aria-expanded](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) - Detailed documentation on the `aria-expanded` attribute.
+- [WebAIM: Accessible Rich Internet Applications (ARIA)](https://webaim.org/techniques/aria/) - A practical guide to ARIA techniques and considerations.
+
+Feel free to ask any further questions about accessibility or specific ARIA attributes!

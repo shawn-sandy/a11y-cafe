@@ -1,0 +1,111 @@
+---
+title: 'Using `aria-expanded` with VoiceOver'
+pubDate: 2024-06-26
+description: 'When `aria-expanded` is used correctly, it provides essential feedback about the state of expandable sections.'
+summary: VoiceOver users rely on auditory cues to navigate and understand web content. When `aria-expanded` is used correctly, it provides essential feedback about the state of expandable sections, making it easier for users to interact with and comprehend the content.
+author: 'A11y.Cafe'
+image:
+    url: 'https://picsum.photos/1200'
+    alt: 'The full Astro logo.'
+    caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+
+`aria-expanded` is a critical ARIA attribute that helps communicate the state of expandable content to screen readers, such as VoiceOver on macOS and iOS devices. Proper implementation of this attribute ensures that users who rely on screen readers are aware of whether a particular section of content is expanded or collapsed.
+
+#### What is `aria-expanded`?
+
+The `aria-expanded` attribute indicates whether an element, such as a button or a link, controls the visibility of a collapsible section of content. It can have two main values:
+- **true**: The element is expanded, and the content it controls is visible.
+- **false**: The element is collapsed, and the content it controls is hidden.
+
+#### Why `aria-expanded` Matters for VoiceOver Users
+
+VoiceOver users rely on auditory cues to navigate and understand web content. When `aria-expanded` is used correctly, it provides essential feedback about the state of expandable sections, making it easier for users to interact with and comprehend the content.
+
+#### Implementing `aria-expanded` for VoiceOver
+
+Here are best practices for using `aria-expanded` to ensure compatibility with VoiceOver:
+
+1. **Consistent State Updates**: Always update the `aria-expanded` attribute dynamically to match the visual state of the element.
+2. **Keyboard Accessibility**: Ensure that elements with `aria-expanded` can be activated using the keyboard.
+3. **Role and Labeling**: Use appropriate ARIA roles and labels to provide context about the expandable content.
+
+#### Example Code
+
+Here's an example of how to implement an accessible expandable section using `aria-expanded`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARIA Expanded Example</title>
+    <style>
+        #content {
+            display: none;
+        }
+        #content[aria-expanded="true"] {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton" aria-expanded="false" aria-controls="content">Show More</button>
+    <div id="content" role="region" aria-expanded="false">
+        <p>This is the expandable content.</p>
+    </div>
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var button = this;
+            var content = document.getElementById('content');
+            var isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Toggle the state
+            button.setAttribute('aria-expanded', !isExpanded);
+            content.setAttribute('aria-expanded', !isExpanded);
+
+            // Optionally change button text
+            button.textContent = isExpanded ? 'Show More' : 'Show Less';
+        });
+    </script>
+</body>
+</html>
+```
+
+In this example:
+- The button has `aria-expanded="false"` initially, indicating that the content is collapsed.
+- The `div` element representing the expandable content also uses `aria-expanded` to indicate its current state.
+- When the button is clicked, the `aria-expanded` attribute of both the button and the content is toggled, and the visibility of the content is adjusted accordingly.
+
+#### VoiceOver Interaction
+
+When a VoiceOver user navigates to the button:
+- VoiceOver will announce the button's label and its `aria-expanded` state (e.g., "Show More, collapsed").
+- After clicking the button, VoiceOver will announce the new state (e.g., "Show Less, expanded"), providing clear feedback that the content has been revealed.
+
+#### Sufficient Techniques and Failures
+
+**Techniques:**
+- Use `aria-expanded` on interactive elements like buttons and links to indicate expandable content.
+- Ensure `aria-expanded` is dynamically updated to reflect changes in content visibility.
+- Provide clear and concise labels to describe the action or state of the element.
+
+**Failures:**
+- Not updating `aria-expanded` dynamically, leading to confusion about the current state.
+- Using `aria-expanded` on non-interactive elements, which may not provide the intended functionality.
+- Failing to ensure keyboard accessibility, preventing some users from interacting with the expandable content.
+
+#### Further Resources
+
+For more information on using `aria-expanded` and ensuring accessibility for VoiceOver users, check out these resources:
+- [W3C ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#accordion) - Guidelines on creating accessible accordions and expandable sections.
+- [MDN Web Docs: ARIA: aria-expanded](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) - Documentation on the `aria-expanded` attribute.
+- [Apple VoiceOver Guide](https://www.apple.com/voiceover/info/guide/_1121.html) - Information on how to use and test with VoiceOver.
+
+Feel free to ask any further questions or seek additional clarifications on accessibility topics!
