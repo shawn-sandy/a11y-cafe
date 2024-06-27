@@ -9,7 +9,10 @@ console.log(slug);
 
 <aside>
   { slug !== "/" && 
-  <TagList showTitle={true} /> }
+  <>
+  <TagList showTitle={true} /> 
   <hr />
+  </>
+  }
   <PostList postListTitle="Recent" postLength={15} />
 </aside>
