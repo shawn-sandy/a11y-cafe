@@ -1,10 +1,15 @@
 ---
 import PostList from "./PostsList.astro";
 import TagList from "./TagList.astro";
+// grab the page slu from astro
+const slug = Astro.url.pathname;
+console.log(slug);
+
 ---
 
 <aside>
-  <TagList />
+  { slug !== "/" && 
+  <TagList showTitle={true} /> }
   <hr />
   <PostList postListTitle="Recent" postLength={15} />
 </aside>

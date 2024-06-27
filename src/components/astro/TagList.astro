@@ -1,14 +1,23 @@
 ---
 import { getCollection } from "astro:content";
-const collection = Astro.props.collection || "Tags";
+import { type TODO } from "#utils/types.js";
+const collection = Astro.props?.collection || "Tags";
 const collectionTag = Astro.props.collectionTag || "posts";
 const allPosts = await getCollection(collectionTag);
 const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+type Props = {
+  showTitle?: boolean;
+  collection?: string;
+  collectionTag?: string | TODO;
+};
+const { showTitle } = Astro.props as Props;
 ---
 
+{ showTitle && 
 <h4 data-ui="display">
   {collection}
 </h4>
+}
 <ul data-list="unstyled">
   {
     tags?.map((tag) => (

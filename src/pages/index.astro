@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CollectionList from "#components/CollectionList.astro";
+import TagList from "#components/astro/TagList.astro";
 ---
 
 <Layout
@@ -8,6 +9,9 @@ import CollectionList from "#components/CollectionList.astro";
   showBreadcrumb={false}
   showFeature={true}
 >
+<section aria-label="tags" style="text-align: center;">
+  <TagList showTitle={false} collection="" />  <hr>
+</section>
   <section>
     <CollectionList
       showPagination={false}
@@ -24,5 +28,6 @@ import CollectionList from "#components/CollectionList.astro";
       pageSize={10}
       collection="posts"
     />
+  
   </section>
 </Layout>
