@@ -26,6 +26,8 @@ type Props = {
   ogDescription?: string;
 };
 
+const pageSlug = Astro.url.pathname
+
 const showBreadcrumb =
   Astro.props.showBreadcrumb === undefined ? true : Astro.props.showBreadcrumb;
 
@@ -38,6 +40,7 @@ const { pageTitle, pageDescription, breadcrumbRoutes, showFeature, ogImage, ogDe
 import "../styles/index.css";
 import Feature from "#components/Feature.astro";
 import OpenGraph from "#components/OpenGraph.astro";
+import TagList from "#components/astro/TagList.astro";
 ---
 
 <html lang="en">
@@ -75,6 +78,19 @@ import OpenGraph from "#components/OpenGraph.astro";
         </section>
       )
     }
+
+   { pageSlug === "/" && (
+        <>
+       <section aria-label="tags">
+      <TagList showTitle={false} collection="" />  
+  
+    </section>  
+     
+    </>
+      )}
+  
+   
+   
 
     <main id="main-content">
       <!-- <hr /> -->
