@@ -20,7 +20,7 @@
     "@astrojs/mdx": "^3.1.1",
     "@astrojs/netlify": "^5.3.1",
     "@astrojs/react": "^3.6.0",
-    "@astrojs/rss": "^4.0.6",
+    "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@fpkit/react": "^0.3.86",
     "@sentry/astro": "^8.10.0",
