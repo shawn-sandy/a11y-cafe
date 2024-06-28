@@ -239,6 +239,12 @@ a[href] {
     color: var(--cafe-accent-800);
   }
 }
+
+[aria-label="tags"] ul {
+ 
+  justify-content: center;
+  margin-block-end: 4rem;
+}
  
 
 .gochi {
