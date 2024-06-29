@@ -26,7 +26,7 @@ type Props = {
   ogDescription?: string;
 };
 
-const pageSlug = Astro.url.pathname
+const pageSlug = Astro.url.pathname;
 
 const showBreadcrumb =
   Astro.props.showBreadcrumb === undefined ? true : Astro.props.showBreadcrumb;
@@ -35,8 +35,14 @@ const showHeader = Astro.props.showHeader || true;
 
 const showNavigation = Astro.props.showNavigation || true;
 
-const { pageTitle, pageDescription, breadcrumbRoutes, showFeature, ogImage, ogDescription } =
-  Astro.props;
+const {
+  pageTitle,
+  pageDescription,
+  breadcrumbRoutes,
+  showFeature,
+  ogImage,
+  ogDescription,
+} = Astro.props;
 import "../styles/index.css";
 import Feature from "#components/Feature.astro";
 import OpenGraph from "#components/OpenGraph.astro";
@@ -59,7 +65,14 @@ import TagList from "#components/astro/TagList.astro";
       href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
       rel="stylesheet"
     />
-    <OpenGraph title={pageTitle || SITE_TITLE} description={ogDescription || pageDescription || SITE_DESCRIPTION} url={Astro.url.href} image={ogImage || "/images/a11y-banner.webp" } type="article" twitterUsername="shawnsandy"/>
+    <OpenGraph
+      title={pageTitle || SITE_TITLE}
+      description={ogDescription || pageDescription || SITE_DESCRIPTION}
+      url={Astro.url.href}
+      image={ogImage || "/images/a11y-banner.webp"}
+      type="article"
+      twitterUsername="shawnsandy"
+    />
     <ViewTransitions />
   </head>
   <body>
@@ -79,18 +92,16 @@ import TagList from "#components/astro/TagList.astro";
       )
     }
 
-   { pageSlug === "/" && (
+    {
+      pageSlug === "/" && (
         <>
-       <section aria-label="tags">
-      <TagList showTitle={false} collection="" />  
-  
-    </section>  
-     
-    </>
-      )}
-  
-   
-   
+          <section aria-label="tags">
+            <h2>Cafe Tag Menu</h2>
+            <TagList showTitle={false} collection="" />
+          </section>
+        </>
+      )
+    }
 
     <main id="main-content">
       <!-- <hr /> -->

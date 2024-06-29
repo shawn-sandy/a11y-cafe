@@ -39,13 +39,12 @@ body {
       background-color: transparent;
     }
   }
-> section {
-  max-width: 92.5rem;
-  margin-inline: auto;
-  padding-inline: 2rem;
+  > section {
+    max-width: 92.5rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
 }
-}
-
 
 main {
   padding-block: 0rem;
@@ -240,12 +239,13 @@ a[href] {
   }
 }
 
-[aria-label="tags"] ul {
- 
-  justify-content: center;
-  margin-block-end: 4rem;
+[aria-label="tags"] {
+  text-align: center;
+  ul {
+    justify-content: center;
+    margin-block-end: 4rem;
+  }
 }
- 
 
 .gochi {
   font-family: "Gochi Hand", cursive;
