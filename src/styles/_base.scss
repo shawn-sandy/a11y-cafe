@@ -241,9 +241,12 @@ a[href] {
 
 [aria-label="tags"] {
   text-align: center;
+  background-color: var(--cafe-accent-100);
+  padding-block: 2rem;
+  margin-block-end: 2rem;
   ul {
     justify-content: center;
-    margin-block-end: 4rem;
+    // margin-block-end: 4rem;
   }
 }
 
