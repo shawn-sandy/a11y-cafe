@@ -5,8 +5,7 @@ import { json } from "stream/consumers";
 export async function GET(context) {
   const blog = await getCollection('posts');
 
-  const jsonData = [{ 
-    items: blog.map((post) => ({
+  const jsonData =  blog.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
@@ -14,8 +13,8 @@ export async function GET(context) {
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
       link: `/posts/${post.slug}/`,
-    })),
-  }];
+    }))
+  ;
 
   return new Response(
     JSON.stringify(jsonData),  {
