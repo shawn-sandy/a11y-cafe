@@ -6,6 +6,7 @@ import Header from "#components/astro/Header.astro";
 import Sidebar from "#components/astro/Sidebar.astro";
 import AstroBreadcrumb from "#components/react/astro-breadcrumb.tsx";
 import { SITE_DESCRIPTION, SITE_TITLE } from "#utils/site-config";
+import FuseSearch from "#components/FuseSearch.astro";
 import "@fpkit/react/styles";
 
 // types
@@ -78,7 +79,7 @@ import TagList from "#components/astro/TagList.astro";
   <body>
     <a href="#main-content">Skip to main content</a>
     {showNavigation && <Navigation />}
-
+     
     {
       showHeader && (
         <Header headerTitle={pageTitle} headerDescription={pageDescription} />
@@ -92,6 +93,9 @@ import TagList from "#components/astro/TagList.astro";
       )
     }
 
+  
+ 
+
     {
       pageSlug === "/" && (
         <>
@@ -102,8 +106,10 @@ import TagList from "#components/astro/TagList.astro";
         </>
       )
     }
+    
 
     <main id="main-content">
+      <FuseSearch />
       <!-- <hr /> -->
       {
         showBreadcrumb && (
