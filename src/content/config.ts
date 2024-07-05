@@ -1,5 +1,7 @@
-import { date } from "astro/zod";
+
 import { defineCollection, reference, z } from "astro:content";
+import { rssSchema } from '@astrojs/rss';
+
 const CATEGORIES = ["patterns", "guides", "resources", "articles"];
 
 const postsCollection = defineCollection({
