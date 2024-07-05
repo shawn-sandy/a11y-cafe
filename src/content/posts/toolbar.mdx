@@ -1,0 +1,86 @@
+---
+title: 'Understanding and Implementing Toolbar role'
+pubDate: 2024-07-05
+description: 'The Toolbar role, which helps to define a group of controls that users can interact with'
+summary: A toolbar is a container for grouping a set of controls. These controls are often related to tasks, such as formatting text in a text editor or navigating through application options.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+In web accessibility, ensuring that all users, including those who rely on assistive technologies, can navigate and interact with web content effectively is crucial. One key aspect of this is the proper use of ARIA (Accessible Rich Internet Applications) roles. One such ARIA role is the `toolbar` role, which helps to define a group of controls that users can interact with.
+
+#### What is a Toolbar?
+
+A toolbar is a container for grouping a set of controls. These controls are often related to tasks, such as formatting text in a text editor or navigating through application options. The `toolbar` role is used to identify such groups, helping users, particularly those using screen readers, to understand the structure and purpose of the controls within the toolbar.
+
+#### Why Use the Toolbar Role?
+
+- **Semantic Structure**: Helps provide a clear semantic structure to your web application, making it easier for users to understand the purpose of the grouped controls.
+- **Screen Reader Support**: Screen readers can announce the presence of a toolbar, enhancing the navigational experience for users who rely on these tools.
+- **Keyboard Navigation**: Proper implementation allows for better keyboard navigation, making it easier for users to move between different controls within the toolbar.
+
+### WCAG Guidelines Related to Toolbars
+
+According to the Web Content Accessibility Guidelines (WCAG) 2.2, several success criteria are relevant to the use of the toolbar role:
+
+- **1.3.1 Info and Relationships**: Ensure that information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.
+- **4.1.2 Name, Role, Value**: Ensure that user interface components have accessible names and roles and that states, properties, and values can be programmatically set and described.
+
+### Implementing the Toolbar Role
+
+#### Example Code
+
+Here's a simple example of implementing a toolbar using ARIA roles:
+
+```html
+<div role="toolbar" aria-label="Text formatting toolbar">
+  <button aria-label="Bold" onclick="formatText('bold')">B</button>
+  <button aria-label="Italic" onclick="formatText('italic')">I</button>
+  <button aria-label="Underline" onclick="formatText('underline')">U</button>
+</div>
+
+<script>
+function formatText(command) {
+  document.execCommand(command, false, null);
+}
+</script>
+```
+
+In this example:
+- The `role="toolbar"` attribute identifies the container as a toolbar.
+- The `aria-label` attributes provide accessible names for each button, which are announced by screen readers.
+
+#### Best Practices
+
+- **Labeling**: Always provide a clear and concise label for the toolbar using the `aria-label` attribute.
+- **Keyboard Accessibility**: Ensure that users can navigate through the toolbar using the keyboard. Typically, this means providing appropriate `tabindex` attributes and handling keyboard events.
+- **Grouping**: If the toolbar contains groups of controls, use additional roles like `group` or `aria-labelledby` to further clarify the structure.
+
+### Sufficient Techniques and Failures
+
+#### Sufficient Techniques
+
+- **ARIA11**: Using ARIA landmarks to identify regions of a page.
+- **G13**: Describing what will happen before a change of context using user interface components.
+
+#### Common Failures
+
+- **Failure to Provide Role Information**: Not using the `toolbar` role where appropriate, leading to a lack of clarity for screen reader users.
+- **Inadequate Keyboard Navigation**: Users are unable to navigate through toolbar items using the keyboard.
+
+### Resources
+
+For further reading and resources, consider the following:
+
+- [W3C ARIA Practices](https://www.w3.org/TR/wai-aria-practices/#toolbar) 
+- [MDN Web Docs on ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role)
+- [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/)
+
+By following these guidelines and best practices, you can ensure that your toolbar is accessible to all users, providing a better user experience and complying with accessibility standards.
