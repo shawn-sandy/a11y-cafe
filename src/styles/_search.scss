@@ -8,7 +8,7 @@
   top: 0;
   z-index: 999;
   background-color: var(--cafe-accent-50);
-  padding-block: 2rem;
+  padding-block: 1rem;
 
   form {
     all: unset;
@@ -30,13 +30,13 @@
   ul {
     position: absolute;
     z-index: 999;
-    top: 120px;
-    background-color: var(--cafe-accent-50, #fbfdfe);
+    top: 6.875rem;    background-color: var(--cafe-accent-50, #fbfdfe);
     width: max(40vw, 60vw);
     padding-inline: 1.5rem;
     border-radius: 0.5rem;
     border-color: var(--cafe-accent-400);
     border-style: solid;
+    border-width: thin;
     display: none;
     li {
       padding: 0.5rem;
