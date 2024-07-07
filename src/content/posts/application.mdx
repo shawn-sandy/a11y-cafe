@@ -1,0 +1,86 @@
+---
+title: 'Building Accessible Applications with the `application` Role'
+pubDate: 2024-07-07
+description: 'This is the first post of my new Astro blog.'
+summary: ''
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+.
+
+### The Application Role
+
+The `application` document strucutre role is used to indicate that a section of the web page is a web application rather than a document. This can be particularly useful when creating complex, interactive user interfaces that function more like desktop applications than traditional web pages.
+
+### Why It Matters
+
+Using the `application` role correctly can significantly improve the user experience for individuals relying on screen readers. When a screen reader encounters an element with the `application` role, it can switch from a document reading mode to an application interaction mode, which is better suited for handling complex interactions.
+
+### How It Applies
+
+The `application` role should be used sparingly and only in contexts where it enhances accessibility. Overusing it or using it incorrectly can lead to confusion and a poor user experience. It's essential to understand when and how to apply this role appropriately.
+
+### Purpose
+
+The primary purpose of the `application` role is to indicate that the content within the role requires user interaction and is more akin to an application than a document. This helps screen readers optimize their interaction model, providing a more intuitive experience for users.
+
+### Screen Reader Support
+
+Most modern screen readers, including JAWS, NVDA, VoiceOver, and Narrator, support the `application` role. When encountering this role, screen readers switch to an application mode, where keyboard interaction models are adjusted to better support complex, interactive content.
+
+### Best Practices
+
+1. **Use Sparingly**: Only use the `application` role for parts of the web page that function as applications, such as custom widgets or interactive elements.
+2. **Proper Structure**: Ensure that interactive elements within the `application` role are properly labeled and accessible.
+3. **Keyboard Navigation**: Ensure that all interactive elements within the `application` role are fully keyboard accessible.
+
+### Conformance Levels and Success Criteria
+
+The use of ARIA roles, including the `application` role, is part of ensuring compliance with WCAG 2.2 guidelines, particularly:
+
+- **WCAG 2.2 Success Criterion 4.1.2**: Name, Role, Value
+  - Ensure that the name and role of all user interface components can be programmatically determined.
+
+### Code Example
+
+Here's a simple example demonstrating the use of the `application` role:
+
+```html
+<div role="application" aria-label="Calculator Application">
+    <button aria-label="Number 1">1</button>
+    <button aria-label="Number 2">2</button>
+    <button aria-label="Addition">+</button>
+    <button aria-label="Equal">=</button>
+    <div aria-live="polite" aria-atomic="true" id="result">0</div>
+</div>
+```
+
+### Techniques and Failures
+
+#### Sufficient Techniques
+
+1. **Technique ARIA1**: Using the `application` role to identify a web application.
+2. **Technique ARIA2**: Ensuring elements within the `application` role have proper ARIA attributes.
+
+#### Common Failures
+
+1. **Failure Example 1**: Overuse of the `application` role, leading to confusion.
+2. **Failure Example 2**: Incorrectly labeling non-interactive elements with the `application` role.
+
+### Resources
+
+For more detailed information on ARIA and the `application` role, you can refer to the following resources:
+
+- <a href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank">WAI-ARIA Overview</a>
+- <a href="https://www.w3.org/TR/wai-aria/#roles_categorization" target="_blank">ARIA Roles</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Application_Role" target="_blank">Using the `application` role</a> 
+- <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#aria_role_types" target="_blank">WAI-ARIA Roles</a>
+
+By understanding and correctly implementing the `application` role, developers can create more accessible and user-friendly web applications.
