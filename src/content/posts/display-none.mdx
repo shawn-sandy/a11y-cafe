@@ -1,0 +1,101 @@
+---
+title: 'How to use display-none to show and hide accessible content'
+pubDate: 2024-07-09
+description: 'The CSS property `display: none` completely removes an element from the visual layout of the page.'
+summary: 'Using `display: none` impacts accessibility because it makes content unavailable to all users, including those using assistive technologies like screen readers. Unlike visually hidden content (which might still be accessible to screen readers), content with `display: none` is also removed from the accessibility tree, meaning it cannot be navigated or announced by screen readers.'
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "CSS", "HTML5"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+### Understanding the Impact of `display: none` in CSS on Accessibility
+
+When developing websites, understanding the impact of using `display: none` in CSS is crucial for accessibility. This guide will cover the basics of `display: none`, its effects on accessibility, relevant WCAG guidelines, ARIA techniques, and best practices for ensuring that hidden content is managed correctly.
+
+#### What is `display: none`?
+
+The CSS property `display: none` completely removes an element from the visual layout of the page. This means the element is not visible to users and not accessible via keyboard navigation.
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+#### Why It Matters for Accessibility
+
+Using `display: none` impacts accessibility because it makes content unavailable to all users, including those using assistive technologies like screen readers. Unlike visually hidden content (which might still be accessible to screen readers), content with `display: none` is also removed from the accessibility tree, meaning it cannot be navigated or announced by screen readers.
+
+### WCAG 2.2 Guidelines
+
+Several WCAG guidelines address the need to manage hidden content appropriately to ensure accessibility:
+
+1. **1.3.2 Meaningful Sequence**: Ensure that the reading and navigation order are logical and intuitive.
+2. **1.4.3 Contrast (Minimum)**: Make sure that users with visual impairments can perceive the content.
+3. **2.4.3 Focus Order**: Ensure that the navigation order is logical and intuitive.
+
+### ARIA and Managing Hidden Content
+
+ARIA (Accessible Rich Internet Applications) provides techniques to handle visibility and hidden content in a way that remains accessible to screen readers:
+
+- **`aria-hidden`**: Use this attribute to hide elements from screen readers while keeping them in the DOM. This can be useful for content that should not be announced to users with screen readers but is still necessary for sighted users.
+
+```html
+<div aria-hidden="true">This content is hidden from screen readers.</div>
+```
+
+- **`role="presentation"`**: This role indicates that an element is not meant to be interactive and should be ignored by assistive technologies.
+
+### Best Practices for `display: none`
+
+1. **Use Sparingly**: Apply `display: none` only when content needs to be completely hidden from all users, including those using assistive technologies.
+2. **Use `aria-hidden` When Appropriate**: For elements that should be hidden from screen readers but visible to sighted users, use `aria-hidden="true"`.
+3. **Maintain Focus Management**: Ensure that focusable elements hidden with `display: none` do not cause focus loss or confusion for keyboard users.
+
+### Practical Examples
+
+#### Hiding Content Completely
+
+When you need to hide content completely, use `display: none`. This is appropriate for content that is temporarily not needed.
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+```html
+<div class="hidden">This content is completely hidden.</div>
+```
+
+#### Hiding Content from Screen Readers Only
+
+When content should be hidden from screen readers but visible to sighted users, use `aria-hidden`.
+
+```html
+<div aria-hidden="true">This content is visible but not read by screen readers.</div>
+```
+
+### Sufficient Techniques and Common Failures
+
+**Sufficient Techniques**:
+- Use `aria-hidden` for decorative or supplementary content that should be ignored by screen readers.
+- Manage focus and navigation order to prevent keyboard traps.
+
+**Common Failures**:
+- Using `display: none` for content that provides essential information or functionality.
+- Removing focusable elements from the DOM without proper focus management, causing confusion for keyboard users.
+
+### Conclusion
+
+Using `display: none` in CSS can be an effective way to hide content, but it's essential to consider its impact on accessibility. By following WCAG guidelines, using ARIA attributes appropriately, and implementing best practices, you can ensure that your web content remains accessible to all users.
+
+For more detailed information on web accessibility guidelines, refer to the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) and [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/).
+
+By understanding and applying these principles, you can create more inclusive and accessible web experiences.
