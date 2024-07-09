@@ -1,0 +1,95 @@
+---
+title: 'Building Accessible Menus with ARIA'
+pubDate: 2024-07-06
+description: 'Defining a container for a list of choices or commands that a user can select.'
+summary: The `menu` role in ARIA (Accessible Rich Internet Applications) defines a container for a list of choices or commands that a user can select. It is crucial for creating accessible and navigable web interfaces, especially for users who rely on screen readers and keyboard navigation.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+#     caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "ARIA"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+ 
+The `menu` role in ARIA (Accessible Rich Internet Applications) defines a container for a list of choices or commands that a user can select. It is crucial for creating accessible and navigable web interfaces, especially for users who rely on screen readers and keyboard navigation.
+
+### Why Menu Accessibility Matters
+Ensuring menus are accessible is important because:
+- **Screen Reader Users** need to understand and interact with menu structures.
+- **Keyboard-only Users** must be able to navigate through menu items efficiently.
+- **Users with Cognitive Disabilities** benefit from clear, structured, and navigable menus.
+
+### WCAG Guidelines Relevant to Menu
+Key WCAG 2.2 guidelines to consider for menus include:
+
+- **Perceivable**: Making information and user interface components presentable to users in ways they can perceive.
+  - **1.3.1 Info and Relationships**: Ensuring that information, structure, and relationships conveyed through presentation can be programmatically determined.
+- **Operable**: Ensuring that user interface components and navigation are operable.
+  - **2.1.1 Keyboard**: Making all functionality accessible via a keyboard interface.
+  - **2.4.3 Focus Order**: Ensuring that components receive focus in an order that preserves meaning and operability.
+  - **2.4.6 Headings and Labels**: Providing headings and labels that describe the topic or purpose.
+
+### ARIA Role: `menu`
+The `menu` role defines a container for a set of items that a user can navigate and select. It typically contains items with the `menuitem`, `menuitemcheckbox`, or `menuitemradio` roles.
+
+### Implementation and Best Practices
+Here’s how you can implement a `menu` using ARIA roles and attributes:
+
+#### Example Code
+```html
+<nav role="menubar" aria-label="Main Menu">
+  <div role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">File</div>
+  <div role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Edit</div>
+  <div role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">View</div>
+</nav>
+
+<!-- Example of a submenu -->
+<div role="menu" aria-label="File Submenu">
+  <div role="menuitem" tabindex="-1">New</div>
+  <div role="menuitem" tabindex="-1">Open</div>
+  <div role="menuitem" tabindex="-1">Save</div>
+</div>
+```
+
+#### Key Points
+- **role="menu"**: Defines a container for menu items.
+- **aria-label**: Provides a label for the menu to be announced by screen readers.
+- **role="menuitem"**: Defines individual items within the menu.
+- **aria-haspopup="true"**: Indicates that a menu item can open a submenu.
+- **aria-expanded="false"**: Indicates whether the submenu is currently expanded or collapsed.
+
+### Sufficient Techniques and Failures
+#### Sufficient Techniques
+- **Using `role="menu"`**: Appropriately define containers for menu items.
+- **Implementing keyboard navigation**: Ensure users can navigate using arrow keys and tab through items.
+- **Providing clear focus indicators**: Use visual indicators to show which menu item is currently focused.
+
+#### Common Failures
+- **Failure to include keyboard support**: Not allowing users to navigate menu items using only the keyboard.
+- **Incorrect ARIA roles**: Using roles that do not correctly describe the element's function.
+- **Lack of proper focus management**: Making it difficult for keyboard users to navigate due to improper focus order.
+
+### Screen Reader Support and Compatibility
+Ensuring compatibility with various screen readers is crucial. Common screen readers include:
+- **JAWS**: A popular screen reader for Windows.
+- **NVDA**: A free screen reader for Windows.
+- **VoiceOver**: Built-in screen reader for macOS and iOS.
+- **TalkBack**: Built-in screen reader for Android.
+
+### Best Practices
+- **Test with Multiple Screen Readers**: Ensure the menus work well across different screen readers.
+- **Focus Management**: Implement logical focus order and use ARIA attributes to manage focus correctly.
+- **Keyboard Accessibility**: Ensure all menu items are navigable via keyboard.
+
+### Conclusion
+Making menus accessible is essential for creating inclusive web applications. By following WCAG guidelines and using ARIA roles correctly, developers can ensure that all users, regardless of their abilities, can navigate and interact with menus effectively.
+
+For more information on ARIA and WCAG guidelines, refer to the following resources:
+- <a href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank">WAI-ARIA Overview</a>
+- <a href="https://www.w3.org/TR/WCAG22/" target="_blank">WCAG 2.2 Guidelines</a>
+
+By adhering to these principles, you can significantly enhance the accessibility and usability of your web applications.

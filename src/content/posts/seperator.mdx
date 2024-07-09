@@ -1,0 +1,105 @@
+---
+title: 'Organize content sections with a separator (HR tag)'
+pubDate: 2024-07-06
+description: 'The ARIA (Accessible Rich Internet Applications) `separator` role is used to define a dividing line that separates and organizes content'
+summary: The ARIA (Accessible Rich Internet Applications) `separator` role is used to define a dividing line that separates and organizes content in a web application. This role is particularly useful in creating accessible web interfaces for users relying on assistive technologies such as screen readers.
+author: 'A11y.Cafe'
+# image:
+#     url: 'https://picsum.photos/1200'
+#     alt: 'The full Astro logo.'
+# caption: 'The img caption from my first blog post.'
+tags: ["WCAG", "Guidelines", "ARIA", "HTML5"]
+draft: false
+category: 'guides'
+editUrl: 'blog/my-first-post'
+---
+
+#### Introduction
+
+The ARIA (Accessible Rich Internet Applications) `separator` role is used to define a dividing line that separates and organizes content in a web application. This role is particularly useful in creating accessible web interfaces for users relying on assistive technologies such as screen readers.
+
+#### Why Accessibility Matters
+
+Accessibility ensures that all users, regardless of their abilities, can perceive, understand, navigate, and interact with web content. The `separator` role provides a way to semantically define visual and functional breaks in content, making the structure of a page clearer for users of assistive technologies.
+
+#### ARIA `separator` Role
+
+The `separator` role is used to mark an element that separates and distinguishes sections of content. It can be used to indicate a thematic break between paragraphs or sections, similar to the HTML5 `<hr>` element, but with more semantic control and options for styling and behavior.
+
+#### Best Practices for Using `separator`
+
+1. **Contextual Use**:
+   - Use the `separator` role to indicate logical divisions between sections of content, such as different topics, different speakers, or different functional areas within an application.
+
+2. **Screen Reader Compatibility**:
+   - Screen readers should correctly interpret the `separator` role, providing users with information about the separation of content. Ensure that the separator is used meaningfully to aid in content comprehension.
+
+3. **Styling**:
+   - While the `separator` role provides semantic meaning, styling with CSS can enhance visual understanding. Ensure that the styling reflects the semantic purpose of the separator.
+
+#### Example Code
+
+Here are examples demonstrating the use of the `separator` role:
+
+##### Basic Usage
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARIA Separator Example</title>
+</head>
+<body>
+    <h1>Main Title</h1>
+    <p>This is the first section of content.</p>
+    <div role="separator"></div>
+    <h2>Sub Title</h2>
+    <p>This is the second section of content.</p>
+</body>
+</html>
+```
+
+##### Styled Separator
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled ARIA Separator Example</title>
+    <style>
+        .separator {
+            border: 0;
+            height: 1px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Main Title</h1>
+    <p>This is the first section of content.</p>
+    <div role="separator" class="separator"></div>
+    <h2>Sub Title</h2>
+    <p>This is the second section of content.</p>
+</body>
+</html>
+```
+
+#### Techniques and Failures
+
+**Techniques**:
+- **Consistent Use**: Ensure the `separator` role is used consistently across the application to denote thematic breaks or content divisions.
+- **Descriptive Context**: Provide additional context if the separator denotes a significant change in content to help screen reader users understand the break.
+
+**Failures**:
+- **Misuse of Role**: Using the `separator` role for decorative purposes without conveying any meaningful separation of content.
+- **Overuse**: Using too many separators can create confusion rather than clarity, so use them judiciously to enhance content structure.
+
+#### References
+
+- [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/#separator) <a href="https://www.w3.org/TR/wai-aria-practices/#separator" target="_blank">WAI-ARIA Authoring Practices 1.1</a>
+- [MDN Web Docs: ARIA: separator role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Separator_role) <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Separator_role" target="_blank">MDN Web Docs: ARIA: separator role</a>
+- [WebAIM: ARIA Separator](https://webaim.org/techniques/aria/#separator) <a href="https://webaim.org/techniques/aria/#separator" target="_blank">WebAIM: ARIA Separator</a>
+
+By following these guidelines and best practices, you can ensure that the ARIA `separator` role is used effectively to enhance the accessibility and user experience of your web applications.
