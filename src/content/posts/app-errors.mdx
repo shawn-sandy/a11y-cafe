@@ -8,7 +8,7 @@ author: 'A11y.Cafe'
 #     url: 'https://picsum.photos/1200'
 #     alt: 'The full Astro logo.'
 #     caption: 'The img caption from my first blog post.'
-tags: ["Development", "Guidelines"]
+tags: ["Development", "Usability"]
 draft: false
 category: 'guides'
 editUrl: 'blog/my-first-post'
@@ -16,7 +16,7 @@ editUrl: 'blog/my-first-post'
 
 #### Introduction
 
-Handling application errors in a web application is a crucial aspect of ensuring a positive user experience. When errors are not communicated effectively, users can become confused, frustrated, and unable to complete tasks. For users with disabilities, properly managing and communicating errors is even more critical. This article will explore the relevant Web Content Accessibility Guidelines (WCAG) 2.2, ARIA (Accessible Rich Internet Applications) practices, and best practices for handling application errors to ensure your web application is accessible to all users.
+Handling application errors in a web application is a crucial aspect of ensuring a positive user experience. When errors are not communicated effectively, users can become confused, frustrated, and unable to complete tasks. For users with disabilities, properly managing and communicating errors is even more critical. This article will explore the relevant Web Content Accessibility Guidelines (WCAG) 2.2, ARIA (Accessible Rich Internet Applications) practices, and best practices for handling both single and multiple application errors to ensure your web application is accessible to all users.
 
 #### Understanding WCAG 2.2 Guidelines
 
@@ -42,6 +42,8 @@ ARIA provides roles, states, and properties to enhance the accessibility of web 
     - Used to inform users of important messages, such as errors.
 2. **ARIA Property: aria-live**
     - Controls how updates to the region are announced by screen readers.
+3. **ARIA Property: aria-describedby**
+    - Associates form fields with error messages for better context.
 
 #### Best Practices for Handling Application Errors
 
@@ -87,19 +89,73 @@ ARIA provides roles, states, and properties to enhance the accessibility of web 
     <button onclick="confirmSubmission()">Submit</button>
     ```
 
+#### Handling Multiple Application Errors
+
+Handling multiple application errors effectively is crucial for maintaining a seamless user experience. When users encounter multiple errors, it's essential to communicate them clearly and concisely, ensuring that users can easily identify and resolve each issue.
+
+1. **Aggregate Error Messages**
+    - Display a summary of all errors at the top of the form.
+    ```html
+    <div role="alert" aria-live="assertive" id="errorSummary">
+        <p>Please correct the following errors:</p>
+        <ul>
+            <li><a href="#usernameError">Username is required.</a></li>
+            <li><a href="#passwordError">Password must be at least 8 characters long.</a></li>
+        </ul>
+    </div>
+    ```
+
+2. **Individual Error Messages**
+    - Place individual error messages near the relevant form fields for context.
+    ```html
+    <label for="username">Username</label>
+    <input type="text" id="username" aria-describedby="usernameError">
+    <div id="usernameError" role="alert">Username is required.</div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" aria-describedby="passwordError">
+    <div id="passwordError" role="alert">Password must be at least 8 characters long.</div>
+    ```
+
+3. **Focus Management**
+    - Set focus on the error summary when multiple errors occur, and allow users to navigate to individual errors.
+    ```javascript
+    document.getElementById('errorSummary').focus();
+    ```
+
+4. **Clear and Specific Messages**
+    - Ensure each error message is clear, specific, and provides actionable instructions.
+    ```html
+    <div id="usernameError" role="alert" aria-live="polite">
+        Username is required and must be between 5 and 15 characters.
+    </div>
+    ```
+
+5. **Validation on Input**
+    - Validate fields on input and provide immediate feedback to prevent multiple errors from accumulating.
+    ```javascript
+    document.getElementById('username').addEventListener('input', function() {
+        // Perform validation and update error message
+    });
+    ```
+
+6. **Use aria-invalid**
+    - Use the `aria-invalid` attribute to indicate fields with errors.
+    ```html
+    <input type="text" id="username" aria-invalid="true">
+    ```
+
 #### Sufficient Techniques and Common Failures
 
 **Sufficient Techniques:**
 - G83: Providing text descriptions to identify required fields that were not completed.
 - G84: Providing a text description when user input falls outside the required format or values.
+- SCR18: Using an alert dialog to provide feedback about errors.
 
 **Common Failures:**
 - F77: Failure of Success Criterion 3.3.1 due to using a device-dependent event handler for an error message.
 - F81: Failure of Success Criterion 3.3.1 due to identifying errors only through sensory characteristics such as color or sound.
-
-
-
-
+- F82: Failure of Success Criterion 3.3.1 due to not providing a text description for errors.
 
 #### Conclusion
 
