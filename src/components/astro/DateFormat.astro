@@ -1,21 +1,22 @@
 ---
+
+type Props = {
+  date: string;
+  locale: string;
+};
+
+const { date, locale } = Astro.props;
 const formatDateIntl = (date) => {
-  return new Intl.DateTimeFormat('en-CA', {
+
+  return new Intl.DateTimeFormat(locale || 'en-US', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
   }).format(date);
 
-
 };
 
-type Props = {
-  date: string;
-};
-
-const { date } = Astro.props;
-
-const formattedDate = formatDateIntl(date);
+const formattedDate = formatDateIntl(date || Date.now());
 
 ---
 
