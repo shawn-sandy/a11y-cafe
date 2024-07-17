@@ -4,6 +4,7 @@ import Youtube from "#components/astro/Youtube.astro";
 import GithubSupport from "#components/GithubSupport.astro";
 import GithubEdit from "#components/GithubEdit.astro";
 import Img from "#components/astro/Img.astro";
+import DateFormat from "#components/astro/DateFormat.astro";
 
 const formatDateIntl = (date) => {
   return new Intl.DateTimeFormat('en-CA', {
@@ -52,7 +53,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
     {frontmatter.title}
   </h2>
   <p class="roboto-serif accent-color">
-     {frontmatter.author} ~ <time datetime={frontmatter.pubDate}> {postDate}</time>
+     {frontmatter.author} ~ Date: <DateFormat date={frontmatter.pubDate} />
   </p>
   <hr>
   {
