@@ -5,14 +5,7 @@ import GithubSupport from "#components/GithubSupport.astro";
 import GithubEdit from "#components/GithubEdit.astro";
 import Img from "#components/astro/Img.astro";
 import DateFormat from "#components/astro/DateFormat.astro";
-
-const formatDateIntl = (date) => {
-  return new Intl.DateTimeFormat('en-CA', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  }).format(date);
-};
+ 
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -24,8 +17,7 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-const { url } = Astro.props;
-const postDate = formatDateIntl(frontmatter.pubDate);
+const { url } = Astro.props; 
 const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content/posts/${slug}.mdx`;
 ---
 
