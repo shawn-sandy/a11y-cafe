@@ -1,0 +1,22 @@
+---
+const formatDateIntl = (date) => {
+  return new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+
+
+};
+
+type Props = {
+  date: string;
+};
+
+const { date } = Astro.props;
+
+const formattedDate = formatDateIntl(date);
+
+---
+
+<time datetime={date}> {formattedDate}</time>
