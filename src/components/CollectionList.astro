@@ -79,14 +79,14 @@ const collectionResults = (await getCollection(collection || "posts"))
                     )}
                   </p>
                 </BlogPosts>
-                <div class="align-right">
+                {/* <div class="align-right">
                   <a
                     href={`/${to || "posts"}/${post.slug}`}
                     aria-label={`Continue reading ${post.data.title}`}
                   >
                     <i aria-hidden="true">Continue reading</i>
                   </a>
-                </div>
+                </div> */}
               </article>
             </>
           ))}
