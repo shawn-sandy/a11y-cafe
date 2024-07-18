@@ -22,7 +22,7 @@
 			"title: '${1:Blog Post Titled Here}'",
 			"pubDate: ${2:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
 			"description: '${3:This is the first post of my new Astro blog.}'",
-			"author: '${4:A11y.Cafe}'",
+			"author: '${4:Shawn Sandy - (Ally.Cafe)}'",
 			"image:",
 			"    url: '${5:https://picsum.photos/1200}'",
 			"    alt: '${6:The full Astro logo.}'",
