@@ -48,7 +48,7 @@ const { posts } = Astro.props;
           <BlogPost
             url={`/posts/${post.slug}`}
             title={post.data.title}
-            // description={post.data.description}
+            description={post.data.description}
             descId={`tags-${post.slug}`}
           />
           {/* <p class="align-right">
