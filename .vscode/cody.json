@@ -25,6 +25,12 @@
                 "selection": true
             },
             "mode": "replace"
+        }, 
+        "a11y-cafe-prompt-writed": {
+            "description": "Write an a11y blog post with the selection as the topic of the article",
+            "prompt": "Write a simple prompt to use on ChatGPT for creating an accessibility blog post style article form the selection provide and informative Title for the article. If no selection ask the user to enter a topic to write about ",
+            "mode": "ask"
         }
+       
     }
 }
