@@ -27,6 +27,8 @@ export type Props = {
   showPagination?: boolean;
 };
 
+const isProductionEnv  = import.meta.env.PROD ? true : false;
+
 const {
   collectionTitle,
   pageSize,
@@ -39,9 +41,15 @@ const {
 const category = Astro.props.category || ["guides", "patterns", "resources"];
 const collectionResults = (await getCollection(collection || "posts"))
   .filter(({ data: data }) => {
+    if (isProductionEnv) {
+      
     return category
       ? data.draft === false && category.includes(data.category)
       : data.draft === false;
+      
+    } else {
+      return category.includes(data.category)
+    }
   })
   .sort(
     (a: SortType, b: SortType) =>
