@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/astro/BlogPosts.astro";
 import type { SortType, TODO } from "#utils/types.js";
 
+
 export async function getStaticPaths() {
   const allPosts = await (
     await getCollection("posts")
@@ -17,8 +18,16 @@ export async function getStaticPaths() {
   ];
 
   return uniqueTags.map((tag: TODO) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data?.tags?.includes(tag)
+    const isProductionEnv  = import.meta.env.PROD ? true : false;
+    const filteredPosts = allPosts.filter((post) => {
+      // post.data?.tags?.includes(tag)
+      if (isProductionEnv) {
+        return post.data?.tags?.includes(tag) && post.data.draft === false;
+      } else {
+        return post.data?.tags?.includes(tag);
+      }
+    }
+      
     );
     return {
       params: { tag },
@@ -39,17 +48,17 @@ const { posts } = Astro.props;
           <BlogPost
             url={`/posts/${post.slug}`}
             title={post.data.title}
-            description={post.data.description}
+            // description={post.data.description}
             descId={`tags-${post.slug}`}
           />
-          <p class="align-right">
+          {/* <p class="align-right">
             <a
               href={`/posts/${post.slug}`}
               aria-label={`Continue reading ${post.data.title}`}
             >
               <i aria-hidden="true">Continue reading</i>
             </a>
-          </p>
+          </p> */}
           {/* <hr /> */}
         </article>
       ))
