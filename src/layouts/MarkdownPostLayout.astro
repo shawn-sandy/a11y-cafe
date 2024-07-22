@@ -5,7 +5,6 @@ import GithubSupport from "#components/GithubSupport.astro";
 import GithubEdit from "#components/GithubEdit.astro";
 import Img from "#components/astro/Img.astro";
 import DateFormat from "#components/astro/DateFormat.astro";
- 
 
 const { frontmatter } = Astro.props;
 const { slug } = Astro.params;
@@ -17,7 +16,7 @@ const contentRoute = [
     path: slug?.toString(),
   },
 ];
-const { url } = Astro.props; 
+const { url } = Astro.props;
 const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content/posts/${slug}.mdx`;
 ---
 
@@ -45,9 +44,9 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
     {frontmatter.title}
   </h2>
   <p class="roboto-serif accent-color">
-     {frontmatter.author} ~ <DateFormat date={frontmatter.pubDate} />
+    {frontmatter.author} ~ <DateFormat date={frontmatter.pubDate} />
   </p>
-  <hr>
+  <hr />
   {
     frontmatter.youtube?.id && (
       <p>
@@ -57,7 +56,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
   }
 
   <slot />
- 
+
   {
     frontmatter.tags && frontmatter.tags.length > 0 && (
       <div>
@@ -65,7 +64,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
           {frontmatter.tags.map((tag: string) => (
             <li class="tag">
               <a href={`/tags/${tag}`}>
-                <span data-tag>{tag}</span>
+                <i>{tag}</i>
               </a>
             </li>
           ))}
