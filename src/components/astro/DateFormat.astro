@@ -2,7 +2,7 @@
 
 type Props = {
   date: string;
-  locale: string;
+  locale?: string;
 };
 
 const { date, locale } = Astro.props;
@@ -10,8 +10,8 @@ const formatDateIntl = (date) => {
 
   return new Intl.DateTimeFormat(locale || 'en-US', {
     year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
+    month: 'long',
+    day: 'numeric',
   }).format(date);
 
 };
