@@ -22,7 +22,7 @@ const { showTitle } = Astro.props as Props;
   {
     tags?.map((tag) => (
       <li class="tag">
-        <a href={`/tags/${tag}`}>
+        <a href={`/tags/${tag}`} class="inverse">
           <i>{tag}</i>
         </a>
       </li>

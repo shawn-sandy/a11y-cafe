@@ -56,3 +56,10 @@ section {
     }
   }
 }
+
+.inverse {
+  &:hover {
+    background-color: var(--cafe-primary-700);
+    color: var(--cafe-accent-100);
+  } 
+}
