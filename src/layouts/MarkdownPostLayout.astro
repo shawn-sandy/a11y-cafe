@@ -63,7 +63,7 @@ const editPath = `https://github.com/shawn-sandy/a11y-cafe/edit/main/src/content
         <ul class="tags" data-list="unstyled inline">
           {frontmatter.tags.map((tag: string) => (
             <li class="tag">
-              <a href={`/tags/${tag}`}>
+              <a href={`/tags/${tag}`} class="inverse">
                 <i>{tag}</i>
               </a>
             </li>
