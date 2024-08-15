@@ -17,7 +17,7 @@ header {
         flex-direction: row;
         flex-wrap: wrap;
         font-size: unset;
-        font-size: clamp(1rem, var(--h1), 5.625rem);
+        font-size: clamp(1.5rem, var(--h1), 5.625rem);
         line-height: 1.1;
         text-wrap: balance;
         word-break: keep-all;
