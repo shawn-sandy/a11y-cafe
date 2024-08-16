@@ -40,7 +40,7 @@
     "sass": "^1.74.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.46.0",
     "@types/node": "^20.12.4",
     "cross-env": "^7.0.3",
     "fuse.js": "^7.0.0",
