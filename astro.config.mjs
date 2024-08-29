@@ -16,7 +16,7 @@ import sentry from "@sentry/astro";
 export default defineConfig({
   site: "https://example.com",
   integrations: [react(), sitemap(), spotlightjs(), lighthouse(), embeds(), mdx(), astroImageTools, sentry()],
-  adapter: netlify(),
+  // adapter: netlify(),
   output: "hybrid",
   // Enable Custom Markdown options, plugins, etc.
   markdown: {
