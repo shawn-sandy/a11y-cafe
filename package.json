@@ -37,7 +37,8 @@
     "react-dom": "^18.2.0",
     "rehype-accessible-emojis": "^0.3.2",
     "remark-toc": "^9.0.0",
-    "sass": "^1.74.1"
+    "sass": "^1.74.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.46.0",
