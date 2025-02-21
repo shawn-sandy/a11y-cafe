@@ -2,7 +2,7 @@
 import { defineCollection, reference, z } from "astro:content";
 import { rssSchema } from '@astrojs/rss';
 
-const CATEGORIES = ["patterns", "guides", "resources", "articles"];
+const CATEGORIES = ["patterns", "guides", "resources", "articles"] as const;
 
 const postsCollection = defineCollection({
   schema: z.object({

@@ -15,17 +15,22 @@ import sentry from "@sentry/astro";
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
-  integrations: [react(), sitemap(), spotlightjs(), lighthouse(), embeds(), mdx(),  sentry()],
+  integrations: [
+    react(),
+    sitemap(),
+    spotlightjs(),
+    lighthouse(),
+    embeds(),
+    mdx(),
+    sentry(),
+  ],
   adapter: netlify(),
-  output: "hybrid",
+  output: "static",
   // Enable Custom Markdown options, plugins, etc.
   markdown: {
     syntaxHighlight: "shiki",
     remarkPlugins: [remarkToc],
     rehypePlugins: [rehypeAccessibleEmojis],
-    shikiConfig: {
-      theme: "houston",
-      wrap: true
-    }
-  }
+    shikiConfig: { theme: "houston", wrap: true },
+  },
 });
