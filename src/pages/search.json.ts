@@ -1,6 +1,4 @@
-import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { json } from "stream/consumers";
 
 export async function GET(context) {
   const blog = await getCollection('posts');
@@ -10,7 +8,7 @@ export async function GET(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       summary: post.data?.summary,
-      link: `/posts/${post.slug}/`,
+      link: `/posts/${post.id}/`,
     }))
   ;
 

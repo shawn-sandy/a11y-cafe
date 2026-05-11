@@ -7,10 +7,10 @@ import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import embeds from "astro-embed/integration";
 import spotlightjs from "@spotlightjs/astro";
-import { astroImageTools } from "astro-imagetools";
-import lighthouse from "astro-lighthouse";
 
 import sentry from "@sentry/astro";
+
+const isTest = process.env.NODE_ENV === "test";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,12 +18,11 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap(),
-    spotlightjs(),
-    lighthouse(),
+    !isTest && spotlightjs(),
     embeds(),
     mdx(),
     sentry(),
-  ],
+  ].filter(Boolean),
   adapter: netlify(),
   output: "static",
   // Enable Custom Markdown options, plugins, etc.

@@ -1,17 +1,17 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import MarkdownPostLayout from "#layouts/MarkdownPostLayout.astro";
 import CollectionList from "#components/astro/CollectionList.astro";
 // const allPosts = await getCollection("docs");
 
-const article: ReturnType<typeof getEntry> = await getEntry(
-  "content",
-  "content"
-);
-const { Content } = await article.render();
+const article = await getEntry("content", "content");
+if (!article) {
+  throw new Error("Missing content entry: content");
+}
+const { Content } = await render(article);
 ---
 
-<MarkdownPostLayout frontmatter={article?.data}>
+<MarkdownPostLayout frontmatter={article.data}>
   <Content />
   <hr />
   <section>

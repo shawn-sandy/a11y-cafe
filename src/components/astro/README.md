@@ -34,9 +34,8 @@ supports rendering additional content through the use of a slot.
 
 ### Img.astro
 
-The `Img.astro` component is a wrapper around the `Img` component from the
-`astro-imagetools` library. It allows for rendering responsive images with
-specified dimensions, alt text, and captions.
+The `Img.astro` component renders a plain image with specified dimensions, alt
+text, and optional captions.
 
 ### Header.astro
 
