@@ -46,14 +46,14 @@ const { posts } = Astro.props;
       posts?.map((post) => (
         <article>
           <BlogPost
-            url={`/posts/${post.slug}`}
+            url={`/posts/${post.id}`}
             title={post.data.title}
             description={post.data.description}
-            descId={`tags-${post.slug}`}
+            descId={`tags-${post.id}`}
           />
           {/* <p class="align-right">
             <a
-              href={`/posts/${post.slug}`}
+              href={`/posts/${post.id}`}
               aria-label={`Continue reading ${post.data.title}`}
             >
               <i aria-hidden="true">Continue reading</i>

@@ -1,62 +1,68 @@
-
 import { defineCollection, reference, z } from "astro:content";
-import { rssSchema } from '@astrojs/rss';
+import { glob } from "astro/loaders";
 
 const CATEGORIES = ["patterns", "guides", "resources", "articles"] as const;
 
+// Shared schema for the markdown/MDX post-style collections.
+const postSchema = z.object({
+  title: z.string(),
+  pubDate: z.date(),
+  description: z.string(),
+  summary: z.string().optional(),
+  author: z.string(),
+  breadcrumbSlug: z.string().optional(), // should match the slug
+  image: z
+    .object({
+      url: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })
+    .optional(),
+  tags: z.array(z.string()).optional(),
+  category: z.enum(CATEGORIES).optional(),
+  draft: z.boolean().default(false),
+  featured: z.boolean().default(false),
+  editUrl: z.string().optional(),
+  youtube: z
+    .object({
+      id: z.string(),
+      title: z.string().optional(),
+      start: z.string().optional(),
+      end: z.string().optional(),
+    })
+    .optional(),
+});
+
 const postsCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
-    summary: z.string().optional(),
-    author: z.string(),
-    breadcrumbSlug: z.string().optional(), // should match the slug
-    image: z
-      .object({
-        url: z.string(),
-        alt: z.string(),
-        caption: z.string().optional(),
-      })
-      .optional(),
-    tags: z.array(z.string()).optional(),
-    category: z.enum(CATEGORIES).optional(),
-    draft: z.boolean().default(false),
-    featured: z.boolean().default(false),
-    editUrl: z.string().optional(),
-    youtube: z
-      .object({
-        id: z.string(),
-        title: z.string().optional(),
-        start: z.string().optional(),
-        end: z.string().optional(),
-      })
-      .optional(),
-  }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/posts" }),
+  schema: postSchema,
 });
 
 const astroKitDocs = defineCollection({
-  ...postsCollection,
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/docs" }),
+  schema: postSchema,
 });
+
 const content = defineCollection({
-  ...postsCollection,
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/content" }),
+  schema: postSchema,
 });
 
 /**
- * 
+ *
  ---
-wcagGuideline: 
+wcagGuideline:
   - guideline: "perceivable"
     level: "A"
     description: "Example description for perceivable guideline"
-    rule: 
+    rule:
       id: "rule1"
       title: "Rule 1 Title"
       link: "https://example.com/rule1"
   - guideline: "operable"
     level: "AA"
     description: "Example description for operable guideline"
-    rule: 
+    rule:
       id: "rule2"
       title: "Rule 2 Title"
       link: "https://example.com/rule2"
@@ -65,6 +71,7 @@ wcagGuideline:
 ***/
 
 const a11yGuidelines = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/a11yGuidelines" }),
   schema: z.object({
     guideline: z
       .enum(["perceivable", "operable", "understandable", "robust"])
@@ -90,12 +97,12 @@ const a11yGuidelines = defineCollection({
 });
 
 const patterns = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/patterns" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     pubDate: z.date().optional(),
-    guidelines: z.array(reference(a11yGuidelines)).optional(),
+    guidelines: z.array(reference("a11yGuidelines")).optional(),
   }),
 });
 
@@ -103,5 +110,6 @@ export const collections = {
   posts: postsCollection,
   docs: astroKitDocs,
   content: content,
+  a11yGuidelines: a11yGuidelines,
   patterns: patterns,
 };

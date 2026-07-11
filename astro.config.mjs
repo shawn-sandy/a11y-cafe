@@ -7,7 +7,6 @@ import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import embeds from "astro-embed/integration";
 import spotlightjs from "@spotlightjs/astro";
-import { astroImageTools } from "astro-imagetools";
 import lighthouse from "astro-lighthouse";
 
 import sentry from "@sentry/astro";
@@ -26,6 +25,9 @@ export default defineConfig({
   ],
   adapter: netlify(),
   output: "static",
+  // ponytail: Astro 7 / rolldown-vite defaults CSS minify to lightningcss, which
+  // panics ("Invalid state") on this project's CSS. esbuild was the pre-v8 default.
+  vite: { build: { cssMinify: "esbuild" } },
   // Enable Custom Markdown options, plugins, etc.
   markdown: {
     syntaxHighlight: "shiki",
